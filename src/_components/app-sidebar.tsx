@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/_components/shadcn-ui/collapsible";
 import {
   Sidebar,
@@ -8,58 +7,27 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-  SidebarRail,
 } from "@/_components/shadcn-ui/sidebar";
+import { Link } from "@tanstack/react-router";
 import { FileIcon, ChevronRightIcon, FolderIcon } from "lucide-react";
 
-// This is sample data.
-const data = {
-  changes: [
-    {
-      file: "README.md",
-      state: "M",
-    },
-    {
-      file: "api/hello/route.ts",
-      state: "U",
-    },
-    {
-      file: "app/layout.tsx",
-      state: "M",
-    },
-  ],
-  tree: [
-    ["app", ["api", ["hello", ["route.ts"]], "page.tsx", "layout.tsx", ["blog", ["page.tsx"]]]],
-    ["components", ["ui", "button.tsx", "card.tsx"], "header.tsx", "footer.tsx"],
-    ["lib", ["util.ts"]],
-    ["public", "favicon.ico", "vercel.svg"],
-    ".eslintrc.json",
-    ".gitignore",
-    "next.config.js",
-    "tailwind.config.js",
-    "package.json",
-    "README.md",
-  ],
-};
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Changes</SidebarGroupLabel>
+          <SidebarGroupLabel>Notes</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {data.changes.map((item, index) => (
+              {links.notes.map((item, index) => (
                 <SidebarMenuItem key={index}>
-                  <SidebarMenuButton>
+                  <SidebarMenuButton render={<Link to={item.path} />}>
                     <FileIcon />
-                    {item.file}
+                    {item.label}
                   </SidebarMenuButton>
-                  <SidebarMenuBadge>{item.state}</SidebarMenuBadge>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
@@ -69,42 +37,41 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroupLabel>Files</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {data.tree.map((item, index) => (
-                <Tree key={index} item={item} />
+              {links.tree.map((item, index) => (
+                <Tree key={index} node={item} />
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      {/* <SidebarRail /> */}
     </Sidebar>
   );
 }
-type TreeItem = string | TreeItem[];
-function Tree({ item }: { item: TreeItem }) {
-  const [name, ...items] = Array.isArray(item) ? item : [item];
-  if (!items.length) {
+
+function Tree({ node }: { node: TreeNode }) {
+  if ("path" in node) {
     return (
-      <SidebarMenuButton isActive={name === "button.tsx"} className="data-[active=true]:bg-transparent">
-        <FileIcon />
-        {name}
-      </SidebarMenuButton>
+      <SidebarMenuItem>
+        <SidebarMenuButton render={<Link to={node.path} activeProps={{ "data-active": true }} />}>
+          <FileIcon />
+          {node.label}
+        </SidebarMenuButton>
+      </SidebarMenuItem>
     );
   }
+
   return (
     <SidebarMenuItem>
-      <Collapsible
-        className="group/collapsible [&[data-state=open]>button>svg:first-child]:rotate-90"
-        defaultOpen={name === "components" || name === "ui"}>
-        <SidebarMenuButton render={<CollapsibleTrigger />}>
-          <ChevronRightIcon className="transition-transform" />
+      <Collapsible className="group/collapsible" defaultOpen={false} /* TASK: Open if current URL matches */>
+        <SidebarMenuButton render={<CollapsibleTrigger className="group" />}>
+          <ChevronRightIcon className="transition-transform group-data-panel-open:rotate-90" />
           <FolderIcon />
-          {name}
+          {node.label}
         </SidebarMenuButton>
         <CollapsibleContent>
           <SidebarMenuSub>
-            {items.map((subItem, index) => (
-              <Tree key={index} item={subItem} />
+            {node.children.map((child, index) => (
+              <Tree key={index} node={child} />
             ))}
           </SidebarMenuSub>
         </CollapsibleContent>
@@ -112,3 +79,50 @@ function Tree({ item }: { item: TreeItem }) {
     </SidebarMenuItem>
   );
 }
+
+type RoutePath = string;
+
+type TreeNode = { label: string; path: RoutePath } | { label: string; children: TreeNode[] };
+
+type Links = {
+  notes: { label: string; path: RoutePath }[];
+  tree: TreeNode[];
+};
+
+const links: Links = {
+  notes: [
+    {
+      label: "README.md",
+      path: "/readme",
+    },
+    {
+      label: "Notes.md",
+      path: "/notes",
+    },
+  ],
+  tree: [
+    {
+      label: "Components",
+      children: [
+        {
+          label: "Hero",
+          children: [
+            {
+              label: "hero1",
+              path: "/components/hero/hero1",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "R-EXP",
+      children: [
+        {
+          label: "Logo References",
+          path: "/r-exp/logo-refs",
+        },
+      ],
+    },
+  ],
+};

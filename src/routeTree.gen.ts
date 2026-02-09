@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RExpLogoRefsRoute = RExpLogoRefsRouteImport.update({
+  id: '/r-exp/logo-refs',
+  path: '/r-exp/logo-refs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/r-exp/logo-refs': typeof RExpLogoRefsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/r-exp/logo-refs': typeof RExpLogoRefsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/r-exp/logo-refs': typeof RExpLogoRefsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/r-exp/logo-refs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/r-exp/logo-refs'
+  id: '__root__' | '/' | '/r-exp/logo-refs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RExpLogoRefsRoute: typeof RExpLogoRefsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/r-exp/logo-refs': {
+      id: '/r-exp/logo-refs'
+      path: '/r-exp/logo-refs'
+      fullPath: '/r-exp/logo-refs'
+      preLoaderRoute: typeof RExpLogoRefsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RExpLogoRefsRoute: RExpLogoRefsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
