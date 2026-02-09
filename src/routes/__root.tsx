@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/_components/shadcn-ui/tooltip";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/_components/shadcn-ui/sidebar";
 import { AppSidebar } from "@/_components/app-sidebar";
 import appCss from "@/_styles/global.css?url";
+import fontCss from "@/_styles/fonts.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -25,6 +26,10 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
+      {
+        rel: "stylesheet",
+        href: fontCss,
+      },
     ],
   }),
   shellComponent: RootDocument,
@@ -41,7 +46,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <TooltipProvider>
             <SidebarProvider>
               <AppSidebar />
-
               <SidebarInset className="relative">
                 <SidebarTrigger className="absolute top-0 left-0 z-10" />
                 {children}
