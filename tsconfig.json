@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["**/*.ts", "**/*.tsx", "eslint.config.ts", "prettier.config.js", "vite.config.ts"],
+  "include": ["**/*.ts", "**/*.tsx", ".oxfmtrc.json", ".oxlintrc.json", "vite.config.ts"],
   "compilerOptions": {
     "target": "ES2022", // Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
     "jsx": "react-jsx", // Specify what JSX code is generated.
