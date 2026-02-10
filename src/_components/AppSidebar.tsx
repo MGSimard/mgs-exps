@@ -6,19 +6,31 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
+  useSidebar,
 } from "@/_components/shadcn-ui/sidebar";
 import { Link, useMatchRoute } from "@tanstack/react-router";
-import { FileIcon, ChevronRightIcon, FolderIcon } from "lucide-react";
-import { useSidebar } from "@/_components/shadcn-ui/sidebar";
+import { FileIcon, ChevronRightIcon, FolderIcon, SquareDashedBottomCodeIcon } from "lucide-react";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { setOpenMobile } = useSidebar();
   return (
     <Sidebar {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              render={<Link to="/" activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />}>
+              <SquareDashedBottomCodeIcon />
+              MGS Exps
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Notes</SidebarGroupLabel>
@@ -26,7 +38,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               {links.notes.map((item, index) => (
                 <SidebarMenuItem key={index}>
-                  <SidebarMenuButton render={<Link to={item.path} onClick={() => setOpenMobile(false)} />}>
+                  <SidebarMenuButton
+                    render={
+                      <Link to={item.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />
+                    }>
                     <FileIcon />
                     {item.label}
                   </SidebarMenuButton>
