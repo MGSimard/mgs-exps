@@ -39,7 +39,7 @@ function RouteComponent() {
       <Separator />
       <section>
         <h2 className="text-lg font-bold uppercase">COLOUR REFERENCES</h2>
-        <ul className="*:p-2">
+        <ul className="*:p-2 *:not-aria-hidden:border">
           <li className="bg-[#E02B20] text-white">#E02B20 (R RED)</li>
           <li className="bg-[#1B1B1B] text-white">#1B1B1B (R BLACK)</li>
           <li aria-hidden>
@@ -117,7 +117,22 @@ function RouteComponent() {
             https://www.valencygraphics.com/cyberpunk-2077
           </a>
         </p>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] *:bg-red-500">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2 *:border *:bg-red-500">
+          <img src="/assets/r-exp/arasaka.jpg" alt="Arasaka Logo" />
+          <img src="/assets/r-exp/channel54.jpg" alt="Channel 54 Logo" />
+          <img src="/assets/r-exp/kiroshi.jpg" alt="Kiroshi Logo" />
+          <img src="/assets/r-exp/malorian.jpg" alt="Malorian Logo" />
+          <img src="/assets/r-exp/mahir.jpg" alt="Mahir Logo" />
+          <img src="/assets/r-exp/makigai.jpg" alt="Makigai Logo" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+      </section>
+      <section>
+        <h2 className="text-lg font-bold">CONTEXTUAL REFERENCES</h2>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2 *:border *:bg-red-500">
           <div>Item</div>
           <div>Item</div>
           <div>Item</div>
