@@ -2,5 +2,5 @@
 
 ## TASK LIST
 
-- Close mobile nav on link click
 - DefaultOpen sidebar collapsibles to current page
+- Consider actual markdown rendering for .md pages / PageType-MD?

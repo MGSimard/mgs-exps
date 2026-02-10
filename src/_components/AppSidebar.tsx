@@ -13,8 +13,11 @@ import {
 } from "@/_components/shadcn-ui/sidebar";
 import { Link } from "@tanstack/react-router";
 import { FileIcon, ChevronRightIcon, FolderIcon } from "lucide-react";
+import { useSidebar } from "@/_components/shadcn-ui/sidebar";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { setOpenMobile } = useSidebar();
+
   return (
     <Sidebar {...props}>
       <SidebarContent>
@@ -24,7 +27,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               {links.notes.map((item, index) => (
                 <SidebarMenuItem key={index}>
-                  <SidebarMenuButton render={<Link to={item.path} />}>
+                  <SidebarMenuButton render={<Link to={item.path} onClick={() => setOpenMobile(false)} />}>
                     <FileIcon />
                     {item.label}
                   </SidebarMenuButton>
@@ -49,10 +52,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 }
 
 function Tree({ node }: { node: TreeNode }) {
+  const { setOpenMobile } = useSidebar();
+
   if ("path" in node) {
     return (
       <SidebarMenuItem>
-        <SidebarMenuButton render={<Link to={node.path} activeProps={{ "data-active": true }} />}>
+        <SidebarMenuButton
+          render={<Link to={node.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />}>
           <FileIcon />
           {node.label}
         </SidebarMenuButton>
