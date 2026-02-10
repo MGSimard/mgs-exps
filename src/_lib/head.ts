@@ -65,14 +65,14 @@ export const favIcons = [
 export const fontPreloads = [
   {
     rel: "preload",
-    href: "/assets/fonts/Geist/Geist-Variable.woff2",
+    href: "/fonts/Geist/Geist-Variable.woff2",
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",
   },
   {
     rel: "preload",
-    href: "/assets/fonts/GeistMono/GeistMono-Variable.woff2",
+    href: "/fonts/GeistMono/GeistMono-Variable.woff2",
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",
