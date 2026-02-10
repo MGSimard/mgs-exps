@@ -11,13 +11,12 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
 } from "@/_components/shadcn-ui/sidebar";
-import { Link } from "@tanstack/react-router";
+import { Link, useMatchRoute } from "@tanstack/react-router";
 import { FileIcon, ChevronRightIcon, FolderIcon } from "lucide-react";
 import { useSidebar } from "@/_components/shadcn-ui/sidebar";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { setOpenMobile } = useSidebar();
-
   return (
     <Sidebar {...props}>
       <SidebarContent>
@@ -53,6 +52,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
 function Tree({ node }: { node: TreeNode }) {
   const { setOpenMobile } = useSidebar();
+  const matchRoute = useMatchRoute();
 
   if ("path" in node) {
     return (
@@ -66,9 +66,20 @@ function Tree({ node }: { node: TreeNode }) {
     );
   }
 
+  // Recursively check if any descendant path matches the current route
+  const hasActiveDescendant = (node: TreeNode): boolean => {
+    if ("path" in node) {
+      // Use fuzzy matching to catch both exact matches and nested routes
+      return !!matchRoute({ to: node.path, fuzzy: true });
+    }
+    return node.children.some(hasActiveDescendant);
+  };
+
+  const shouldDefaultOpen = hasActiveDescendant(node);
+
   return (
     <SidebarMenuItem>
-      <Collapsible className="group/collapsible" defaultOpen={false} /* TASK: Open if current URL matches */>
+      <Collapsible className="group/collapsible" defaultOpen={shouldDefaultOpen}>
         <SidebarMenuButton render={<CollapsibleTrigger className="group" />}>
           <ChevronRightIcon className="transition-transform group-data-panel-open:rotate-90" />
           <FolderIcon />
@@ -87,9 +98,7 @@ function Tree({ node }: { node: TreeNode }) {
 }
 
 type RoutePath = string;
-
 type TreeNode = { label: string; path: RoutePath } | { label: string; children: TreeNode[] };
-
 type Links = {
   notes: { label: string; path: RoutePath }[];
   tree: TreeNode[];
@@ -114,8 +123,8 @@ const links: Links = {
           label: "Hero",
           children: [
             {
-              label: "hero1",
-              path: "/components/hero/hero1",
+              label: "Grainient Focus",
+              path: "/components/hero/grainient-focus",
             },
           ],
         },
