@@ -118,7 +118,7 @@ function RouteComponent() {
             https://www.valencygraphics.com/cyberpunk-2077
           </a>
         </p>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2 *:border *:bg-red-500">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2 *:border">
           <img src="/assets/r-exp/arasaka.jpg" alt="Arasaka Logo" loading="lazy" />
           <img src="/assets/r-exp/channel54.jpg" alt="Channel 54 Logo" loading="lazy" />
           <img src="/assets/r-exp/kiroshi.jpg" alt="Kiroshi Logo" loading="lazy" />
