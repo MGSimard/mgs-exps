@@ -27,10 +27,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <TooltipProvider>
               <SidebarProvider>
                 <AppSidebar />
-                <SidebarInset className="relative">
-                  <SidebarTrigger className="absolute top-0 left-0 z-10" />
-                  {children}
-                </SidebarInset>
+                <SidebarTrigger className="fixed top-4 left-4 z-50 md:hidden" />
+                <SidebarInset className="relative">{children}</SidebarInset>
               </SidebarProvider>
             </TooltipProvider>
           </ThemeProvider>

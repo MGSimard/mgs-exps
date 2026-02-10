@@ -12,6 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
+  SidebarRail,
   useSidebar,
 } from "@/_components/shadcn-ui/sidebar";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/_components/shadcn-ui/collapsible";
@@ -20,6 +21,7 @@ import { FileIcon, ChevronRightIcon, FolderIcon, SquareDashedBottomCodeIcon } fr
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { setOpenMobile } = useSidebar();
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -66,6 +68,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>
         <ThemeSwitch className="ml-auto" />
       </SidebarFooter>
+      <SidebarRail />
     </Sidebar>
   );
 }
