@@ -75,7 +75,7 @@ function RouteComponent() {
           <p>1 2 3 4 5 6 7 8 9 0</p>
         </div>
         <div className="font-sans">
-          <h3 className="text-base font-bold uppercase">Geist Sans</h3>
+          <h3 className="text-base font-bold uppercase">Geist Sans (App Body Text)</h3>
           <ul>
             <li>License: OFL (Open Font License)</li>
             <li>
@@ -90,7 +90,7 @@ function RouteComponent() {
           <p>1 2 3 4 5 6 7 8 9 0</p>
         </div>
         <div className="font-mono">
-          <h3 className="font-mono text-base font-bold uppercase">Geist Mono</h3>
+          <h3 className="font-mono text-base font-bold uppercase">Geist Mono (App Tabular Text)</h3>
           <ul>
             <li>License: OFL (Open Font License)</li>
             <li>
