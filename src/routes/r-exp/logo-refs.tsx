@@ -1,7 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { MasonryGallery } from "@/components/MasonryGallery";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
-import { MasonryGrid } from "@/components/MasonryGrid";
 import { Separator } from "@/components/shadcn-ui/separator";
+
+const LOGO_REF_SLIDES = [
+  { url: "/assets/r-exp/references/marathon.png", alt: "Marathon Logo" },
+  { url: "/assets/r-exp/references/arasaka.jpg", alt: "Arasaka Logo" },
+  { url: "/assets/r-exp/references/kiroshi.jpg", alt: "Kiroshi Logo" },
+  { url: "/assets/r-exp/references/malorian.jpg", alt: "Malorian Logo" },
+  { url: "/assets/r-exp/references/mahir.jpg", alt: "Mahir Logo" },
+  { url: "/assets/r-exp/references/makigai.jpg", alt: "Makigai Logo" },
+];
+
+const OTHER_REF_SLIDES = [
+  { url: "/assets/r-exp/references/maratype.png", alt: "Maratype Font" },
+  { url: "/assets/r-exp/references/bots.png", alt: "" },
+  { url: "/assets/r-exp/references/deathisinevitable.png", alt: "" },
+  { url: "/assets/r-exp/references/poster.png", alt: "" },
+  { url: "/assets/r-exp/references/poster2.png", alt: "" },
+  { url: "/assets/r-exp/references/poster3.png", alt: "" },
+  { url: "/assets/r-exp/references/poster4.png", alt: "" },
+  { url: "/assets/r-exp/references/poster5.png", alt: "" },
+];
 
 export const Route = createFileRoute("/r-exp/logo-refs")({
   component: RouteComponent,
@@ -116,27 +136,11 @@ function RouteComponent() {
             https://www.valencygraphics.com/cyberpunk-2077
           </a>
         </p>
-        <MasonryGrid>
-          <img src="/assets/r-exp/references/marathon.png" alt="Marathon Logo" loading="lazy" />
-          <img src="/assets/r-exp/references/arasaka.jpg" alt="Arasaka Logo" loading="lazy" />
-          <img src="/assets/r-exp/references/kiroshi.jpg" alt="Kiroshi Logo" loading="lazy" />
-          <img src="/assets/r-exp/references/malorian.jpg" alt="Malorian Logo" loading="lazy" />
-          <img src="/assets/r-exp/references/mahir.jpg" alt="Mahir Logo" loading="lazy" />
-          <img src="/assets/r-exp/references/makigai.jpg" alt="Makigai Logo" loading="lazy" />
-        </MasonryGrid>
+        <MasonryGallery slides={LOGO_REF_SLIDES} />
       </section>
       <section>
         <h2 className="text-lg font-bold">OTHER REFERENCES</h2>
-        <MasonryGrid>
-          <img src="/assets/r-exp/references/maratype.png" alt="Maratype Font" loading="lazy" />
-          <img src="/assets/r-exp/references/bots.png" alt="" loading="lazy" />
-          <img src="/assets/r-exp/references/deathisinevitable.png" alt="" loading="lazy" />
-          <img src="/assets/r-exp/references/poster.png" alt="" loading="lazy" />
-          <img src="/assets/r-exp/references/poster2.png" alt="" loading="lazy" />
-          <img src="/assets/r-exp/references/poster3.png" alt="" loading="lazy" />
-          <img src="/assets/r-exp/references/poster4.png" alt="" loading="lazy" />
-          <img src="/assets/r-exp/references/poster5.png" alt="" loading="lazy" />
-        </MasonryGrid>
+        <MasonryGallery slides={OTHER_REF_SLIDES} />
       </section>
     </PageTypeMD>
   );

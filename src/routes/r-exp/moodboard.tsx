@@ -1,7 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { MasonryGallery } from "@/components/MasonryGallery";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
-import { MasonryGrid } from "@/components/MasonryGrid";
 import { Separator } from "@/components/shadcn-ui/separator";
+
+const MOODBOARD_SLIDES = [
+  { url: "/assets/r-exp/moodboard/splash-screen.png", alt: "Marathon Splash Screen" },
+  { url: "/assets/r-exp/moodboard/disclaimer.png", alt: "Marathon Disclaimer" },
+  { url: "/assets/r-exp/moodboard/loading.png", alt: "Marathon Loading" },
+  { url: "/assets/r-exp/moodboard/license.png", alt: "Marathon License" },
+  { url: "/assets/r-exp/moodboard/license2.png", alt: "Marathon License 2" },
+  { url: "/assets/r-exp/moodboard/dob.png", alt: "Marathon Date of Birth" },
+  { url: "/assets/r-exp/moodboard/loading2.png", alt: "Marathon Loading 2" },
+  { url: "/assets/r-exp/moodboard/presentation.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation2.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation3.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation4.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation5.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation6.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation7.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation8.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation9.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation10.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation11.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/presentation12.png", alt: "Marathon Presentation" },
+];
 
 export const Route = createFileRoute("/r-exp/moodboard")({
   component: RouteComponent,
@@ -40,27 +62,7 @@ function RouteComponent() {
       <Separator />
       <section>
         <h2 className="text-lg font-bold">MOODBOARD</h2>
-        <MasonryGrid>
-          <img src="/assets/r-exp/moodboard/splash-screen.png" alt="Marathon Splash Screen" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/disclaimer.png" alt="Marathon Disclaimer" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/loading.png" alt="Marathon Loading" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/license.png" alt="Marathon License" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/license2.png" alt="Marathon License 2" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/dob.png" alt="Marathon Date of Birth" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/loading2.png" alt="Marathon Loading 2" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation2.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation3.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation4.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation5.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation6.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation7.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation8.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation9.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation10.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation11.png" alt="Marathon Presentation" loading="lazy" />
-          <img src="/assets/r-exp/moodboard/presentation12.png" alt="Marathon Presentation" loading="lazy" />
-        </MasonryGrid>
+        <MasonryGallery slides={MOODBOARD_SLIDES} />
       </section>
     </PageTypeMD>
   );
