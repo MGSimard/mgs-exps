@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { GridGallery } from "@/components/GridGallery";
+import { Grid } from "@/components/Grid";
 import { Separator } from "@/components/shadcn-ui/separator";
 
 const MOODBOARD_SLIDES = [
@@ -54,6 +55,33 @@ function RouteComponent() {
         <GridGallery slides={MOODBOARD_SLIDES} className="mt-4" />
       </section>
       <Separator />
+      <section>
+        <h2 className="text-lg font-bold">VIDEO MEDIA</h2>
+        <Grid className="mt-4">
+          <div className="aspect-video overflow-hidden">
+            <video
+              src="/assets/r-exp/moodboard/ZRj7ayLAKeX59GFW.mp4"
+              loop
+              autoPlay={false}
+              muted
+              playsInline
+              controls
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="aspect-video overflow-hidden">
+            <video
+              src="/assets/r-exp/moodboard/rqoE074b4ZyyXnJA.mp4"
+              loop
+              autoPlay={false}
+              muted
+              playsInline
+              controls
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </Grid>
+      </section>
     </PageTypeMD>
   );
 }
