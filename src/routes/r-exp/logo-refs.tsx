@@ -39,6 +39,11 @@ function RouteComponent() {
         <ul className="list-inside list-disc">
           <li>Logomark must be legible in miniaturized 1:1 ratios (e.g., 16x16, 32x32, 48x48 web & mobile favicons)</li>
           <li>Logomark & typemark must function when displayed in single color</li>
+          <li>Logomark does not need to be an "R"</li>
+          <li>
+            However if logomark is an "R", prefer not to have it wrapped in a solid-fill shape (i.e. MALORIAN & MAKIGAI
+            logomarks below are good examples)
+          </li>
         </ul>
       </section>
       <Separator />
