@@ -87,39 +87,39 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
     <BaseDialog.Root open={open} onOpenChange={onOpenChange}>
       <BaseDialog.Portal>
         <BaseDialog.Popup
-          className="lightbox fixed inset-0 flex flex-col outline-0 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 isolate before:content-[''] before:fixed before:inset-0 before:-z-10 before:bg-black/90 before:backdrop-blur-sm"
+          className="lightbox fixed inset-0 isolate flex flex-col outline-0 transition-all duration-150 before:fixed before:inset-0 before:-z-10 before:bg-black/70 before:backdrop-blur-sm before:content-[''] data-ending-style:opacity-0 data-starting-style:opacity-0"
           onKeyDown={handleKeyDown}>
           <BaseDialog.Close
-            className="group flex items-center gap-2 outline-0 absolute top-4 right-4 z-10"
+            className="group absolute top-4 right-4 z-10 flex items-center gap-2 outline-0"
             aria-label="Close lightbox">
-            <div className="shrink-0 flex size-10 items-center overflow-hidden justify-center whitespace-nowrap outline-0 rounded-full border-2 border-white/60 font-inherit text-[0.75em] font-medium leading-6 select-none focus-visible:outline-2 bg-transparent text-white/60 group-focus-visible:bg-white group-hover:bg-white group-focus-visible:text-black group-hover:text-black transition-colors">
+            <div className="font-inherit flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/60 bg-transparent text-[0.75em] leading-6 font-medium whitespace-nowrap text-white/60 outline-0 transition-colors select-none group-hover:bg-white group-hover:text-black group-focus-visible:bg-white group-focus-visible:text-black focus-visible:outline-2">
               <span className="mt-px text-sm font-semibold">ESC</span>
             </div>
           </BaseDialog.Close>
-          <div className="flex-1 relative flex items-center justify-center min-h-0 px-16">
+          <div className="relative flex min-h-0 flex-1 items-center justify-center px-16">
             <button
               type="button"
               onClick={onPrevClick}
               disabled={prevBtnDisabled}
               aria-label="Previous slide"
-              className="absolute left-4 z-10 group w-12 h-12 rounded-full bg-white/10 hover:enabled:bg-white/20 focus-visible:enabled:bg-white/20 text-white/80 hover:enabled:text-white focus-visible:enabled:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors grid place-items-center touch-manipulation">
-              <svg className="w-6 h-6" viewBox="0 0 532 532">
+              className="group absolute left-4 z-10 grid h-12 w-12 touch-manipulation place-items-center rounded-full bg-white/10 text-white/80 transition-colors hover:enabled:bg-white/20 hover:enabled:text-white focus-visible:enabled:bg-white/20 focus-visible:enabled:text-white disabled:cursor-not-allowed disabled:opacity-30">
+              <svg className="h-6 w-6" viewBox="0 0 532 532">
                 <path
                   fill="currentColor"
                   d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
                 />
               </svg>
             </button>
-            <div className="overflow-hidden w-full h-full" ref={emblaMainRef}>
+            <div className="h-full w-full overflow-hidden" ref={emblaMainRef}>
               <div className="flex h-full backface-hidden">
                 {slides.map((slide, index) => (
                   <div
                     key={"lb-slide-" + slide.url}
-                    className="flex-[0_0_100%] min-w-0 h-full flex items-center justify-center p-4 transform-[translate3d(0,0,0)]">
+                    className="flex h-full min-w-0 flex-[0_0_100%] transform-[translate3d(0,0,0)] items-center justify-center p-4">
                     <img
                       src={slide.url}
                       alt={slide.alt}
-                      className="max-w-full max-h-full object-contain select-none"
+                      className="max-h-full max-w-full object-contain select-none"
                       draggable={false}
                     />
                   </div>
@@ -131,8 +131,8 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
               onClick={onNextClick}
               disabled={nextBtnDisabled}
               aria-label="Next slide"
-              className="absolute right-4 z-10 group w-12 h-12 rounded-full bg-white/10 hover:enabled:bg-white/20 focus-visible:enabled:bg-white/20 text-white/80 hover:enabled:text-white focus-visible:enabled:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors grid place-items-center touch-manipulation">
-              <svg className="w-6 h-6" viewBox="0 0 532 532">
+              className="group absolute right-4 z-10 grid h-12 w-12 touch-manipulation place-items-center rounded-full bg-white/10 text-white/80 transition-colors hover:enabled:bg-white/20 hover:enabled:text-white focus-visible:enabled:bg-white/20 focus-visible:enabled:text-white disabled:cursor-not-allowed disabled:opacity-30">
+              <svg className="h-6 w-6" viewBox="0 0 532 532">
                 <path
                   fill="currentColor"
                   d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
@@ -140,7 +140,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
               </svg>
             </button>
           </div>
-          <div className="shrink-0 p-4 bg-black/50">
+          <div className="shrink-0 bg-black/50 p-4">
             <div className="overflow-hidden" ref={emblaThumbsRef}>
               <div className="flex gap-2 backface-hidden">
                 {slides.map((slide, index) => (
@@ -149,7 +149,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
                     type="button"
                     onClick={() => onThumbClick(index)}
                     className={cn(
-                      "flex-[0_0_80px] min-w-0 aspect-square overflow-hidden border-2 touch-manipulation transform-[translate3d(0,0,0)]",
+                      "aspect-square min-w-0 flex-[0_0_80px] transform-[translate3d(0,0,0)] touch-manipulation overflow-hidden border-2",
                       index === selectedIndex
                         ? "border-white opacity-100"
                         : "border-transparent opacity-50 hover:opacity-75"
@@ -157,7 +157,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
                     <img
                       src={slide.url}
                       alt={slide.alt}
-                      className="w-full h-full object-cover select-none"
+                      className="h-full w-full object-cover select-none"
                       draggable={false}
                       loading="lazy"
                     />
