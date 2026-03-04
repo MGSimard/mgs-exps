@@ -50,17 +50,6 @@ function RouteComponent() {
       </section>
       <Separator />
       <section>
-        <h2 className="text-lg font-bold">TAG REFERENCES</h2>
-        <ul className="list-inside list-disc">
-          <li>Marathon</li>
-          <li>System UI</li>
-          <li>Brutalism</li>
-          <li>Aerospace Tech</li>
-          <li>Grid Structures</li>
-        </ul>
-      </section>
-      <Separator />
-      <section>
         <h2 className="text-lg font-bold">MOODBOARD</h2>
         <MasonryGallery slides={MOODBOARD_SLIDES} />
       </section>
