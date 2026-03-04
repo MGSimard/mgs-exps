@@ -31,9 +31,6 @@ function RouteComponent() {
   return (
     <PageTypeMD>
       <h1 className="text-2xl font-bold uppercase">R REFERENCES</h1>
-      {/* <section>
-        <h2 className="text-lg font-bold">DOWNLOAD</h2>
-      </section> */}
       <section>
         <h2 className="text-lg font-bold">Notes:</h2>
         <ul className="list-inside list-disc">
