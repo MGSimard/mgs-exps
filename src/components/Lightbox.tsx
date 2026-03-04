@@ -112,7 +112,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
             </button>
             <div className="h-full w-full overflow-hidden" ref={emblaMainRef}>
               <div className="flex h-full backface-hidden">
-                {slides.map((slide, index) => (
+                {slides.map((slide) => (
                   <div
                     key={"lb-slide-" + slide.url}
                     className="flex h-full min-w-0 flex-[0_0_100%] transform-[translate3d(0,0,0)] items-center justify-center p-4">
