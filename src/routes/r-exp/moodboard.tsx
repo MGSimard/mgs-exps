@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { GridGallery } from "@/components/GridGallery";
-import { MasonryGallery } from "@/components/MasonryGallery";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
+import { GridGallery } from "@/components/GridGallery";
 import { Separator } from "@/components/shadcn-ui/separator";
 
 const MOODBOARD_SLIDES = [
@@ -54,6 +53,7 @@ function RouteComponent() {
         <h2 className="text-lg font-bold">MOODBOARD</h2>
         <GridGallery slides={MOODBOARD_SLIDES} className="mt-4" />
       </section>
+      <Separator />
     </PageTypeMD>
   );
 }
