@@ -1,11 +1,11 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
-import { ThemeProvider } from "@/_components/ThemeProvider";
-import { TooltipProvider } from "@/_components/shadcn-ui/tooltip";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/_components/shadcn-ui/sidebar";
-import { AppSidebar } from "@/_components/AppSidebar";
-import { configMeta, openGraph, twitter, misc, configLinks, favIcons, fontPreloads, styles } from "@/_lib/head";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { TooltipProvider } from "@/components/shadcn-ui/tooltip";
+import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/shadcn-ui/sidebar";
+import { AppSidebar } from "@/components/layout/AppSidebar";
+import { configMeta, openGraph, twitter, misc, configLinks, favIcons, fontPreloads, styles } from "@/lib/head";
 
 export const Route = createRootRoute({
   head: () => ({

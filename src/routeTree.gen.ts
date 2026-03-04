@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
 import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
 import { Route as ComponentsHeroGrainientFocusRouteImport } from './routes/components/hero/grainient-focus'
 
@@ -28,6 +29,11 @@ const NotesRoute = NotesRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RExpMoodboardRoute = RExpMoodboardRouteImport.update({
+  id: '/r-exp/moodboard',
+  path: '/r-exp/moodboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RExpLogoRefsRoute = RExpLogoRefsRouteImport.update({
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
+  '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/components/hero/grainient-focus': typeof ComponentsHeroGrainientFocusRoute
 }
 export interface FileRoutesByTo {
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
+  '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/components/hero/grainient-focus': typeof ComponentsHeroGrainientFocusRoute
 }
 export interface FileRoutesById {
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
+  '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/components/hero/grainient-focus': typeof ComponentsHeroGrainientFocusRoute
 }
 export interface FileRouteTypes {
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
+    | '/r-exp/moodboard'
     | '/components/hero/grainient-focus'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
+    | '/r-exp/moodboard'
     | '/components/hero/grainient-focus'
   id:
     | '__root__'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
+    | '/r-exp/moodboard'
     | '/components/hero/grainient-focus'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +105,7 @@ export interface RootRouteChildren {
   NotesRoute: typeof NotesRoute
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
+  RExpMoodboardRoute: typeof RExpMoodboardRoute
   ComponentsHeroGrainientFocusRoute: typeof ComponentsHeroGrainientFocusRoute
 }
 
@@ -119,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/r-exp/moodboard': {
+      id: '/r-exp/moodboard'
+      path: '/r-exp/moodboard'
+      fullPath: '/r-exp/moodboard'
+      preLoaderRoute: typeof RExpMoodboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/r-exp/logo-refs': {
       id: '/r-exp/logo-refs'
       path: '/r-exp/logo-refs'
@@ -141,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   NotesRoute: NotesRoute,
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,
+  RExpMoodboardRoute: RExpMoodboardRoute,
   ComponentsHeroGrainientFocusRoute: ComponentsHeroGrainientFocusRoute,
 }
 export const routeTree = rootRouteImport

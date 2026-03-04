@@ -1,0 +1,232 @@
+/** 
+* GEIST SANS
+* https://vercel.com/font
+* WOFF2 & TTF FALLBACK
+* WEIGHTS: 100 - 900
+*/
+@font-face {
+  font-family: "Geist Sans";
+  src:
+    url("/fonts/Geist/Geist-Variable.woff2") format("woff2"),
+    url("/fonts/Geist/Geist-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Geist Sans";
+  src:
+    url("/fonts/Geist/Geist-Variable-Italic.woff2") format("woff2"),
+    url("/fonts/Geist/Geist-Variable-Italic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+/** 
+* GEIST MONO
+* https://vercel.com/font
+* WOFF2 & TTF FALLBACK
+* WEIGHTS: 100 - 900
+*/
+@font-face {
+  font-family: "Geist Mono";
+  src:
+    url("/fonts/GeistMono/GeistMono-Variable.woff2") format("woff2"),
+    url("/fonts/GeistMono/GeistMono-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src:
+    url("/fonts/GeistMono/GeistMono-Variable-Italic.woff2") format("woff2"),
+    url("/fonts/GeistMono/GeistMono-Variable-Italic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+/** 
+* GEIST PIXEL
+* https://vercel.com/font
+* WOFF2 & TTF FALLBACK
+*/
+@font-face {
+  font-family: "Geist Pixel Circle";
+  src:
+    url("/fonts/GeistPixel/GeistPixel-Circle.woff2") format("woff2"),
+    url("/fonts/GeistPixel/GeistPixel-Circle.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Pixel Grid";
+  src:
+    url("/fonts/GeistPixel/GeistPixel-Grid.woff2") format("woff2"),
+    url("/fonts/GeistPixel/GeistPixel-Grid.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Pixel Line";
+  src:
+    url("/fonts/GeistPixel/GeistPixel-Line.woff2") format("woff2"),
+    url("/fonts/GeistPixel/GeistPixel-Line.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Pixel Square";
+  src:
+    url("/fonts/GeistPixel/GeistPixel-Square.woff2") format("woff2"),
+    url("/fonts/GeistPixel/GeistPixel-Square.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Pixel Triangle";
+  src:
+    url("/fonts/GeistPixel/GeistPixel-Triangle.woff2") format("woff2"),
+    url("/fonts/GeistPixel/GeistPixel-Triangle.ttf") format("truetype");
+  font-display: swap;
+}
+
+/** 
+* TOMORROW
+* https://fonts.google.com/specimen/Tomorrow
+* TTF ONLY
+* WEIGHTS:
+* 100 - Thin
+* 200 - ExtraLight
+* 300 - Light
+* 400 - Regular
+* 500 - Medium
+* 600 - SemiBold
+* 700 - Bold
+* 800 - ExtraBold
+* 900 - Black
+*/
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-RegularItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tomorrow";
+  src: url("/fonts/Tomorrow/Tomorrow-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+  font-style: italic;
+}

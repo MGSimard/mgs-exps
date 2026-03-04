@@ -1,0 +1,67 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageTypeMD } from "@/components/layout/PageType-MD";
+import { MasonryGrid } from "@/components/MasonryGrid";
+import { Separator } from "@/components/shadcn-ui/separator";
+
+export const Route = createFileRoute("/r-exp/moodboard")({
+  component: RouteComponent,
+});
+
+function RouteComponent() {
+  return (
+    <PageTypeMD>
+      <h1 className="text-2xl font-bold uppercase">R MOODBOARD</h1>
+      <section>
+        <h2 className="text-lg font-bold">Notes:</h2>
+        <p className="mb-4">
+          This moodboard defines the thematic and visual territory the logo should draw from. The references highlight
+          system interfaces, authentication workflows, aerospace environments, diagnostic overlays, and structured grid
+          compositions. The dominant qualities are precision, control, modularity, and technical rigor. Typography
+          trends toward functional, system-oriented forms. Visual language is built from panels, frames, schematics, and
+          data structures rather than expressive illustration.
+        </p>
+        <p>
+          The purpose of this board is not to replicate these visuals, but to anchor the logo in the same world. The
+          mark should feel engineered, intentional, and structurally sound. It should suggest authority, security, and
+          operational clarity without becoming overly decorative or literal.
+        </p>
+      </section>
+      <Separator />
+      <section>
+        <h2 className="text-lg font-bold">TAG REFERENCES</h2>
+        <ul className="list-inside list-disc">
+          <li>Marathon</li>
+          <li>System UI</li>
+          <li>Brutalism</li>
+          <li>Aerospace Tech</li>
+          <li>Grid Structures</li>
+        </ul>
+      </section>
+      <Separator />
+      <section>
+        <h2 className="text-lg font-bold">MOODBOARD</h2>
+        <MasonryGrid>
+          <img src="/assets/r-exp/moodboard/splash-screen.png" alt="Marathon Splash Screen" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/disclaimer.png" alt="Marathon Disclaimer" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/loading.png" alt="Marathon Loading" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/license.png" alt="Marathon License" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/license2.png" alt="Marathon License 2" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/dob.png" alt="Marathon Date of Birth" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/loading2.png" alt="Marathon Loading 2" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation2.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation3.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation4.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation5.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation6.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation7.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation8.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation9.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation10.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation11.png" alt="Marathon Presentation" loading="lazy" />
+          <img src="/assets/r-exp/moodboard/presentation12.png" alt="Marathon Presentation" loading="lazy" />
+        </MasonryGrid>
+      </section>
+    </PageTypeMD>
+  );
+}
