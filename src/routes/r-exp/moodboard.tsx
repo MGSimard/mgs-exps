@@ -24,6 +24,7 @@ const MOODBOARD_SLIDES = [
   { url: "/assets/r-exp/moodboard/presentation10.png", alt: "Marathon Presentation" },
   { url: "/assets/r-exp/moodboard/presentation11.png", alt: "Marathon Presentation" },
   { url: "/assets/r-exp/moodboard/presentation12.png", alt: "Marathon Presentation" },
+  { url: "/assets/r-exp/moodboard/halftone-thing.png", alt: "Halftone Gradient" },
 ];
 
 export const Route = createFileRoute("/r-exp/moodboard")({
