@@ -10,6 +10,11 @@ const LOGO_REF_SLIDES = [
   { url: "/assets/r-exp/references/malorian.jpg", alt: "Malorian Logo" },
   { url: "/assets/r-exp/references/mahir.jpg", alt: "Mahir Logo" },
   { url: "/assets/r-exp/references/makigai.jpg", alt: "Makigai Logo" },
+  { url: "/assets/r-exp/references/oryn.jpg", alt: "Oryn Logo" },
+  { url: "/assets/r-exp/references/oryn2.jpg", alt: "Oryn Logo" },
+  { url: "/assets/r-exp/references/lined-star.png", alt: "Star Logo" },
+  { url: "/assets/r-exp/references/lined-h.png", alt: "H Logo" },
+  { url: "/assets/r-exp/references/lined-n.png", alt: "N Logo" },
 ];
 
 const OTHER_REF_SLIDES = [
