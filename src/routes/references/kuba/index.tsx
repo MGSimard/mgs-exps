@@ -4,7 +4,7 @@ import { Separator } from "@/components/shadcn-ui/separator";
 import { Label } from "@/components/elements/Label";
 import { ExternalLink } from "@/components/elements/ExternalLink";
 
-export const Route = createFileRoute("/references/kuba")({
+export const Route = createFileRoute("/references/kuba/")({
   component: RouteComponent,
 });
 
