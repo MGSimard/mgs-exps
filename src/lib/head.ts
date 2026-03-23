@@ -82,7 +82,7 @@ export const fontPreloads = [
 export const mediaPreloads = [
   {
     rel: "preload",
-    href: "/assets/images/noise.webp",
+    href: "/assets/global/noise.webp",
     as: "image",
     type: "image/webp",
     crossOrigin: "anonymous",

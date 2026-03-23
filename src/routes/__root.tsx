@@ -35,7 +35,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div
-          className="pointer-events-none absolute inset-0 size-full bg-[url('/assets/images/noise.webp')] bg-repeat opacity-[0.075] select-none"
+          className="pointer-events-none absolute inset-0 size-full bg-[url('/assets/global/noise.webp')] bg-repeat opacity-[0.075] select-none"
           aria-hidden
         />
         <div id="root">
