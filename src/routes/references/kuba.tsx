@@ -28,10 +28,10 @@ function RouteComponent() {
       </h1>
       <ul>
         <li>
-          <ExternalLink href="https://x.com/kubadesign">https://x.com/kubadesign/</ExternalLink>
+          <ExternalLink href="https://x.com/kubadesign">x.com/kubadesign</ExternalLink>
         </li>
         <li>
-          <ExternalLink href="https://heykuba.com/">https://heykuba.com/</ExternalLink>
+          <ExternalLink href="https://heykuba.com/">heykuba.com</ExternalLink>
         </li>
       </ul>
       <Separator />

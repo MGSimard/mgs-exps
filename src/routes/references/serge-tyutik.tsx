@@ -37,10 +37,10 @@ function RouteComponent() {
       </h1>
       <ul>
         <li>
-          <ExternalLink href="https://x.com/tdeser/">https://x.com/tdeser/</ExternalLink>
+          <ExternalLink href="https://x.com/tdeser/">x.com/tdeser</ExternalLink>
         </li>
         <li>
-          <ExternalLink href="https://growa.studio/">https://growa.studio/</ExternalLink>
+          <ExternalLink href="https://growa.studio/">growa.studio</ExternalLink>
         </li>
       </ul>
       <Separator />

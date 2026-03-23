@@ -158,6 +158,10 @@ const links: Links = {
           path: "/references/kuba",
         },
         {
+          label: "Marathon",
+          path: "/references/marathon",
+        },
+        {
           label: "Serge Tyutik",
           path: "/references/serge-tyutik",
         },

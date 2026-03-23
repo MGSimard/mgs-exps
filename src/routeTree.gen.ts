@@ -13,6 +13,7 @@ import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
+import { Route as ReferencesMarathonRouteImport } from './routes/references/marathon'
 import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
 import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
 import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 const ReferencesSergeTyutikRoute = ReferencesSergeTyutikRouteImport.update({
   id: '/references/serge-tyutik',
   path: '/references/serge-tyutik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesMarathonRoute = ReferencesMarathonRouteImport.update({
+  id: '/references/marathon',
+  path: '/references/marathon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferencesKubaRoute = ReferencesKubaRouteImport.update({
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/references/kuba': typeof ReferencesKubaRoute
+  '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/references/kuba': typeof ReferencesKubaRoute
+  '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/references/kuba': typeof ReferencesKubaRoute
+  '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
     | '/references/kuba'
+    | '/references/marathon'
     | '/references/serge-tyutik'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
     | '/references/kuba'
+    | '/references/marathon'
     | '/references/serge-tyutik'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
     | '/references/kuba'
+    | '/references/marathon'
     | '/references/serge-tyutik'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
   RExpMoodboardRoute: typeof RExpMoodboardRoute
   ReferencesKubaRoute: typeof ReferencesKubaRoute
+  ReferencesMarathonRoute: typeof ReferencesMarathonRoute
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
 }
 
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferencesSergeTyutikRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/marathon': {
+      id: '/references/marathon'
+      path: '/references/marathon'
+      fullPath: '/references/marathon'
+      preLoaderRoute: typeof ReferencesMarathonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/references/kuba': {
       id: '/references/kuba'
       path: '/references/kuba'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   RExpLogoRefsRoute: RExpLogoRefsRoute,
   RExpMoodboardRoute: RExpMoodboardRoute,
   ReferencesKubaRoute: ReferencesKubaRoute,
+  ReferencesMarathonRoute: ReferencesMarathonRoute,
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
 }
 export const routeTree = rootRouteImport
