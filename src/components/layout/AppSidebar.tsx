@@ -121,10 +121,10 @@ function Tree({ node }: { node: TreeNode }) {
 }
 
 type RoutePath = string;
-type TreeNode = { label: string; path: RoutePath } | { label: string; children: TreeNode[] };
+type TreeNode = { label: string; path: RoutePath } | { label: string; children: Array<TreeNode> };
 type Links = {
-  notes: { label: string; path: RoutePath }[];
-  tree: TreeNode[];
+  notes: Array<{ label: string; path: RoutePath }>;
+  tree: Array<TreeNode>;
 };
 
 const links: Links = {

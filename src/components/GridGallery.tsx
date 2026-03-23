@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 type Slide = { url: string; alt: string };
 
 type GridGalleryProps = {
-  slides: Slide[];
+  slides: Array<Slide>;
   className?: string;
 };
 
@@ -22,7 +22,7 @@ export function GridGallery({ slides, className }: GridGalleryProps) {
     <>
       <div
         className={cn(
-          "grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2 [&>button]:block [&>button]:w-full [&>button]:overflow-hidden [&>button>img]:block [&>button>img]:w-full [&>button>img]:border [&>button>img]:transition-all [&>button>img]:duration-[50ms] [&>button:hover>img]:scale-[1.03] [&>button:hover>img]:contrast-[0.9] [&>button:hover>img]:saturate-[0.7] [&>button:focus-visible>img]:scale-[1.03] [&>button:focus-visible>img]:contrast-[0.9] [&>button:focus-visible>img]:saturate-[0.7]",
+          "grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2 [&>button]:block [&>button]:w-full [&>button]:overflow-hidden [&>button:focus-visible>img]:scale-[1.03] [&>button:focus-visible>img]:contrast-[0.9] [&>button:focus-visible>img]:saturate-[0.7] [&>button:hover>img]:scale-[1.03] [&>button:hover>img]:contrast-[0.9] [&>button:hover>img]:saturate-[0.7] [&>button>img]:block [&>button>img]:w-full [&>button>img]:border [&>button>img]:transition-all [&>button>img]:duration-50",
           className
         )}>
         {slides.map((slide, index) => (
@@ -35,12 +35,7 @@ export function GridGallery({ slides, className }: GridGalleryProps) {
           </button>
         ))}
       </div>
-      <Lightbox
-        slides={slides}
-        startIndex={startIndex}
-        open={lightboxOpen}
-        onOpenChange={setLightboxOpen}
-      />
+      <Lightbox slides={slides} startIndex={startIndex} open={lightboxOpen} onOpenChange={setLightboxOpen} />
     </>
   );
 }
