@@ -2,10 +2,10 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "target": "ES2022", // Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
+    "target": "ES2025", // Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
     "jsx": "react-jsx", // Specify what JSX code is generated.
     "module": "ESNext", // Specify what module code is generated.
-    "lib": ["ES2022", "DOM", "DOM.Iterable"], // Specify a set of bundled library declaration files that describe the target runtime environment.
+    "lib": ["ES2025", "DOM", "DOM.Iterable"], // Specify a set of bundled library declaration files that describe the target runtime environment.
     "types": ["vite/client"], // Specify type package names to be included without being referenced in a source file.
 
     "paths": {
