@@ -178,6 +178,10 @@ const links: Links = {
           label: "Firewatch",
           path: "/showcases/firewatch",
         },
+        {
+          label: "Shoya Kajita",
+          path: "/showcases/shoya-kajita",
+        },
       ],
     },
   ],

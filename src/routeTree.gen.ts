@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShowcasesShoyaKajitaRouteImport } from './routes/showcases/shoya-kajita'
 import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
 import { Route as ReferencesMarathonRouteImport } from './routes/references/marathon'
@@ -33,6 +34,11 @@ const NotesRoute = NotesRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcasesShoyaKajitaRoute = ShowcasesShoyaKajitaRouteImport.update({
+  id: '/showcases/shoya-kajita',
+  path: '/showcases/shoya-kajita',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShowcasesFirewatchRoute = ShowcasesFirewatchRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
+  '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
+  '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
+  '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/references/marathon'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
+    | '/showcases/shoya-kajita'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/references/marathon'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
+    | '/showcases/shoya-kajita'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/references/marathon'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
+    | '/showcases/shoya-kajita'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   ReferencesMarathonRoute: typeof ReferencesMarathonRoute
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
   ShowcasesFirewatchRoute: typeof ShowcasesFirewatchRoute
+  ShowcasesShoyaKajitaRoute: typeof ShowcasesShoyaKajitaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcases/shoya-kajita': {
+      id: '/showcases/shoya-kajita'
+      path: '/showcases/shoya-kajita'
+      fullPath: '/showcases/shoya-kajita'
+      preLoaderRoute: typeof ShowcasesShoyaKajitaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/showcases/firewatch': {
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesMarathonRoute: ReferencesMarathonRoute,
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
   ShowcasesFirewatchRoute: ShowcasesFirewatchRoute,
+  ShowcasesShoyaKajitaRoute: ShowcasesShoyaKajitaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
