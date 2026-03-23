@@ -128,6 +128,7 @@
     outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
   }
   html {
+    scrollbar-gutter: stable;
     font-family: var(--font-sans);
     background-color: var(--background);
     color: var(--foreground);
