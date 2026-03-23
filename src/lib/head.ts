@@ -79,6 +79,16 @@ export const fontPreloads = [
   },
 ];
 
+export const mediaPreloads = [
+  {
+    rel: "preload",
+    href: "/assets/images/noise.webp",
+    as: "image",
+    type: "image/webp",
+    crossOrigin: "anonymous",
+  },
+];
+
 export const openGraph = [
   {
     property: "og:type",
