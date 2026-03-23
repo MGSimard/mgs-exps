@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
 import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
 import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
 
@@ -28,6 +29,11 @@ const NotesRoute = NotesRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesKubaRoute = ReferencesKubaRouteImport.update({
+  id: '/references/kuba',
+  path: '/references/kuba',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RExpMoodboardRoute = RExpMoodboardRouteImport.update({
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/kuba': typeof ReferencesKubaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/kuba': typeof ReferencesKubaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/kuba': typeof ReferencesKubaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,8 +80,15 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/kuba'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notes' | '/readme' | '/r-exp/logo-refs' | '/r-exp/moodboard'
+  to:
+    | '/'
+    | '/notes'
+    | '/readme'
+    | '/r-exp/logo-refs'
+    | '/r-exp/moodboard'
+    | '/references/kuba'
   id:
     | '__root__'
     | '/'
@@ -80,6 +96,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/kuba'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -88,6 +105,7 @@ export interface RootRouteChildren {
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
   RExpMoodboardRoute: typeof RExpMoodboardRoute
+  ReferencesKubaRoute: typeof ReferencesKubaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -113,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/kuba': {
+      id: '/references/kuba'
+      path: '/references/kuba'
+      fullPath: '/references/kuba'
+      preLoaderRoute: typeof ReferencesKubaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/r-exp/moodboard': {
       id: '/r-exp/moodboard'
       path: '/r-exp/moodboard'
@@ -136,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,
   RExpMoodboardRoute: RExpMoodboardRoute,
+  ReferencesKubaRoute: ReferencesKubaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

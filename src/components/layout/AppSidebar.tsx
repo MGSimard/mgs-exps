@@ -55,10 +55,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
+          <SidebarGroupLabel>References</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {links.references.map((item, index) => (
+                <Tree key={index} node={item} />
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel>Files</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {links.tree.map((item, index) => (
+              {links.files.map((item, index) => (
                 <Tree key={index} node={item} />
               ))}
             </SidebarMenu>
@@ -124,7 +134,8 @@ type RoutePath = string;
 type TreeNode = { label: string; path: RoutePath } | { label: string; children: Array<TreeNode> };
 type Links = {
   notes: Array<{ label: string; path: RoutePath }>;
-  tree: Array<TreeNode>;
+  references: Array<TreeNode>;
+  files: Array<TreeNode>;
 };
 
 const links: Links = {
@@ -138,7 +149,18 @@ const links: Links = {
       path: "/notes",
     },
   ],
-  tree: [
+  references: [
+    {
+      label: "References",
+      children: [
+        {
+          label: "Kuba",
+          path: "/references/kuba",
+        },
+      ],
+    },
+  ],
+  files: [
     {
       label: "Components",
       children: [
