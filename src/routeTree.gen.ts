@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
 import { Route as ReferencesMarathonRouteImport } from './routes/references/marathon'
 import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
@@ -32,6 +33,11 @@ const NotesRoute = NotesRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcasesFirewatchRoute = ShowcasesFirewatchRouteImport.update({
+  id: '/showcases/firewatch',
+  path: '/showcases/firewatch',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferencesSergeTyutikRoute = ReferencesSergeTyutikRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
+  '/showcases/firewatch': typeof ShowcasesFirewatchRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
+  '/showcases/firewatch': typeof ShowcasesFirewatchRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
+  '/showcases/firewatch': typeof ShowcasesFirewatchRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/references/kuba'
     | '/references/marathon'
     | '/references/serge-tyutik'
+    | '/showcases/firewatch'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/references/kuba'
     | '/references/marathon'
     | '/references/serge-tyutik'
+    | '/showcases/firewatch'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/references/kuba'
     | '/references/marathon'
     | '/references/serge-tyutik'
+    | '/showcases/firewatch'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   ReferencesKubaRoute: typeof ReferencesKubaRoute
   ReferencesMarathonRoute: typeof ReferencesMarathonRoute
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
+  ShowcasesFirewatchRoute: typeof ShowcasesFirewatchRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -168,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcases/firewatch': {
+      id: '/showcases/firewatch'
+      path: '/showcases/firewatch'
+      fullPath: '/showcases/firewatch'
+      preLoaderRoute: typeof ShowcasesFirewatchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/references/serge-tyutik': {
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesKubaRoute: ReferencesKubaRoute,
   ReferencesMarathonRoute: ReferencesMarathonRoute,
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
+  ShowcasesFirewatchRoute: ShowcasesFirewatchRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

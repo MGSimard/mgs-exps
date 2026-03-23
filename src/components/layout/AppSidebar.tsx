@@ -171,6 +171,15 @@ const links: Links = {
         },
       ],
     },
+    {
+      label: "Showcases",
+      children: [
+        {
+          label: "Firewatch",
+          path: "/showcases/firewatch",
+        },
+      ],
+    },
   ],
   files: [
     {
