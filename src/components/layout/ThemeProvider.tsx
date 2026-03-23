@@ -1,6 +1,6 @@
 /** CUSTOM THEME PROVIDER - SSR Compatible with FOUC Prevention
  * - Server-side rendering support with hydration safety
- * - Zero FOUC via inline script execution
+ * - FOUC prevented by head script in __root.tsx
  * - Transition disabling during theme changes
  * - Cross-tab synchronization via storage events
  * - Uses React 19's use() hook for Context consumption
@@ -9,9 +9,8 @@
  * - Theme validation to prevent invalid states
  */
 import { createContext, use, useEffect, useState } from "react";
-import { ScriptOnce } from "@tanstack/react-router";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 interface ThemeContextTypes {
   theme: Theme;
@@ -20,8 +19,8 @@ interface ThemeContextTypes {
 
 const ThemeContext = createContext<ThemeContextTypes | null>(null);
 
-const STORAGE_KEY = "mgs-exps-theme";
-const THEMES = ["light", "dark"] as const;
+const STORAGE_KEY = "theme";
+export const THEMES = ["light", "dark"] as const;
 const isBrowser = typeof window !== "undefined";
 
 interface ThemeProviderProps {
@@ -30,7 +29,7 @@ interface ThemeProviderProps {
   storageKey?: string;
 }
 
-export function ThemeProvider({ children, defaultTheme = "light", storageKey = STORAGE_KEY }: ThemeProviderProps) {
+export function ThemeProvider({ children, defaultTheme = "dark", storageKey = STORAGE_KEY }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (!isBrowser) return defaultTheme;
     try {
@@ -42,32 +41,26 @@ export function ThemeProvider({ children, defaultTheme = "light", storageKey = S
   });
 
   const updateTheme = (newTheme: Theme) => {
-    if (isBrowser) {
-      const enableTransitions = disableTransitions();
-      setTheme(newTheme);
-      try {
-        localStorage.setItem(storageKey, newTheme);
-      } catch (error) {
-        console.error("ERROR: Failed to save theme preference:", error);
-      }
-      // Double RAF ensures transitions re-enable after paint
-      requestAnimationFrame(() => {
-        requestAnimationFrame(enableTransitions);
-      });
-    } else {
-      setTheme(newTheme);
+    const enableTransitions = disableTransitions();
+    setTheme(newTheme);
+    try {
+      localStorage.setItem(storageKey, newTheme);
+    } catch (error) {
+      console.error("ERROR: Failed to save theme preference:", error);
     }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(enableTransitions);
+    });
   };
 
   useEffect(() => {
-    if (!isBrowser) return;
     const root = document.documentElement;
+    root.setAttribute("data-theme-preference", theme);
     root.classList.toggle("dark", theme === "dark");
     root.style.colorScheme = theme;
   }, [theme]);
 
   useEffect(() => {
-    if (!isBrowser) return;
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === storageKey && e.newValue && isValidTheme(e.newValue)) {
         const enableTransitions = disableTransitions();
@@ -84,23 +77,7 @@ export function ThemeProvider({ children, defaultTheme = "light", storageKey = S
 
   const contextValue = { theme, setTheme: updateTheme };
 
-  return (
-    <ThemeContext value={contextValue}>
-      <ScriptOnce>
-        {`(function(storageKey, defaultTheme) {
-          try {
-            const themes = ['light', 'dark'];
-            const stored = localStorage.getItem(storageKey);
-            const theme = stored && themes.includes(stored) ? stored : defaultTheme;
-            const root = document.documentElement;
-            root.classList.toggle('dark', theme === 'dark');
-            root.style.colorScheme = theme;
-          } catch {}
-        })(${JSON.stringify(storageKey)}, ${JSON.stringify(defaultTheme)})`}
-      </ScriptOnce>
-      {children}
-    </ThemeContext>
-  );
+  return <ThemeContext value={contextValue}>{children}</ThemeContext>;
 }
 
 export function useTheme() {
@@ -118,8 +95,6 @@ function isValidTheme(value: string): value is Theme {
 function disableTransitions() {
   const root = document.documentElement;
   root.dataset.disableTransitions = "";
-  // Force a reflow
-  // Regarding getComputedStyle vs requestAnimationFrame: https://paco.me/writing/disable-theme-transitions
   void window.getComputedStyle(root).opacity;
   return () => {
     delete root.dataset.disableTransitions;
