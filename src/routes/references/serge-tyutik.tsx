@@ -44,7 +44,7 @@ function RouteComponent() {
         </li>
       </ul>
       <Separator />
-      <Section title="MISC">
+      <Section title="ORYN">
         <GridGallery slides={ORYN_SLIDES} />
       </Section>
       <Separator />
