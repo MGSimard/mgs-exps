@@ -30,7 +30,7 @@ export function GridGallery({ slides, className }: GridGalleryProps) {
             key={slide.url}
             type="button"
             onClick={() => openLightbox(index)}
-            className="cursor-pointer border-0 bg-transparent p-0 text-left">
+            className="cursor-pointer bg-transparent">
             <img src={slide.url} alt={slide.alt} loading="lazy" />
           </button>
         ))}
