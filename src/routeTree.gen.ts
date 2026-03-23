@@ -12,10 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
+import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
 import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
 import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
-import { Route as ReferencesSergeTyutikIndexRouteImport } from './routes/references/serge-tyutik/index'
-import { Route as ReferencesKubaIndexRouteImport } from './routes/references/kuba/index'
 
 const ReadmeRoute = ReadmeRouteImport.update({
   id: '/readme',
@@ -32,6 +32,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferencesSergeTyutikRoute = ReferencesSergeTyutikRouteImport.update({
+  id: '/references/serge-tyutik',
+  path: '/references/serge-tyutik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesKubaRoute = ReferencesKubaRouteImport.update({
+  id: '/references/kuba',
+  path: '/references/kuba',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RExpMoodboardRoute = RExpMoodboardRouteImport.update({
   id: '/r-exp/moodboard',
   path: '/r-exp/moodboard',
@@ -42,17 +52,6 @@ const RExpLogoRefsRoute = RExpLogoRefsRouteImport.update({
   path: '/r-exp/logo-refs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReferencesSergeTyutikIndexRoute =
-  ReferencesSergeTyutikIndexRouteImport.update({
-    id: '/references/serge-tyutik/',
-    path: '/references/serge-tyutik/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ReferencesKubaIndexRoute = ReferencesKubaIndexRouteImport.update({
-  id: '/references/kuba/',
-  path: '/references/kuba/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,8 +59,8 @@ export interface FileRoutesByFullPath {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
-  '/references/kuba/': typeof ReferencesKubaIndexRoute
-  '/references/serge-tyutik/': typeof ReferencesSergeTyutikIndexRoute
+  '/references/kuba': typeof ReferencesKubaRoute
+  '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,8 +68,8 @@ export interface FileRoutesByTo {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
-  '/references/kuba': typeof ReferencesKubaIndexRoute
-  '/references/serge-tyutik': typeof ReferencesSergeTyutikIndexRoute
+  '/references/kuba': typeof ReferencesKubaRoute
+  '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,8 +78,8 @@ export interface FileRoutesById {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
-  '/references/kuba/': typeof ReferencesKubaIndexRoute
-  '/references/serge-tyutik/': typeof ReferencesSergeTyutikIndexRoute
+  '/references/kuba': typeof ReferencesKubaRoute
+  '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,8 +89,8 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
-    | '/references/kuba/'
-    | '/references/serge-tyutik/'
+    | '/references/kuba'
+    | '/references/serge-tyutik'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -108,8 +107,8 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
-    | '/references/kuba/'
-    | '/references/serge-tyutik/'
+    | '/references/kuba'
+    | '/references/serge-tyutik'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,8 +117,8 @@ export interface RootRouteChildren {
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
   RExpMoodboardRoute: typeof RExpMoodboardRoute
-  ReferencesKubaIndexRoute: typeof ReferencesKubaIndexRoute
-  ReferencesSergeTyutikIndexRoute: typeof ReferencesSergeTyutikIndexRoute
+  ReferencesKubaRoute: typeof ReferencesKubaRoute
+  ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -145,6 +144,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/serge-tyutik': {
+      id: '/references/serge-tyutik'
+      path: '/references/serge-tyutik'
+      fullPath: '/references/serge-tyutik'
+      preLoaderRoute: typeof ReferencesSergeTyutikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references/kuba': {
+      id: '/references/kuba'
+      path: '/references/kuba'
+      fullPath: '/references/kuba'
+      preLoaderRoute: typeof ReferencesKubaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/r-exp/moodboard': {
       id: '/r-exp/moodboard'
       path: '/r-exp/moodboard'
@@ -159,20 +172,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RExpLogoRefsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/references/serge-tyutik/': {
-      id: '/references/serge-tyutik/'
-      path: '/references/serge-tyutik'
-      fullPath: '/references/serge-tyutik/'
-      preLoaderRoute: typeof ReferencesSergeTyutikIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/references/kuba/': {
-      id: '/references/kuba/'
-      path: '/references/kuba'
-      fullPath: '/references/kuba/'
-      preLoaderRoute: typeof ReferencesKubaIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -182,8 +181,8 @@ const rootRouteChildren: RootRouteChildren = {
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,
   RExpMoodboardRoute: RExpMoodboardRoute,
-  ReferencesKubaIndexRoute: ReferencesKubaIndexRoute,
-  ReferencesSergeTyutikIndexRoute: ReferencesSergeTyutikIndexRoute,
+  ReferencesKubaRoute: ReferencesKubaRoute,
+  ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

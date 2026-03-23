@@ -4,7 +4,7 @@ import { Separator } from "@/components/shadcn-ui/separator";
 import { Label } from "@/components/elements/Label";
 import { ExternalLink } from "@/components/elements/ExternalLink";
 
-export const Route = createFileRoute("/references/kuba/")({
+export const Route = createFileRoute("/references/serge-tyutik")({
   component: RouteComponent,
 });
 
@@ -13,17 +13,17 @@ function RouteComponent() {
     <PageTypeMD>
       <h1>
         <Label className="mb-2">REFERENCES</Label>
-        <span className="block text-4xl font-bold uppercase">KUBA</span>
+        <span className="block text-4xl font-bold uppercase">SERGE TYUTIK</span>
       </h1>
       <Separator />
       <section>
         <h2 className="sr-only">LINKS</h2>
         <ul>
           <li>
-            <ExternalLink href="https://heykuba.com/">https://heykuba.com/</ExternalLink>
+            <ExternalLink href="https://x.com/tdeser/">https://x.com/tdeser/</ExternalLink>
           </li>
           <li>
-            <ExternalLink href="https://x.com/kubadesign/">https://x.com/kubadesign/</ExternalLink>
+            <ExternalLink href="https://growa.studio/">https://growa.studio/</ExternalLink>
           </li>
         </ul>
       </section>
