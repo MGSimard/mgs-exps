@@ -15,6 +15,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
 import { Route as ReferencesMarathonRouteImport } from './routes/references/marathon'
 import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
+import { Route as ReferencesJamesLeeRouteImport } from './routes/references/james-lee'
 import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
 import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
 
@@ -48,6 +49,11 @@ const ReferencesKubaRoute = ReferencesKubaRouteImport.update({
   path: '/references/kuba',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferencesJamesLeeRoute = ReferencesJamesLeeRouteImport.update({
+  id: '/references/james-lee',
+  path: '/references/james-lee',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RExpMoodboardRoute = RExpMoodboardRouteImport.update({
   id: '/r-exp/moodboard',
   path: '/r-exp/moodboard',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/james-lee'
     | '/references/kuba'
     | '/references/marathon'
     | '/references/serge-tyutik'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/james-lee'
     | '/references/kuba'
     | '/references/marathon'
     | '/references/serge-tyutik'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/james-lee'
     | '/references/kuba'
     | '/references/marathon'
     | '/references/serge-tyutik'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
   RExpMoodboardRoute: typeof RExpMoodboardRoute
+  ReferencesJamesLeeRoute: typeof ReferencesJamesLeeRoute
   ReferencesKubaRoute: typeof ReferencesKubaRoute
   ReferencesMarathonRoute: typeof ReferencesMarathonRoute
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferencesKubaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/james-lee': {
+      id: '/references/james-lee'
+      path: '/references/james-lee'
+      fullPath: '/references/james-lee'
+      preLoaderRoute: typeof ReferencesJamesLeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/r-exp/moodboard': {
       id: '/r-exp/moodboard'
       path: '/r-exp/moodboard'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,
   RExpMoodboardRoute: RExpMoodboardRoute,
+  ReferencesJamesLeeRoute: ReferencesJamesLeeRoute,
   ReferencesKubaRoute: ReferencesKubaRoute,
   ReferencesMarathonRoute: ReferencesMarathonRoute,
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,

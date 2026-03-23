@@ -154,6 +154,10 @@ const links: Links = {
       label: "References",
       children: [
         {
+          label: "James Lee",
+          path: "/references/james-lee",
+        },
+        {
           label: "Kuba",
           path: "/references/kuba",
         },
