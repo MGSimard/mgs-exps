@@ -163,17 +163,7 @@ const links: Links = {
   files: [
     {
       label: "Components",
-      children: [
-        {
-          label: "Hero",
-          children: [
-            {
-              label: "Grainient Focus",
-              path: "/components/hero/grainient-focus",
-            },
-          ],
-        },
-      ],
+      children: [],
     },
     {
       label: "R-EXP",
