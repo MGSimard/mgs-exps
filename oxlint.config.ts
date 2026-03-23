@@ -1,13 +1,19 @@
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": [".wrangler", ".tanstack", "dist", "node_modules", "**/routeTree.gen.ts"],
-  "env": {
-    "browser": true,
-    "node": true,
-    "builtin": true
+import { defineConfig } from "oxlint";
+
+export default defineConfig({
+  ignorePatterns: [".tanstack", ".wrangler", "dist", "node_modules", "pnpm-lock.yaml", "**/routeTree.gen.ts"],
+  env: {
+    browser: true,
+    node: true,
+    builtin: true,
   },
-  "globals": {},
-  "plugins": [
+  globals: {},
+  options: {
+    typeAware: true,
+    typeCheck: true,
+  },
+  categories: {},
+  plugins: [
     "eslint",
     "import",
     "jsdoc",
@@ -19,11 +25,35 @@
     "react-perf",
     "typescript",
     "unicorn",
-    "vitest"
+    "vitest",
   ],
-  "jsPlugins": ["@tanstack/eslint-plugin-router"],
-  "categories": {},
-  "rules": {
+  jsPlugins: ["@tanstack/eslint-plugin-router"],
+  settings: {
+    "jsx-a11y": {
+      polymorphicPropName: undefined,
+      components: {},
+      attributes: {},
+    },
+    react: {
+      formComponents: [],
+      linkComponents: [],
+      version: undefined,
+    },
+    jsdoc: {
+      ignorePrivate: false,
+      ignoreInternal: false,
+      ignoreReplacesDocs: true,
+      overrideReplacesDocs: true,
+      augmentsExtendsReplacesDocs: false,
+      implementsReplacesDocs: false,
+      exemptDestructuredRootsFromChecks: false,
+      tagNamePreference: {},
+    },
+    vitest: {
+      typecheck: false,
+    },
+  },
+  rules: {
     "@tanstack/router/create-route-property-order": "error",
     "constructor-super": "warn",
     "for-direction": "warn",
@@ -92,6 +122,7 @@
     "oxc/number-arg-out-of-range": "warn",
     "oxc/only-used-in-recursion": "warn",
     "oxc/uninvoked-array-callback": "warn",
+    "typescript/array-type": ["warn", { default: "generic" }],
     "typescript/await-thenable": "warn",
     "typescript/no-array-delete": "warn",
     "typescript/no-base-to-string": "warn",
@@ -129,31 +160,6 @@
     "unicorn/no-useless-length-check": "warn",
     "unicorn/no-useless-spread": "warn",
     "unicorn/prefer-set-size": "warn",
-    "unicorn/prefer-string-starts-ends-with": "warn"
+    "unicorn/prefer-string-starts-ends-with": "warn",
   },
-  "settings": {
-    "jsx-a11y": {
-      "polymorphicPropName": null,
-      "components": {},
-      "attributes": {}
-    },
-    "react": {
-      "formComponents": [],
-      "linkComponents": [],
-      "version": null
-    },
-    "jsdoc": {
-      "ignorePrivate": false,
-      "ignoreInternal": false,
-      "ignoreReplacesDocs": true,
-      "overrideReplacesDocs": true,
-      "augmentsExtendsReplacesDocs": false,
-      "implementsReplacesDocs": false,
-      "exemptDestructuredRootsFromChecks": false,
-      "tagNamePreference": {}
-    },
-    "vitest": {
-      "typecheck": false
-    }
-  }
-}
+});

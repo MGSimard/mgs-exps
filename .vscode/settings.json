@@ -3,20 +3,20 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "always"
+    "source.fixAll.oxc": "always",
   },
   "oxc.typeAware": true,
   "files.associations": {
     "*.css": "tailwindcss",
-    "*.scss": "tailwindcss"
+    "*.scss": "tailwindcss",
   },
   "files.watcherExclude": {
-    "**/routeTree.gen.ts": true
-  },
-  "search.exclude": {
-    "**/routeTree.gen.ts": true
+    "**/routeTree.gen.ts": true,
   },
   "files.readonlyInclude": {
-    "**/routeTree.gen.ts": true
-  }
+    "**/routeTree.gen.ts": true,
+  },
+  "search.exclude": {
+    "**/routeTree.gen.ts": true,
+  },
 }

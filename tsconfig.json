@@ -1,12 +1,18 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["**/*.ts", "**/*.tsx", ".oxfmtrc.json", ".oxlintrc.json", "vite.config.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "target": "ES2022", // Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
     "jsx": "react-jsx", // Specify what JSX code is generated.
     "module": "ESNext", // Specify what module code is generated.
     "lib": ["ES2022", "DOM", "DOM.Iterable"], // Specify a set of bundled library declaration files that describe the target runtime environment.
     "types": ["vite/client"], // Specify type package names to be included without being referenced in a source file.
+
+    "paths": {
+      // Specify a set of entries that re-map imports to additional lookup locations.
+      "#/*": ["./src/*"], // Node subpath imports (package.json `imports`)
+      "@/*": ["./src/*"], // App shortcut
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler", // Specify how TypeScript looks up a file from a given module specifier.
@@ -31,9 +37,5 @@
     "noUncheckedIndexedAccess": true, // Add `undefined` to a type when accessed using an index.
     "noUncheckedSideEffectImports": true, // Check side effect imports.
     "useUnknownInCatchVariables": true, // Default catch clause variables as `unknown` instead of `any`.
-    "paths": {
-      // Specify a set of entries that re-map imports to additional lookup locations.
-      "@/*": ["./src/*"]
-    }
-  }
+  },
 }

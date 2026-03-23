@@ -3,9 +3,9 @@
     "azizziy.oklch-as",
     "bradlc.vscode-tailwindcss",
     "coderabbit.coderabbit-vscode",
-    "github.vscode-github-actions",
     "GitHub.vscode-pull-request-github",
+    "github.vscode-github-actions",
     "oxc.oxc-vscode",
-    "YoavBls.pretty-ts-errors"
-  ]
+    "YoavBls.pretty-ts-errors",
+  ],
 }
