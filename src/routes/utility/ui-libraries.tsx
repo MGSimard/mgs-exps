@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeCSV } from "@/components/layout/PageType-CSV";
 import { Section } from "@/components/elements/Section";
-import { Label } from "@/components/elements/Label";
-import { Separator } from "@/components/shadcn-ui/separator";
 
 export const Route = createFileRoute("/utility/ui-libraries")({
   component: RouteComponent,
