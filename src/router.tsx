@@ -8,7 +8,7 @@ export const getRouter = () => {
     context: {},
     defaultPreload: "intent",
     defaultPreloadStaleTime: 0,
-    defaultViewTransition: false,
+    defaultViewTransition: true,
     scrollRestoration: true,
     defaultErrorComponent: (props) => <div>Error: {props.error.message}</div>, // TASK
     defaultNotFoundComponent: () => <div>Not Found</div>, // TASK
