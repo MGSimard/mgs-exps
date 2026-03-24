@@ -1,7 +1,5 @@
 import { Label } from "@/components/elements/Label";
 import { cn } from "@/lib/utils";
-
-const COLUMN_KEYS = ["name", "url", "tags"] as const;
 type CSVRow = {
   id: string;
   name: string;
@@ -29,29 +27,43 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
         {description && <p className="text-muted-foreground italic">{description}</p>}
         <input type="search" placeholder="Search" className="w-full" />
       </div>
-      <div className="min-h-0 flex-1 overflow-auto">
-        <table className="w-full [&_td]:px-2 [&_td]:py-1">
+      <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto">
+        <table className="w-full table-fixed [&_td]:max-w-0 [&_td]:truncate [&_td]:px-2 [&_td]:py-1 [&_td]:align-middle [&_td]:whitespace-nowrap [&_th]:max-w-0 [&_th]:truncate [&_th]:border-b [&_th]:px-2 [&_th]:py-2 [&_th]:text-left [&_th]:align-middle [&_th]:whitespace-nowrap">
           <thead className="sticky top-0 z-10 bg-background">
-            <tr>
-              {COLUMN_KEYS.map((key) => (
-                <th key={key} className="border-b px-2 py-2 text-left">
-                  {key}
-                </th>
-              ))}
+            <tr className="font-mono text-sm text-muted-foreground uppercase [&>th]:font-normal">
+              <th>name</th>
+              <th>url</th>
+              <th>tags</th>
             </tr>
           </thead>
           <tbody>
             {data.map((row) => (
-              <tr key={row.id} className="border-b">
-                {COLUMN_KEYS.map((key) => (
-                  <td key={key}>{key === "tags" ? row.tags.join(", ") : row[key]}</td>
-                ))}
+              <tr
+                key={row.id}
+                className="border-b hover:bg-muted has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline">
+                <td>
+                  <a href={row.url} target="_blank" rel="noopener noreferrer">
+                    {row.name}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href={row.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-mono font-muted-foreground text-xs uppercase">
+                    {row.url}
+                  </a>
+                </td>
+                <td className="font-mono text-xs font-normal text-muted-foreground uppercase">{row.tags.join(", ")}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div className="shrink-0 border-t bg-background px-2 py-2">Table Footer Area</div>
+      <div className="shrink-0 border-t bg-background p-2 font-mono text-xs font-normal text-muted-foreground uppercase">
+        {data.length} ROWS
+      </div>
     </div>
   );
 }
