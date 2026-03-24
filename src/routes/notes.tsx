@@ -9,7 +9,6 @@ function RouteComponent() {
   return (
     <PageTypeMD label="NOTES" title="NOTES" description="Exported from Discord">
       <ul>
-        <li>https://www.unicorn.studio/ (Unicorn Studio — No-code WebGL Tool)</li>
         <li>https://ui.shadcn.com/docs/directory (Registry Directory)</li>
         <li>https://www.eldoraui.site/ (Eldora UI)</li>
         <li>https://21st.dev/community/components (Discover community-made UI components | 21st.dev)</li>
@@ -58,8 +57,6 @@ function RouteComponent() {
           duplicated layer that moves around)
         </li>
         <li>https://tailark.com/veil (Veil Kit | Tailark)</li>
-        <li>https://smooth-blur.vercel.app/ (Smooth Blur - Progressive Blur Generator)</li>
-        <li>https://grainrad.com/ (Grainrad)</li>
         <li>https://observablehq.com/ (Observable | The modern data visualization platform | Observable)</li>
         <li>https://agent-auth-protocol.com/ (Agent Auth)</li>
       </ul>
