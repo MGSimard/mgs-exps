@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Section } from "@/components/elements/Section";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { GridGallery } from "@/components/GridGallery";
 import type { Slide } from "@/components/GridGallery";
@@ -40,8 +41,7 @@ export const Route = createFileRoute("/r-exp/moodboard")({
 function RouteComponent() {
   return (
     <PageTypeMD label="R-EXP" title="Moodboard">
-      <section>
-        <h2 className="text-lg font-bold">Notes:</h2>
+      <Section title="Notes">
         <p className="mb-4">
           This moodboard defines the thematic and visual territory the logo should draw from. The references highlight
           system interfaces, authentication workflows, aerospace environments, diagnostic overlays, and structured grid
@@ -54,16 +54,14 @@ function RouteComponent() {
           mark should feel engineered, intentional, and structurally sound. It should suggest authority, security, and
           operational clarity without becoming overly decorative or literal.
         </p>
-      </section>
+      </Section>
       <Separator />
-      <section>
-        <h2 className="text-lg font-bold">MOODBOARD</h2>
-        <GridGallery slides={MOODBOARD_SLIDES} className="mt-4" />
-      </section>
+      <Section title="Moodboard">
+        <GridGallery slides={MOODBOARD_SLIDES} />
+      </Section>
       <Separator />
-      <section>
-        <h2 className="text-lg font-bold">VIDEO MEDIA</h2>
-        <Grid className="mt-4">
+      <Section title="Video Media">
+        <Grid>
           <div className="aspect-video overflow-hidden">
             <video
               src="/assets/r-exp/moodboard/ZRj7ayLAKeX59GFW.mp4"
@@ -87,7 +85,7 @@ function RouteComponent() {
             />
           </div>
         </Grid>
-      </section>
+      </Section>
     </PageTypeMD>
   );
 }
