@@ -1,48 +1,40 @@
 /** 
-* GEIST SANS
+* GEIST SANS VARIABLE
 * https://vercel.com/font
-* WOFF2 & TTF FALLBACK
+* WOFF2
 * WEIGHTS: 100 - 900
 */
 @font-face {
   font-family: "Geist Sans";
-  src:
-    url("/fonts/Geist/Geist-Variable.woff2") format("woff2"),
-    url("/fonts/Geist/Geist-Variable.ttf") format("truetype");
+  src: url("/assets/fonts/Geist/Geist-Variable.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Geist Sans";
-  src:
-    url("/fonts/Geist/Geist-Variable-Italic.woff2") format("woff2"),
-    url("/fonts/Geist/Geist-Variable-Italic.ttf") format("truetype");
+  src: url("/assets/fonts/Geist/Geist-Variable-Italic.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
 }
 
 /** 
-* GEIST MONO
+* GEIST MONO VARIABLE
 * https://vercel.com/font
-* WOFF2 & TTF FALLBACK
+* WOFF2
 * WEIGHTS: 100 - 900
 */
 @font-face {
   font-family: "Geist Mono";
-  src:
-    url("/fonts/GeistMono/GeistMono-Variable.woff2") format("woff2"),
-    url("/fonts/GeistMono/GeistMono-Variable.ttf") format("truetype");
+  src: url("/fonts/GeistMono/GeistMono-Variable.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Geist Mono";
-  src:
-    url("/fonts/GeistMono/GeistMono-Variable-Italic.woff2") format("woff2"),
-    url("/fonts/GeistMono/GeistMono-Variable-Italic.ttf") format("truetype");
+  src: url("/fonts/GeistMono/GeistMono-Variable-Italic.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
@@ -51,41 +43,32 @@
 /** 
 * GEIST PIXEL
 * https://vercel.com/font
-* WOFF2 & TTF FALLBACK
+* WOFF2
+* Circle, Grid, Line, Square, Triangle
 */
 @font-face {
   font-family: "Geist Pixel Circle";
-  src:
-    url("/fonts/GeistPixel/GeistPixel-Circle.woff2") format("woff2"),
-    url("/fonts/GeistPixel/GeistPixel-Circle.ttf") format("truetype");
+  src: url("/fonts/GeistPixel/GeistPixel-Circle.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Geist Pixel Grid";
-  src:
-    url("/fonts/GeistPixel/GeistPixel-Grid.woff2") format("woff2"),
-    url("/fonts/GeistPixel/GeistPixel-Grid.ttf") format("truetype");
+  src: url("/fonts/GeistPixel/GeistPixel-Grid.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Geist Pixel Line";
-  src:
-    url("/fonts/GeistPixel/GeistPixel-Line.woff2") format("woff2"),
-    url("/fonts/GeistPixel/GeistPixel-Line.ttf") format("truetype");
+  src: url("/fonts/GeistPixel/GeistPixel-Line.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Geist Pixel Square";
-  src:
-    url("/fonts/GeistPixel/GeistPixel-Square.woff2") format("woff2"),
-    url("/fonts/GeistPixel/GeistPixel-Square.ttf") format("truetype");
+  src: url("/fonts/GeistPixel/GeistPixel-Square.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Geist Pixel Triangle";
-  src:
-    url("/fonts/GeistPixel/GeistPixel-Triangle.woff2") format("woff2"),
-    url("/fonts/GeistPixel/GeistPixel-Triangle.ttf") format("truetype");
+  src: url("/fonts/GeistPixel/GeistPixel-Triangle.woff2") format("woff2");
   font-display: swap;
 }
 
