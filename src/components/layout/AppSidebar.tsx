@@ -148,6 +148,10 @@ const links: Links = {
       label: "Notes.md",
       path: "/notes",
     },
+    {
+      label: "Articles.csv",
+      path: "/articles",
+    },
   ],
   references: [
     {
