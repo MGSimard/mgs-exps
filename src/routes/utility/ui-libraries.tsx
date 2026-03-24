@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageTypeCSV } from "@/components/layout/PageType-CSV";
+import { PageTypeCSV } from "@/components/layout/PageTypeCSV";
 
 export const Route = createFileRoute("/utility/ui-libraries")({
   component: RouteComponent,
@@ -12,8 +12,8 @@ function RouteComponent() {
 const TABLE_DATA = [
   {
     id: "lib-001",
-    name: "Item",
-    url: "https://www.url.com",
-    tags: ["tag", "example"],
+    name: "shadcn/ui",
+    url: "https://ui.shadcn.com/",
+    tags: ["Design System", "shadcn/ui"],
   },
 ];

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageTypeMD } from "@/components/layout/PageType-MD";
+import { PageTypeMD } from "@/components/layout/PageTypeMD";
 import { Section } from "@/components/elements/Section";
 import { Label } from "@/components/elements/Label";
 import { ExternalLink } from "@/components/elements/ExternalLink";

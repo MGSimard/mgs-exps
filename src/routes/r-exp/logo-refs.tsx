@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/elements/Section";
 import { MasonryGallery } from "@/components/MasonryGallery";
 import type { Slide } from "@/components/MasonryGallery";
-import { PageTypeMD } from "@/components/layout/PageType-MD";
+import { PageTypeMD } from "@/components/layout/PageTypeMD";
 import { Separator } from "@/components/shadcn-ui/separator";
 
 const withThumb = <T extends { url: string }>(slide: T): T & { thumbUrl: string } => ({

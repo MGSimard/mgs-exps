@@ -104,7 +104,7 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
       </div>
       <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto">
         <table className="w-full table-fixed [&_td]:max-w-0 [&_td]:truncate [&_td]:px-4 [&_td]:py-1 [&_td]:align-middle [&_td]:whitespace-nowrap [&_th]:max-w-0 [&_th]:truncate [&_th]:border-b [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:align-middle [&_th]:whitespace-nowrap">
-          <thead className="sticky top-0 z-10 bg-background">
+          <thead className="sticky top-0 z-1 bg-background/70">
             <tr className="font-mono text-sm text-muted-foreground uppercase [&>th]:font-normal">
               <th>name</th>
               <th>url</th>
