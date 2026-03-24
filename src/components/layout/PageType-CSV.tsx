@@ -73,7 +73,7 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
 
   return (
     <div className={cn("flex h-dvh min-h-0 w-full flex-col overflow-hidden", className)} {...props}>
-      <div className="shrink-0 space-y-4 border-b px-4 py-2">
+      <div className="shrink-0 space-y-4 border-b px-4 py-4">
         <h1>
           <Label className="mb-2">{label}</Label>
           <span className="block text-4xl font-bold uppercase">{title}</span>
