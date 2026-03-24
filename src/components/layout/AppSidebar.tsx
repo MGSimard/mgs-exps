@@ -55,6 +55,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
+          <SidebarGroupLabel>Files</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {links.files.map((item, index) => (
+                <Tree key={index} node={item} />
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel>References</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -65,11 +75,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Files</SidebarGroupLabel>
+          <SidebarGroupLabel>Utility</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {links.files.map((item, index) => (
-                <Tree key={index} node={item} />
+              {links.utility.map((item, index) => (
+                <SidebarMenuItem key={index}>
+                  <SidebarMenuButton
+                    render={
+                      <Link to={item.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />
+                    }>
+                    <IconFile />
+                    {item.label}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -132,11 +150,12 @@ function Tree({ node }: { node: TreeNode }) {
 
 type RoutePath = string;
 type TreeNode = { label: string; path: RoutePath } | { label: string; children: Array<TreeNode> };
-type Links = {
+interface Links {
   notes: Array<{ label: string; path: RoutePath }>;
-  references: Array<TreeNode>;
   files: Array<TreeNode>;
-};
+  references: Array<TreeNode>;
+  utility: Array<{ label: string; path: RoutePath }>;
+}
 
 const links: Links = {
   notes: [
@@ -151,6 +170,25 @@ const links: Links = {
     {
       label: "Articles.md",
       path: "/articles",
+    },
+  ],
+  files: [
+    {
+      label: "Components",
+      children: [],
+    },
+    {
+      label: "R-EXP",
+      children: [
+        {
+          label: "Logo References",
+          path: "/r-exp/logo-refs",
+        },
+        {
+          label: "Moodboard",
+          path: "/r-exp/moodboard",
+        },
+      ],
     },
   ],
   references: [
@@ -193,23 +231,14 @@ const links: Links = {
       ],
     },
   ],
-  files: [
+  utility: [
     {
-      label: "Components",
-      children: [],
+      label: "UI Libraries.csv",
+      path: "/utility/ui-libraries",
     },
     {
-      label: "R-EXP",
-      children: [
-        {
-          label: "Logo References",
-          path: "/r-exp/logo-refs",
-        },
-        {
-          label: "Moodboard",
-          path: "/r-exp/moodboard",
-        },
-      ],
+      label: "Tools.csv",
+      path: "/utility/tools",
     },
   ],
 };

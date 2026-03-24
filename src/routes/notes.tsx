@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
-import { Label } from "@/components/elements/Label";
-import { Separator } from "@/components/shadcn-ui/separator";
 
 export const Route = createFileRoute("/notes")({
   component: RouteComponent,
@@ -9,13 +7,7 @@ export const Route = createFileRoute("/notes")({
 
 function RouteComponent() {
   return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">NOTES</Label>
-        <span className="block text-4xl font-bold uppercase">NOTES</span>
-      </h1>
-      <p className="text-muted-foreground italic">Exported from Discord</p>
-      <Separator />
+    <PageTypeMD label="NOTES" title="NOTES" description="Exported from Discord">
       <ul>
         <li>https://www.unicorn.studio/ (Unicorn Studio — No-code WebGL Tool)</li>
         <li>https://ui.shadcn.com/docs/directory (Registry Directory)</li>

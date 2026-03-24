@@ -1,15 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { Section } from "@/components/elements/Section";
-import { Label } from "@/components/elements/Label";
-import { ExternalLink } from "@/components/elements/ExternalLink";
 import { GridGallery } from "#/components/GridGallery";
 import type { Slide } from "#/components/GridGallery";
-import { Separator } from "@/components/shadcn-ui/separator";
 
 export const Route = createFileRoute("/references/james-lee")({
   component: RouteComponent,
 });
+
+const HEADER_LINKS = [
+  {
+    url: "https://x.com/jameslee03/",
+    label: "x.com/jameslee03",
+  },
+  {
+    url: "https://www.youtube.com/@JamesLee/",
+    label: "youtube.com/@JamesLee",
+  },
+];
+
+function RouteComponent() {
+  return (
+    <PageTypeMD label="REFERENCES" title="James Lee" links={HEADER_LINKS}>
+      <Section title="BREAKING UP WITH ADOBE">
+        <GridGallery slides={BREAKING_UP_WITH_ADOBE_SLIDES} />
+      </Section>
+    </PageTypeMD>
+  );
+}
 
 const BREAKING_UP_WITH_ADOBE_SLIDES: Array<Slide> = [
   {
@@ -53,26 +71,3 @@ const BREAKING_UP_WITH_ADOBE_SLIDES: Array<Slide> = [
     alt: "BREAKING UP WITH ADOBE 8",
   },
 ];
-
-function RouteComponent() {
-  return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">REFERENCES</Label>
-        <span className="block text-4xl font-bold uppercase">James Lee</span>
-      </h1>
-      <ul>
-        <li>
-          <ExternalLink href="https://x.com/jameslee03/">x.com/jameslee03</ExternalLink>
-        </li>
-        <li>
-          <ExternalLink href="https://www.youtube.com/@JamesLee">youtube.com/@JamesLee</ExternalLink>
-        </li>
-      </ul>
-      <Separator />
-      <Section title="BREAKING UP WITH ADOBE">
-        <GridGallery slides={BREAKING_UP_WITH_ADOBE_SLIDES} />
-      </Section>
-    </PageTypeMD>
-  );
-}

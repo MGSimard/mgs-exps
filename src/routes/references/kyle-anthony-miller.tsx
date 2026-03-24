@@ -11,6 +11,44 @@ export const Route = createFileRoute("/references/kyle-anthony-miller")({
   component: RouteComponent,
 });
 
+const HEADER_LINKS = [
+  {
+    url: "https://x.com/kyleanthony/",
+    label: "x.com/kyleanthony",
+  },
+  {
+    url: "https://brasshands.com/",
+    label: "brasshands.com",
+  },
+];
+
+function RouteComponent() {
+  return (
+    <PageTypeMD label="REFERENCES" title="Kyle Anthony Miller" links={HEADER_LINKS}>
+      <Section title="CATHEDRAL THERAPEUTICS">
+        <GridGallery slides={CATHEDRAL_THERAPEUTICS_SLIDES} />
+      </Section>
+      <Separator />
+      <Section title="FACTORY">
+        <GridGallery slides={FACTORY_SLIDES} />
+      </Section>
+      <Separator />
+      <Section title="SYNTHETIC">
+        <GridGallery slides={SYNTHETIC_SLIDES} />
+      </Section>
+      <Separator />
+      <Section title="UNITED DRONE COMPANY">
+        <GridGallery slides={UNITED_DRONE_COMPANY_SLIDES} />
+      </Section>
+      <Separator />
+      <Section title="MISC">
+        <GridGallery slides={MISC_SLIDES} />
+      </Section>
+      <Separator />
+    </PageTypeMD>
+  );
+}
+
 const CATHEDRAL_THERAPEUTICS_SLIDES: Array<Slide> = [
   {
     url: "/assets/references/kyle-anthony-miller/cathedral-therapeutics-1.webp",
@@ -190,43 +228,3 @@ const MISC_SLIDES: Array<Slide> = [
     alt: "Misc 16",
   },
 ];
-
-function RouteComponent() {
-  return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">REFERENCES</Label>
-        <span className="block text-4xl font-bold uppercase">Kyle Anthony Miller</span>
-      </h1>
-      <ul>
-        <li>
-          <ExternalLink href="https://x.com/kyleanthony">x.com/kyleanthony</ExternalLink>
-        </li>
-        <li>
-          <ExternalLink href="https://brasshands.com/">brasshands.com</ExternalLink>
-        </li>
-      </ul>
-      <Separator />
-      <Section title="CATHEDRAL THERAPEUTICS">
-        <GridGallery slides={CATHEDRAL_THERAPEUTICS_SLIDES} />
-      </Section>
-      <Separator />
-      <Section title="FACTORY">
-        <GridGallery slides={FACTORY_SLIDES} />
-      </Section>
-      <Separator />
-      <Section title="SYNTHETIC">
-        <GridGallery slides={SYNTHETIC_SLIDES} />
-      </Section>
-      <Separator />
-      <Section title="UNITED DRONE COMPANY">
-        <GridGallery slides={UNITED_DRONE_COMPANY_SLIDES} />
-      </Section>
-      <Separator />
-      <Section title="MISC">
-        <GridGallery slides={MISC_SLIDES} />
-      </Section>
-      <Separator />
-    </PageTypeMD>
-  );
-}

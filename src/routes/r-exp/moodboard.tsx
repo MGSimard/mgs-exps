@@ -33,8 +33,7 @@ export const Route = createFileRoute("/r-exp/moodboard")({
 
 function RouteComponent() {
   return (
-    <PageTypeMD>
-      <h1 className="text-2xl font-bold uppercase">R MOODBOARD</h1>
+    <PageTypeMD label="R-EXP" title="Moodboard">
       <section>
         <h2 className="text-lg font-bold">Notes:</h2>
         <p className="mb-4">

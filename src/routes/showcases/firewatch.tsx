@@ -9,21 +9,18 @@ export const Route = createFileRoute("/showcases/firewatch")({
   component: RouteComponent,
 });
 
+const HEADER_LINKS = [
+  {
+    url: "https://www.firewatchgame.com/",
+    label: "firewatchgame.com",
+  },
+];
+
 function RouteComponent() {
   return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">SHOWCASES</Label>
-        <span className="block text-4xl font-bold uppercase">Firewatch</span>
-      </h1>
-      <ul>
-        <li>
-          <ExternalLink href="https://www.firewatchgame.com/">firewatchgame.com</ExternalLink>
-        </li>
-      </ul>
-      <Separator />
+    <PageTypeMD label="SHOWCASES" title="Firewatch" links={HEADER_LINKS}>
       <Section>
-        <iframe src="https://www.firewatchgame.com/" width="100%" height="600px"></iframe>
+        <iframe src="https://www.firewatchgame.com/" title="Firewatch" width="100%" height="600px"></iframe>
       </Section>
     </PageTypeMD>
   );

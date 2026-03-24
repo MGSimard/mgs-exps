@@ -34,8 +34,7 @@ export const Route = createFileRoute("/r-exp/logo-refs")({
 
 function RouteComponent() {
   return (
-    <PageTypeMD>
-      <h1 className="text-2xl font-bold uppercase">R REFERENCES</h1>
+    <PageTypeMD label="R-EXP" title="Logo References">
       <section>
         <h2 className="text-lg font-bold">Notes:</h2>
         <ul className="list-inside list-disc">
@@ -48,7 +47,6 @@ function RouteComponent() {
           </li>
         </ul>
       </section>
-      <Separator />
       <section>
         <h2 className="text-lg font-bold">TAG REFERENCES</h2>
         <ul className="list-inside list-disc">

@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { Section } from "@/components/elements/Section";
-import { Label } from "@/components/elements/Label";
-import { ExternalLink } from "@/components/elements/ExternalLink";
 import { GridGallery } from "#/components/GridGallery";
 import type { Slide } from "#/components/GridGallery";
 import { Separator } from "@/components/shadcn-ui/separator";
@@ -10,6 +8,31 @@ import { Separator } from "@/components/shadcn-ui/separator";
 export const Route = createFileRoute("/references/serge-tyutik")({
   component: RouteComponent,
 });
+
+const HEADER_LINKS = [
+  {
+    url: "https://x.com/tdeser/",
+    label: "x.com/tdeser",
+  },
+  {
+    url: "https://growa.studio/",
+    label: "growa.studio",
+  },
+];
+
+function RouteComponent() {
+  return (
+    <PageTypeMD label="REFERENCES" title="Serge Tyutik" links={HEADER_LINKS}>
+      <Section title="ORYN">
+        <GridGallery slides={ORYN_SLIDES} />
+      </Section>
+      <Separator />
+      <Section title="SR3">
+        <GridGallery slides={SR3_SLIDES} />
+      </Section>
+    </PageTypeMD>
+  );
+}
 
 const ORYN_SLIDES: Array<Slide> = [
   {
@@ -76,30 +99,3 @@ const SR3_SLIDES: Array<Slide> = [
     alt: "SR3 4",
   },
 ];
-
-function RouteComponent() {
-  return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">REFERENCES</Label>
-        <span className="block text-4xl font-bold uppercase">Serge Tyutik</span>
-      </h1>
-      <ul>
-        <li>
-          <ExternalLink href="https://x.com/tdeser/">x.com/tdeser</ExternalLink>
-        </li>
-        <li>
-          <ExternalLink href="https://growa.studio/">growa.studio</ExternalLink>
-        </li>
-      </ul>
-      <Separator />
-      <Section title="ORYN">
-        <GridGallery slides={ORYN_SLIDES} />
-      </Section>
-      <Separator />
-      <Section title="SR3">
-        <GridGallery slides={SR3_SLIDES} />
-      </Section>
-    </PageTypeMD>
-  );
-}

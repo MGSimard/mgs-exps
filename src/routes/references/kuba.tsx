@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { Section } from "@/components/elements/Section";
-import { Label } from "@/components/elements/Label";
-import { ExternalLink } from "@/components/elements/ExternalLink";
 import { GridGallery } from "#/components/GridGallery";
 import type { Slide } from "#/components/GridGallery";
 import { Separator } from "@/components/shadcn-ui/separator";
@@ -10,6 +8,28 @@ import { Separator } from "@/components/shadcn-ui/separator";
 export const Route = createFileRoute("/references/kuba")({
   component: RouteComponent,
 });
+
+const HEADER_LINKS = [
+  {
+    url: "https://x.com/kubadesign/",
+    label: "x.com/kubadesign",
+  },
+  {
+    url: "https://heykuba.com/",
+    label: "heykuba.com",
+  },
+];
+
+function RouteComponent() {
+  return (
+    <PageTypeMD label="REFERENCES" title="Kuba" links={HEADER_LINKS}>
+      <Section title="CYPHER">
+        <GridGallery slides={CYPHER_SLIDES} />
+      </Section>
+      <Separator />
+    </PageTypeMD>
+  );
+}
 
 const CYPHER_SLIDES: Array<Slide> = [
   {
@@ -43,27 +63,3 @@ const CYPHER_SLIDES: Array<Slide> = [
     alt: "CYPHER 6",
   },
 ];
-
-function RouteComponent() {
-  return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">REFERENCES</Label>
-        <span className="block text-4xl font-bold uppercase">Kuba</span>
-      </h1>
-      <ul>
-        <li>
-          <ExternalLink href="https://x.com/kubadesign">x.com/kubadesign</ExternalLink>
-        </li>
-        <li>
-          <ExternalLink href="https://heykuba.com/">heykuba.com</ExternalLink>
-        </li>
-      </ul>
-      <Separator />
-      <Section title="CYPHER">
-        <GridGallery slides={CYPHER_SLIDES} />
-      </Section>
-      <Separator />
-    </PageTypeMD>
-  );
-}

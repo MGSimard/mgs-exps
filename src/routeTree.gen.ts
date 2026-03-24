@@ -13,6 +13,8 @@ import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UtilityUiLibrariesRouteImport } from './routes/utility/ui-libraries'
+import { Route as UtilityToolsRouteImport } from './routes/utility/tools'
 import { Route as ShowcasesShoyaKajitaRouteImport } from './routes/showcases/shoya-kajita'
 import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
@@ -41,6 +43,16 @@ const ArticlesRoute = ArticlesRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UtilityUiLibrariesRoute = UtilityUiLibrariesRouteImport.update({
+  id: '/utility/ui-libraries',
+  path: '/utility/ui-libraries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UtilityToolsRoute = UtilityToolsRouteImport.update({
+  id: '/utility/tools',
+  path: '/utility/tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShowcasesShoyaKajitaRoute = ShowcasesShoyaKajitaRouteImport.update({
@@ -104,6 +116,8 @@ export interface FileRoutesByFullPath {
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
+  '/utility/tools': typeof UtilityToolsRoute
+  '/utility/ui-libraries': typeof UtilityUiLibrariesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -119,6 +133,8 @@ export interface FileRoutesByTo {
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
+  '/utility/tools': typeof UtilityToolsRoute
+  '/utility/ui-libraries': typeof UtilityUiLibrariesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -135,6 +151,8 @@ export interface FileRoutesById {
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
+  '/utility/tools': typeof UtilityToolsRoute
+  '/utility/ui-libraries': typeof UtilityUiLibrariesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -152,6 +170,8 @@ export interface FileRouteTypes {
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
+    | '/utility/tools'
+    | '/utility/ui-libraries'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -167,6 +187,8 @@ export interface FileRouteTypes {
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
+    | '/utility/tools'
+    | '/utility/ui-libraries'
   id:
     | '__root__'
     | '/'
@@ -182,6 +204,8 @@ export interface FileRouteTypes {
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
+    | '/utility/tools'
+    | '/utility/ui-libraries'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -198,6 +222,8 @@ export interface RootRouteChildren {
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
   ShowcasesFirewatchRoute: typeof ShowcasesFirewatchRoute
   ShowcasesShoyaKajitaRoute: typeof ShowcasesShoyaKajitaRoute
+  UtilityToolsRoute: typeof UtilityToolsRoute
+  UtilityUiLibrariesRoute: typeof UtilityUiLibrariesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -228,6 +254,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/utility/ui-libraries': {
+      id: '/utility/ui-libraries'
+      path: '/utility/ui-libraries'
+      fullPath: '/utility/ui-libraries'
+      preLoaderRoute: typeof UtilityUiLibrariesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/utility/tools': {
+      id: '/utility/tools'
+      path: '/utility/tools'
+      fullPath: '/utility/tools'
+      preLoaderRoute: typeof UtilityToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/showcases/shoya-kajita': {
@@ -310,6 +350,8 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
   ShowcasesFirewatchRoute: ShowcasesFirewatchRoute,
   ShowcasesShoyaKajitaRoute: ShowcasesShoyaKajitaRoute,
+  UtilityToolsRoute: UtilityToolsRoute,
+  UtilityUiLibrariesRoute: UtilityUiLibrariesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
