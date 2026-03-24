@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Lightbox } from "@/components/Lightbox";
 import { cn } from "@/lib/utils";
 
-type Slide = { url: string; alt: string };
+export type Slide = {
+  url: string;
+  alt: string;
+  thumbUrl?: string;
+};
 
 type MasonryGalleryProps = {
   slides: Array<Slide>;
@@ -27,11 +31,11 @@ export function MasonryGallery({ slides, className }: MasonryGalleryProps) {
         )}>
         {slides.map((slide, index) => (
           <button
-            key={slide.url}
+            key={slide.thumbUrl ?? slide.url}
             type="button"
             onClick={() => openLightbox(index)}
             className="block w-full cursor-pointer border-0 bg-transparent p-0 text-left">
-            <img src={slide.url} alt={slide.alt} loading="lazy" />
+            <img src={slide.thumbUrl ?? slide.url} alt={slide.alt} loading="lazy" />
           </button>
         ))}
       </div>

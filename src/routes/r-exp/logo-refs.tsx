@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MasonryGallery } from "@/components/MasonryGallery";
+import type { Slide } from "@/components/MasonryGallery";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { Separator } from "@/components/shadcn-ui/separator";
 
-const LOGO_REF_SLIDES = [
+const withThumb = <T extends { url: string }>(slide: T): T & { thumbUrl: string } => ({
+  ...slide,
+  thumbUrl: slide.url.replace(/\.[^./]+$/, "-thumb.webp"),
+});
+
+const LOGO_REF_SLIDES: Array<Slide> = [
   { url: "/assets/r-exp/references/marathon.png", alt: "Marathon Logo" },
   { url: "/assets/r-exp/references/arasaka.jpg", alt: "Arasaka Logo" },
   { url: "/assets/r-exp/references/kiroshi.jpg", alt: "Kiroshi Logo" },
@@ -15,9 +21,9 @@ const LOGO_REF_SLIDES = [
   { url: "/assets/r-exp/references/lined-star.png", alt: "Star Logo" },
   { url: "/assets/r-exp/references/lined-h.png", alt: "H Logo" },
   { url: "/assets/r-exp/references/lined-n.png", alt: "N Logo" },
-];
+].map(withThumb);
 
-const OTHER_REF_SLIDES = [
+const OTHER_REF_SLIDES: Array<Slide> = [
   { url: "/assets/r-exp/references/maratype.png", alt: "Maratype Font" },
   { url: "/assets/r-exp/references/bots.png", alt: "" },
   { url: "/assets/r-exp/references/deathisinevitable.png", alt: "" },
@@ -26,7 +32,7 @@ const OTHER_REF_SLIDES = [
   { url: "/assets/r-exp/references/poster3.png", alt: "" },
   { url: "/assets/r-exp/references/poster4.png", alt: "" },
   { url: "/assets/r-exp/references/poster5.png", alt: "" },
-];
+].map(withThumb);
 
 export const Route = createFileRoute("/r-exp/logo-refs")({
   component: RouteComponent,

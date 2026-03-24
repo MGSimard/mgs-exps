@@ -1,10 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageType-MD";
 import { GridGallery } from "@/components/GridGallery";
+import type { Slide } from "@/components/GridGallery";
 import { Grid } from "@/components/Grid";
 import { Separator } from "@/components/shadcn-ui/separator";
 
-const MOODBOARD_SLIDES = [
+const withThumb = <T extends { url: string }>(slide: T): T & { thumbUrl: string } => ({
+  ...slide,
+  thumbUrl: slide.url.replace(/\.[^./]+$/, "-thumb.webp"),
+});
+
+const MOODBOARD_SLIDES: Array<Slide> = [
   { url: "/assets/r-exp/moodboard/splash-screen.png", alt: "Marathon Splash Screen" },
   { url: "/assets/r-exp/moodboard/disclaimer.png", alt: "Marathon Disclaimer" },
   { url: "/assets/r-exp/moodboard/loading.png", alt: "Marathon Loading" },
@@ -25,7 +31,7 @@ const MOODBOARD_SLIDES = [
   { url: "/assets/r-exp/moodboard/presentation11.png", alt: "Marathon Presentation" },
   { url: "/assets/r-exp/moodboard/presentation12.png", alt: "Marathon Presentation" },
   { url: "/assets/r-exp/moodboard/halftone-thing.png", alt: "Halftone Gradient" },
-];
+].map(withThumb);
 
 export const Route = createFileRoute("/r-exp/moodboard")({
   component: RouteComponent,
