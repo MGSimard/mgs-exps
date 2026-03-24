@@ -17,7 +17,7 @@ import {
 } from "@/components/shadcn-ui/sidebar";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/shadcn-ui/collapsible";
 import { ThemeSwitch } from "@/components/layout/ThemeSwitch";
-import { FileIcon, ChevronRightIcon, FolderIcon, SquareDashedBottomCodeIcon } from "lucide-react";
+import { IconFile, IconChevronRight, IconFolder, IconCode } from "@tabler/icons-react";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { setOpenMobile } = useSidebar();
@@ -29,7 +29,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton
               render={<Link to="/" activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />}>
-              <SquareDashedBottomCodeIcon />
+              <IconCode />
               MGS Experiments
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -46,7 +46,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     render={
                       <Link to={item.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />
                     }>
-                    <FileIcon />
+                    <IconFile />
                     {item.label}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -92,7 +92,7 @@ function Tree({ node }: { node: TreeNode }) {
       <SidebarMenuItem>
         <SidebarMenuButton
           render={<Link to={node.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />}>
-          <FileIcon />
+          <IconFile />
           {node.label}
         </SidebarMenuButton>
       </SidebarMenuItem>
@@ -114,8 +114,8 @@ function Tree({ node }: { node: TreeNode }) {
     <SidebarMenuItem>
       <Collapsible className="group/collapsible" defaultOpen={shouldDefaultOpen}>
         <SidebarMenuButton render={<CollapsibleTrigger className="group" />}>
-          <ChevronRightIcon className="transition-transform group-data-panel-open:rotate-90" />
-          <FolderIcon />
+          <IconChevronRight className="transition-transform group-data-panel-open:rotate-90" />
+          <IconFolder />
           {node.label}
         </SidebarMenuButton>
         <CollapsibleContent>

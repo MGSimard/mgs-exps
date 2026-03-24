@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { Switch } from "@/components/shadcn-ui/switch";
-import { SunIcon } from "lucide-react";
+import { IconSun } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
 export function ThemeSwitch({ className }: { className?: string }) {
@@ -19,7 +19,7 @@ export function ThemeSwitch({ className }: { className?: string }) {
 
   return (
     <label htmlFor="theme-switch" className={cn("flex cursor-pointer! items-center gap-2 select-none", className)}>
-      <SunIcon className={cn("size-4", isLight && "fill-current")} />
+      <IconSun className={cn("size-4", isLight && "fill-current")} />
       <Switch
         id="theme-switch"
         checked={isLight}

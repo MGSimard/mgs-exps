@@ -10,7 +10,7 @@ import { Separator } from "@/components/shadcn-ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/shadcn-ui/sheet";
 import { Skeleton } from "@/components/shadcn-ui/skeleton";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/shadcn-ui/tooltip";
-import { PanelLeftIcon } from "lucide-react";
+import { IconLayoutSidebar } from "@tabler/icons-react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -238,7 +238,7 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
         toggleSidebar();
       }}
       {...props}>
-      <PanelLeftIcon />
+      <IconLayoutSidebar />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
