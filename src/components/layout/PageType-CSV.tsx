@@ -40,7 +40,7 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
             {data.map((row) => (
               <tr
                 key={row.id}
-                className="border-b hover:bg-muted has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline">
+                className="border-b hover:bg-muted has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline">
                 <td>
                   <a href={row.url} target="_blank" rel="noopener noreferrer">
                     {row.name}
@@ -61,7 +61,7 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
           </tbody>
         </table>
       </div>
-      <div className="shrink-0 border-t bg-background p-2 font-mono text-xs font-normal text-muted-foreground uppercase">
+      <div className="shrink-0 border-t bg-background px-4 py-2 font-mono text-xs font-normal text-muted-foreground uppercase">
         {data.length} ROWS
       </div>
     </div>
