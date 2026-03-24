@@ -67,6 +67,9 @@ function RouteComponent() {
         </li>
         <li>https://tailark.com/veil (Veil Kit | Tailark)</li>
         <li>https://smooth-blur.vercel.app/ (Smooth Blur - Progressive Blur Generator)</li>
+        <li>https://grainrad.com/ (Grainrad)</li>
+        <li>https://observablehq.com/ (Observable | The modern data visualization platform | Observable)</li>
+        <li>https://agent-auth-protocol.com/ (Agent Auth)</li>
       </ul>
     </PageTypeMD>
   );
