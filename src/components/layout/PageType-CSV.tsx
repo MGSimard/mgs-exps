@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Label } from "@/components/elements/Label";
 import {
   Combobox,
@@ -42,34 +42,19 @@ interface PageTypeCSVProps extends React.ComponentProps<"div"> {
 
 export function PageTypeCSV({ label, title, description, data, className, ...props }: PageTypeCSVProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
   const [selectedTags, setSelectedTags] = useState<Array<string>>([]);
   const anchor = useComboboxAnchor();
 
-  useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, 150);
-
-    return () => window.clearTimeout(timeout);
-  }, [searchQuery]);
-
   const allTags = Array.from(new Set(data.flatMap((row) => row.tags))).sort((a, b) => a.localeCompare(b));
-  const normalizedQuery = normalizeForSearch(debouncedSearchQuery);
+  const normalizedQuery = normalizeForSearch(searchQuery);
   const normalizedSelectedTags = selectedTags.map((tag) => normalizeForSearch(tag));
-  const searchableRows = data.map((row) => ({
-    row,
-    searchBlob: normalizeForSearch(`${row.name} ${row.url} ${row.tags.join(" ")}`),
-    normalizedTags: row.tags.map((tag) => normalizeForSearch(tag)),
-  }));
-
-  const filteredData = searchableRows
-    .filter((entry) => {
-      const matchesQuery = normalizedQuery.length === 0 || entry.searchBlob.includes(normalizedQuery);
-      const matchesTags = normalizedSelectedTags.every((selectedTag) => entry.normalizedTags.includes(selectedTag));
-      return matchesQuery && matchesTags;
-    })
-    .map((entry) => entry.row);
+  const filteredData = data.filter((row) => {
+    const searchBlob = normalizeForSearch(`${row.name} ${row.url} ${row.tags.join(" ")}`);
+    const normalizedTags = row.tags.map((tag) => normalizeForSearch(tag));
+    const matchesQuery = normalizedQuery.length === 0 || searchBlob.includes(normalizedQuery);
+    const matchesTags = normalizedSelectedTags.every((selectedTag) => normalizedTags.includes(selectedTag));
+    return matchesQuery && matchesTags;
+  });
 
   return (
     <div className={cn("flex h-dvh min-h-0 w-full flex-col overflow-hidden", className)} {...props}>
@@ -88,7 +73,7 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
             autoCorrect="off"
             autoComplete="off"
             autoCapitalize="off"
-            spellCheck="false"
+            spellCheck={false}
             className="w-fit"
           />
           <Combobox multiple autoHighlight items={allTags} value={selectedTags} onValueChange={setSelectedTags}>
