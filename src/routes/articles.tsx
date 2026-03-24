@@ -11,12 +11,7 @@ export const Route = createFileRoute("/articles")({
 
 function RouteComponent() {
   return (
-    <PageTypeMD>
-      <h1>
-        <Label className="mb-2">NOTES</Label>
-        <span className="block text-4xl font-bold uppercase">ARTICLES</span>
-      </h1>
-      <Separator />
+    <PageTypeMD label="NOTES" title="ARTICLES">
       <Section title="The Pocket Guide of Essential YC Advice">
         <ExternalLink href="https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice">
           ycombinator.com/library/4D-yc-s-essential-startup-advice

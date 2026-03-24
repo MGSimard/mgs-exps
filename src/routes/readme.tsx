@@ -6,5 +6,9 @@ export const Route = createFileRoute("/readme")({
 });
 
 function RouteComponent() {
-  return <PageTypeMD>Hello "/readme"!</PageTypeMD>;
+  return (
+    <PageTypeMD label="NOTES" title="README">
+      Hello "/readme"!
+    </PageTypeMD>
+  );
 }
