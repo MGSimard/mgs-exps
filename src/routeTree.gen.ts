@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
+import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShowcasesShoyaKajitaRouteImport } from './routes/showcases/shoya-kajita'
 import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
@@ -29,6 +30,11 @@ const ReadmeRoute = ReadmeRouteImport.update({
 const NotesRoute = NotesRouteImport.update({
   id: '/notes',
   path: '/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesRoute = ArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -79,6 +85,7 @@ const RExpLogoRefsRoute = RExpLogoRefsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/articles': typeof ArticlesRoute
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/articles': typeof ArticlesRoute
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/articles': typeof ArticlesRoute
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/articles'
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/articles'
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/articles'
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
@@ -161,6 +173,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArticlesRoute: typeof ArticlesRoute
   NotesRoute: typeof NotesRoute
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
@@ -187,6 +200,13 @@ declare module '@tanstack/react-router' {
       path: '/notes'
       fullPath: '/notes'
       preLoaderRoute: typeof NotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles': {
+      id: '/articles'
+      path: '/articles'
+      fullPath: '/articles'
+      preLoaderRoute: typeof ArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -257,6 +277,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArticlesRoute: ArticlesRoute,
   NotesRoute: NotesRoute,
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,

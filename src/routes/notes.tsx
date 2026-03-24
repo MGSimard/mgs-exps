@@ -46,12 +46,72 @@ function RouteComponent() {
           <li>Be nice! Or at least don't be a jerk.</li>
           <li>Get sleep and exercise - take care of yourself</li>
         </ul>
-        References 1. Do Things That Don&apos;t Scale by Paul Graham ↩ 2. Don&apos;t Talk to Corp Dev by Paul Graham ↩
-        3. How Not To Fail by Jessica Livingston ↩ 4. The Post YC Slump by Sam Altman ↩ 5. Users You Don&apos;t Want by
-        Michael Seibel ↩ 6. The Real Product Market Fit by Michael Seibel ↩ 7. Unit Economics by Sam Altman ↩ 8. Startup
-        Priorities by Geoff Ralston ↩ 9. A Guide to Seed Fundraising by Geoff Ralston. ↩ 10. Fundraising Rounds are not
-        Milestones by Michael Seibel ↩ 11. Mean People Fail by Paul Graham ↩ Recommended Reading 1. A Fundraising
-        Survival Guide by Paul Graham 2. How to Raise Money by Paul Graham 3. Taking Advice by Aaron Harris
+        <ol className="list-inside list-decimal space-y-1 text-xs text-muted-foreground [&>li>*:last-child]:text-muted">
+          <li>
+            <ExternalLink href="http://paulgraham.com/ds.html">Do Things That Don&apos;t Scale</ExternalLink>
+            <span> by Paul Graham</span>
+          </li>
+          <li>
+            <ExternalLink href="http://www.paulgraham.com/corpdev.html">Don&apos;t Talk to Corp Dev</ExternalLink>
+            <span> by Paul Graham</span>
+          </li>
+          <li>
+            <ExternalLink href="https://blog.ycombinator.com/how-not-to-fail/">How Not To Fail</ExternalLink>
+            <span> by Jessica Livingston</span>
+          </li>
+          <li>
+            <ExternalLink href="http://blog.samaltman.com/the-post-yc-slump">The Post YC Slump</ExternalLink>
+            <span> by Sam Altman</span>
+          </li>
+          <li>
+            <ExternalLink href="http://www.michaelseibel.com/blog/users-you-don-t-want">
+              Users You Don&apos;t Want
+            </ExternalLink>{" "}
+            <span> by Michael Seibel</span>
+          </li>
+          <li>
+            <ExternalLink href="http://www.michaelseibel.com/blog/the-real-product-market-fit">
+              The Real Product Market Fit
+            </ExternalLink>{" "}
+            <span> by Michael Seibel</span>
+          </li>
+          <li>
+            <ExternalLink href="http://blog.samaltman.com/unit-economics">Unit Economics</ExternalLink>
+            <span> by Sam Altman</span>
+          </li>
+          <li>
+            <ExternalLink href="http://blog.geoffralston.com/startup-priorities">Startup Priorities</ExternalLink>
+            <span> by Geoff Ralston</span>
+          </li>
+          <li>
+            <ExternalLink href="https://blog.ycombinator.com/how-to-raise-a-seed-round/">
+              A Guide to Seed Fundraising
+            </ExternalLink>{" "}
+            <span> by Geoff Ralston.</span>
+          </li>
+          <li>
+            <ExternalLink href="https://blog.ycombinator.com/fundraising-rounds-are-not-milestones/">
+              Fundraising Rounds are not Milestones
+            </ExternalLink>{" "}
+            <span> by Michael Seibel</span>
+          </li>
+          <li>
+            <ExternalLink href="http://www.paulgraham.com/mean.html">Mean People Fail</ExternalLink>
+            <span> by Paul Graham</span>
+          </li>
+          <li>
+            <ExternalLink href="http://www.paulgraham.com/fundraising.html">A Fundraising Survival Guide</ExternalLink>{" "}
+            <span> by Paul Graham</span>
+          </li>
+          <li>
+            <ExternalLink href="http://paulgraham.com/fr.html">How to Raise Money</ExternalLink>
+            <span> by Paul Graham</span>
+          </li>
+          <li>
+            <ExternalLink href="https://blog.aaronkharris.com/taking-advice">Taking Advice</ExternalLink>
+            <span> by Aaron Harris</span>
+          </li>
+        </ol>
       </Section>
       <Separator />
     </PageTypeMD>
