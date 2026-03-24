@@ -4,28 +4,77 @@ import { Section } from "@/components/elements/Section";
 import { Label } from "@/components/elements/Label";
 import { ExternalLink } from "@/components/elements/ExternalLink";
 import { GridGallery } from "#/components/GridGallery";
+import type { Slide } from "#/components/GridGallery";
 import { Separator } from "@/components/shadcn-ui/separator";
 
 export const Route = createFileRoute("/references/serge-tyutik")({
   component: RouteComponent,
 });
 
-const ORYN_SLIDES = [
-  { url: "/assets/references/serge-tyutik/oryn-1.webp", alt: "Oryn 1" },
-  { url: "/assets/references/serge-tyutik/oryn-2.webp", alt: "Oryn 2" },
-  { url: "/assets/references/serge-tyutik/oryn-3.webp", alt: "Oryn 3" },
-  { url: "/assets/references/serge-tyutik/oryn-4.webp", alt: "Oryn 4" },
-  { url: "/assets/references/serge-tyutik/oryn-5.webp", alt: "Oryn 5" },
-  { url: "/assets/references/serge-tyutik/oryn-6.webp", alt: "Oryn 6" },
-  { url: "/assets/references/serge-tyutik/oryn-7.webp", alt: "Oryn 7" },
-  { url: "/assets/references/serge-tyutik/oryn-8.webp", alt: "Oryn 8" },
+const ORYN_SLIDES: Array<Slide> = [
+  {
+    url: "/assets/references/serge-tyutik/oryn-1.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-1-thumb.webp",
+    alt: "Oryn 1",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-2.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-2-thumb.webp",
+    alt: "Oryn 2",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-3.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-3-thumb.webp",
+    alt: "Oryn 3",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-4.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-4-thumb.webp",
+    alt: "Oryn 4",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-5.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-5-thumb.webp",
+    alt: "Oryn 5",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-6.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-6-thumb.webp",
+    alt: "Oryn 6",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-7.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-7-thumb.webp",
+    alt: "Oryn 7",
+  },
+  {
+    url: "/assets/references/serge-tyutik/oryn-8.webp",
+    thumbUrl: "/assets/references/serge-tyutik/oryn-8-thumb.webp",
+    alt: "Oryn 8",
+  },
 ];
 
-const SR3_SLIDES = [
-  { url: "/assets/references/serge-tyutik/sr3-1.webp", alt: "SR3 1" },
-  { url: "/assets/references/serge-tyutik/sr3-2.webp", alt: "SR3 2" },
-  { url: "/assets/references/serge-tyutik/sr3-3.webp", alt: "SR3 3" },
-  { url: "/assets/references/serge-tyutik/sr3-4.webp", alt: "SR3 4" },
+const SR3_SLIDES: Array<Slide> = [
+  {
+    url: "/assets/references/serge-tyutik/sr3-1.webp",
+    thumbUrl: "/assets/references/serge-tyutik/sr3-1-thumb.webp",
+    alt: "SR3 1",
+  },
+  {
+    url: "/assets/references/serge-tyutik/sr3-2.webp",
+    thumbUrl: "/assets/references/serge-tyutik/sr3-2-thumb.webp",
+    alt: "SR3 2",
+  },
+  {
+    url: "/assets/references/serge-tyutik/sr3-3.webp",
+    thumbUrl: "/assets/references/serge-tyutik/sr3-3-thumb.webp",
+    alt: "SR3 3",
+  },
+  {
+    url: "/assets/references/serge-tyutik/sr3-4.webp",
+    thumbUrl: "/assets/references/serge-tyutik/sr3-4-thumb.webp",
+    alt: "SR3 4",
+  },
 ];
 
 function RouteComponent() {
