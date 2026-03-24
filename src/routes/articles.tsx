@@ -17,8 +17,6 @@ function RouteComponent() {
         <span className="block text-4xl font-bold uppercase">ARTICLES</span>
       </h1>
       <Separator />
-      <Section>https://tkdodo.eu/blog/the-beauty-of-tan-stack-router</Section>
-      <Separator />
       <Section title="The Pocket Guide of Essential YC Advice">
         <ExternalLink href="https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice">
           ycombinator.com/library/4D-yc-s-essential-startup-advice
@@ -113,6 +111,12 @@ function RouteComponent() {
             <span>by Aaron Harris</span>
           </li>
         </ol>
+      </Section>
+      <Separator />
+      <Section title="The Beauty of TanStack Router">
+        <ExternalLink href="https://tkdodo.eu/blog/the-beauty-of-tan-stack-router/">
+          tkdodo.eu/blog/the-beauty-of-tan-stack-router
+        </ExternalLink>
       </Section>
       <Separator />
     </PageTypeMD>
