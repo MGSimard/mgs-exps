@@ -17,6 +17,7 @@ import { Route as ShowcasesShoyaKajitaRouteImport } from './routes/showcases/sho
 import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
 import { Route as ReferencesMarathonRouteImport } from './routes/references/marathon'
+import { Route as ReferencesKyleAnthonyMillerRouteImport } from './routes/references/kyle-anthony-miller'
 import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
 import { Route as ReferencesJamesLeeRouteImport } from './routes/references/james-lee'
 import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
@@ -62,6 +63,12 @@ const ReferencesMarathonRoute = ReferencesMarathonRouteImport.update({
   path: '/references/marathon',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferencesKyleAnthonyMillerRoute =
+  ReferencesKyleAnthonyMillerRouteImport.update({
+    id: '/references/kyle-anthony-miller',
+    path: '/references/kyle-anthony-miller',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ReferencesKubaRoute = ReferencesKubaRouteImport.update({
   id: '/references/kuba',
   path: '/references/kuba',
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
+  '/references/kyle-anthony-miller': typeof ReferencesKyleAnthonyMillerRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
   '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
+  '/references/kyle-anthony-miller': typeof ReferencesKyleAnthonyMillerRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
@@ -121,6 +130,7 @@ export interface FileRoutesById {
   '/r-exp/moodboard': typeof RExpMoodboardRoute
   '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
+  '/references/kyle-anthony-miller': typeof ReferencesKyleAnthonyMillerRoute
   '/references/marathon': typeof ReferencesMarathonRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/r-exp/moodboard'
     | '/references/james-lee'
     | '/references/kuba'
+    | '/references/kyle-anthony-miller'
     | '/references/marathon'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/r-exp/moodboard'
     | '/references/james-lee'
     | '/references/kuba'
+    | '/references/kyle-anthony-miller'
     | '/references/marathon'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
@@ -165,6 +177,7 @@ export interface FileRouteTypes {
     | '/r-exp/moodboard'
     | '/references/james-lee'
     | '/references/kuba'
+    | '/references/kyle-anthony-miller'
     | '/references/marathon'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
@@ -180,6 +193,7 @@ export interface RootRouteChildren {
   RExpMoodboardRoute: typeof RExpMoodboardRoute
   ReferencesJamesLeeRoute: typeof ReferencesJamesLeeRoute
   ReferencesKubaRoute: typeof ReferencesKubaRoute
+  ReferencesKyleAnthonyMillerRoute: typeof ReferencesKyleAnthonyMillerRoute
   ReferencesMarathonRoute: typeof ReferencesMarathonRoute
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
   ShowcasesFirewatchRoute: typeof ShowcasesFirewatchRoute
@@ -244,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferencesMarathonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/kyle-anthony-miller': {
+      id: '/references/kyle-anthony-miller'
+      path: '/references/kyle-anthony-miller'
+      fullPath: '/references/kyle-anthony-miller'
+      preLoaderRoute: typeof ReferencesKyleAnthonyMillerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/references/kuba': {
       id: '/references/kuba'
       path: '/references/kuba'
@@ -284,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   RExpMoodboardRoute: RExpMoodboardRoute,
   ReferencesJamesLeeRoute: ReferencesJamesLeeRoute,
   ReferencesKubaRoute: ReferencesKubaRoute,
+  ReferencesKyleAnthonyMillerRoute: ReferencesKyleAnthonyMillerRoute,
   ReferencesMarathonRoute: ReferencesMarathonRoute,
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
   ShowcasesFirewatchRoute: ShowcasesFirewatchRoute,
