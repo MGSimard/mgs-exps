@@ -149,7 +149,7 @@ const links: Links = {
       path: "/notes",
     },
     {
-      label: "Articles.csv",
+      label: "Articles.md",
       path: "/articles",
     },
   ],
