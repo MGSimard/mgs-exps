@@ -4,8 +4,14 @@ import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import { cn } from "@/lib/utils";
 
+type Slide = {
+  url: string;
+  alt: string;
+  thumbUrl?: string;
+};
+
 interface LightboxProps {
-  slides: Array<{ url: string; alt: string }>;
+  slides: Array<Slide>;
   startIndex: number;
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -145,7 +151,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
               <div className="flex gap-2 backface-hidden">
                 {slides.map((slide, index) => (
                   <button
-                    key={"lb-thumb-" + slide.url}
+                    key={"lb-thumb-" + (slide.thumbUrl ?? slide.url)}
                     type="button"
                     onClick={() => onThumbClick(index)}
                     className={cn(
@@ -155,7 +161,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
                         : "border-transparent opacity-50 hover:opacity-75"
                     )}>
                     <img
-                      src={slide.url}
+                      src={slide.thumbUrl ?? slide.url}
                       alt={slide.alt}
                       className="h-full w-full object-cover select-none"
                       draggable={false}

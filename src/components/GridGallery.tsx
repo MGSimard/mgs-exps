@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Lightbox } from "@/components/Lightbox";
 import { cn } from "@/lib/utils";
 
-type Slide = { url: string; alt: string };
+export type Slide = {
+  url: string;
+  alt: string;
+  thumbUrl?: string;
+};
 
 type GridGalleryProps = {
   slides: Array<Slide>;
@@ -23,12 +27,12 @@ export function GridGallery({ slides, className }: GridGalleryProps) {
       <div className={cn("grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2", className)}>
         {slides.map((slide, index) => (
           <button
-            key={slide.url}
+            key={slide.thumbUrl ?? slide.url}
             type="button"
             onClick={() => openLightbox(index)}
             className="group aspect-video cursor-pointer overflow-hidden border bg-transparent">
             <img
-              src={slide.url}
+              src={slide.thumbUrl ?? slide.url}
               alt={slide.alt}
               loading="lazy"
               className="h-full w-full object-cover transition-all duration-50 group-hover:scale-[1.03] group-hover:contrast-[0.9] group-hover:saturate-[0.7] group-focus-visible:scale-[1.03] group-focus-visible:contrast-[0.9] group-focus-visible:saturate-[0.7]"
