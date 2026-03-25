@@ -49,7 +49,7 @@ const TABLE_DATA = [
   {
     id: "lib-003",
     name: "ReUI",
-    url: "https://reui.io/",
+    url: "https://reui.io",
     tags: ["Base UI", "Components", "Radix UI", "React", "shadcn/ui", "Tailwind CSS"],
   },
   {
