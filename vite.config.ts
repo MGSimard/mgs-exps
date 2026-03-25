@@ -13,7 +13,15 @@ const config = defineConfig({
   plugins: [
     devtools(),
     cloudflare({ viteEnvironment: { name: "ssr" } }),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        onSuccess: ({ page }) => {
+          console.log(`[TanStack Start] Successfully pre-rendered ${page.path}.`);
+        },
+      },
+    }),
     react(),
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
