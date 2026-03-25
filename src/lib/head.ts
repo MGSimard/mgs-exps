@@ -77,6 +77,13 @@ export const fontPreloads = [
     type: "font/woff2",
     crossOrigin: "anonymous",
   },
+  {
+    rel: "preload",
+    href: "/fonts/GeistPixel/GeistPixel-Line.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
 ];
 
 export const mediaPreloads = [
