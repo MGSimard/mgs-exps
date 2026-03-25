@@ -33,6 +33,18 @@ function normalizeForSearch(value: string): string {
     .replace(/[^a-z0-9]+/g, "");
 }
 
+/** Full URL for <a href>; prepends https:// when the stored value is host-only. */
+function resolveExternalHref(raw: string): string {
+  const t = raw.trim();
+  if (!t) return t;
+  return /^https?:\/\//i.test(t) ? t : `https://${t}`;
+}
+
+/** Shorter text for the URL column (no scheme). */
+function formatUrlForDisplay(raw: string): string {
+  return resolveExternalHref(raw).replace(/^https?:\/\//i, "");
+}
+
 interface PageTypeCSVProps extends React.ComponentProps<"div"> {
   label: string;
   title: string;
@@ -112,27 +124,30 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((row) => (
+            {filteredData.map((row) => {
+              const href = resolveExternalHref(row.url);
+              return (
               <tr
                 key={row.id}
                 className="border-b hover:bg-muted has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline">
                 <td>
-                  <a href={row.url} target="_blank" rel="noopener noreferrer">
+                  <a href={href} target="_blank" rel="noopener noreferrer">
                     {row.name}
                   </a>
                 </td>
                 <td>
                   <a
-                    href={row.url}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-mono font-muted-foreground text-xs uppercase">
-                    {row.url}
+                    {formatUrlForDisplay(row.url)}
                   </a>
                 </td>
                 <td className="font-mono text-xs font-normal text-muted-foreground uppercase">{row.tags.join(", ")}</td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>
