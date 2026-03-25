@@ -210,12 +210,12 @@ const links: Links = {
           path: "/references/james-lee",
         },
         {
-          label: "Kuba",
-          path: "/references/kuba",
-        },
-        {
           label: "Kyle Anthony Miller",
           path: "/references/kyle-anthony-miller",
+        },
+        {
+          label: "Kuba",
+          path: "/references/kuba",
         },
         {
           label: "Marathon",
