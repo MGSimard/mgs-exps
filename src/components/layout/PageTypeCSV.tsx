@@ -127,25 +127,27 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
             {filteredData.map((row) => {
               const href = resolveExternalHref(row.url);
               return (
-              <tr
-                key={row.id}
-                className="border-b hover:bg-muted has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline">
-                <td>
-                  <a href={href} target="_blank" rel="noopener noreferrer">
-                    {row.name}
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-mono font-muted-foreground text-xs uppercase">
-                    {formatUrlForDisplay(row.url)}
-                  </a>
-                </td>
-                <td className="font-mono text-xs font-normal text-muted-foreground uppercase">{row.tags.join(", ")}</td>
-              </tr>
+                <tr
+                  key={row.id}
+                  className="border-b hover:bg-muted has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline">
+                  <td>
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      {row.name}
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-mono text-xs text-muted-foreground uppercase">
+                      {formatUrlForDisplay(row.url)}
+                    </a>
+                  </td>
+                  <td className="font-mono text-xs font-normal text-muted-foreground uppercase">
+                    {row.tags.join(", ")}
+                  </td>
+                </tr>
               );
             })}
           </tbody>
