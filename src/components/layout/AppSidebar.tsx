@@ -55,6 +55,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
+          <SidebarGroupLabel>Utility</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {links.utility.map((item, index) => (
+                <SidebarMenuItem key={index}>
+                  <SidebarMenuButton
+                    render={
+                      <Link to={item.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />
+                    }>
+                    <IconFile />
+                    {item.label}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel>Files</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -70,24 +88,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               {links.references.map((item, index) => (
                 <Tree key={index} node={item} />
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Utility</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {links.utility.map((item, index) => (
-                <SidebarMenuItem key={index}>
-                  <SidebarMenuButton
-                    render={
-                      <Link to={item.path} activeProps={{ "data-active": true }} onClick={() => setOpenMobile(false)} />
-                    }>
-                    <IconFile />
-                    {item.label}
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -160,16 +160,26 @@ interface Links {
 const links: Links = {
   notes: [
     {
-      label: "README.md",
+      label: ".README.md",
       path: "/readme",
     },
     {
-      label: "Notes.md",
+      label: ".Notes.md",
       path: "/notes",
     },
     {
       label: "Articles.md",
       path: "/articles",
+    },
+  ],
+  utility: [
+    {
+      label: "Tools.csv",
+      path: "/utility/tools",
+    },
+    {
+      label: "UI Libraries.csv",
+      path: "/utility/ui-libraries",
     },
   ],
   files: [
@@ -229,16 +239,6 @@ const links: Links = {
           path: "/showcases/shoya-kajita",
         },
       ],
-    },
-  ],
-  utility: [
-    {
-      label: "UI Libraries.csv",
-      path: "/utility/ui-libraries",
-    },
-    {
-      label: "Tools.csv",
-      path: "/utility/tools",
     },
   ],
 };
