@@ -164,15 +164,15 @@ const links: Links = {
       path: "/readme",
     },
     {
-      label: "Articles.md",
-      path: "/articles",
-    },
-    {
       label: "Notes.md",
       path: "/notes",
     },
   ],
   utility: [
+    {
+      label: "Articles.csv",
+      path: "/utility/articles",
+    },
     {
       label: "Tools.csv",
       path: "/utility/tools",

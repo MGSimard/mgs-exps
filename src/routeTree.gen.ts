@@ -11,10 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadmeRouteImport } from './routes/readme'
 import { Route as NotesRouteImport } from './routes/notes'
-import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UtilityUiLibrariesRouteImport } from './routes/utility/ui-libraries'
 import { Route as UtilityToolsRouteImport } from './routes/utility/tools'
+import { Route as UtilityBookmarksRouteImport } from './routes/utility/bookmarks'
+import { Route as UtilityArticlesRouteImport } from './routes/utility/articles'
 import { Route as ShowcasesShoyaKajitaRouteImport } from './routes/showcases/shoya-kajita'
 import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
@@ -35,11 +36,6 @@ const NotesRoute = NotesRouteImport.update({
   path: '/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ArticlesRoute = ArticlesRouteImport.update({
-  id: '/articles',
-  path: '/articles',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -53,6 +49,16 @@ const UtilityUiLibrariesRoute = UtilityUiLibrariesRouteImport.update({
 const UtilityToolsRoute = UtilityToolsRouteImport.update({
   id: '/utility/tools',
   path: '/utility/tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UtilityBookmarksRoute = UtilityBookmarksRouteImport.update({
+  id: '/utility/bookmarks',
+  path: '/utility/bookmarks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UtilityArticlesRoute = UtilityArticlesRouteImport.update({
+  id: '/utility/articles',
+  path: '/utility/articles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShowcasesShoyaKajitaRoute = ShowcasesShoyaKajitaRouteImport.update({
@@ -104,7 +110,6 @@ const RExpLogoRefsRoute = RExpLogoRefsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/articles': typeof ArticlesRoute
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
@@ -116,12 +121,13 @@ export interface FileRoutesByFullPath {
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
+  '/utility/articles': typeof UtilityArticlesRoute
+  '/utility/bookmarks': typeof UtilityBookmarksRoute
   '/utility/tools': typeof UtilityToolsRoute
   '/utility/ui-libraries': typeof UtilityUiLibrariesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/articles': typeof ArticlesRoute
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
@@ -133,13 +139,14 @@ export interface FileRoutesByTo {
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
+  '/utility/articles': typeof UtilityArticlesRoute
+  '/utility/bookmarks': typeof UtilityBookmarksRoute
   '/utility/tools': typeof UtilityToolsRoute
   '/utility/ui-libraries': typeof UtilityUiLibrariesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/articles': typeof ArticlesRoute
   '/notes': typeof NotesRoute
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
@@ -151,6 +158,8 @@ export interface FileRoutesById {
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
+  '/utility/articles': typeof UtilityArticlesRoute
+  '/utility/bookmarks': typeof UtilityBookmarksRoute
   '/utility/tools': typeof UtilityToolsRoute
   '/utility/ui-libraries': typeof UtilityUiLibrariesRoute
 }
@@ -158,7 +167,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/articles'
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
@@ -170,12 +178,13 @@ export interface FileRouteTypes {
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
+    | '/utility/articles'
+    | '/utility/bookmarks'
     | '/utility/tools'
     | '/utility/ui-libraries'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/articles'
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
@@ -187,12 +196,13 @@ export interface FileRouteTypes {
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
+    | '/utility/articles'
+    | '/utility/bookmarks'
     | '/utility/tools'
     | '/utility/ui-libraries'
   id:
     | '__root__'
     | '/'
-    | '/articles'
     | '/notes'
     | '/readme'
     | '/r-exp/logo-refs'
@@ -204,13 +214,14 @@ export interface FileRouteTypes {
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
+    | '/utility/articles'
+    | '/utility/bookmarks'
     | '/utility/tools'
     | '/utility/ui-libraries'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ArticlesRoute: typeof ArticlesRoute
   NotesRoute: typeof NotesRoute
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
@@ -222,6 +233,8 @@ export interface RootRouteChildren {
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
   ShowcasesFirewatchRoute: typeof ShowcasesFirewatchRoute
   ShowcasesShoyaKajitaRoute: typeof ShowcasesShoyaKajitaRoute
+  UtilityArticlesRoute: typeof UtilityArticlesRoute
+  UtilityBookmarksRoute: typeof UtilityBookmarksRoute
   UtilityToolsRoute: typeof UtilityToolsRoute
   UtilityUiLibrariesRoute: typeof UtilityUiLibrariesRoute
 }
@@ -240,13 +253,6 @@ declare module '@tanstack/react-router' {
       path: '/notes'
       fullPath: '/notes'
       preLoaderRoute: typeof NotesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/articles': {
-      id: '/articles'
-      path: '/articles'
-      fullPath: '/articles'
-      preLoaderRoute: typeof ArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -268,6 +274,20 @@ declare module '@tanstack/react-router' {
       path: '/utility/tools'
       fullPath: '/utility/tools'
       preLoaderRoute: typeof UtilityToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/utility/bookmarks': {
+      id: '/utility/bookmarks'
+      path: '/utility/bookmarks'
+      fullPath: '/utility/bookmarks'
+      preLoaderRoute: typeof UtilityBookmarksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/utility/articles': {
+      id: '/utility/articles'
+      path: '/utility/articles'
+      fullPath: '/utility/articles'
+      preLoaderRoute: typeof UtilityArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/showcases/shoya-kajita': {
@@ -338,7 +358,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ArticlesRoute: ArticlesRoute,
   NotesRoute: NotesRoute,
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,
@@ -350,6 +369,8 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
   ShowcasesFirewatchRoute: ShowcasesFirewatchRoute,
   ShowcasesShoyaKajitaRoute: ShowcasesShoyaKajitaRoute,
+  UtilityArticlesRoute: UtilityArticlesRoute,
+  UtilityBookmarksRoute: UtilityBookmarksRoute,
   UtilityToolsRoute: UtilityToolsRoute,
   UtilityUiLibrariesRoute: UtilityUiLibrariesRoute,
 }

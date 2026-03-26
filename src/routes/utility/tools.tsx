@@ -16,7 +16,6 @@ const TABLE_DATA = [
     url: "https://observablehq.com",
     tags: ["Collaboration", "Data Analysis", "Data Visualization"],
   },
-
   {
     id: "tool-009",
     name: "Agent Auth",
