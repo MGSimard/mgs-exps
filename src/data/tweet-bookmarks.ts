@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2037713766205608234",
+    url: "https://x.com/_chenglou/status/2037713766205608234",
+    authorName: "Cheng Lou",
+    authorHandle: "_chenglou",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1769736308866613249/ddCXmG6-_normal.jpg",
+    text: "My dear front-end developers (and anyone who’s interested in the future of interfaces): I have crawled through depths of hell to bring you, for the foreseeable years, one of the more important foundational pieces of UI engineering (if not in implementation then certainly at https://t.co/BKnwCDIp75",
+    tags: ["Performance"],
+    postedAt: "2026-03-28",
+    media: {
+      type: "video",
+      src: "https://video.twimg.com/amplify_video/2037713657334042624/vid/avc1/416x270/qh_skljVrRo2wusf.mp4",
+      poster: "https://pbs.twimg.com/amplify_video_thumb/2037713657334042624/img/XfCSjcN7-iX8b_fJ.jpg",
+      alt: "Cheng Lou video preview",
+      aspectRatio: "video",
+    },
+  },
+  {
     id: "tweet-2015930122776564113",
     url: "https://x.com/rincidium/status/2015930122776564113",
     authorName: "Ray",
