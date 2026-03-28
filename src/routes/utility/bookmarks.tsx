@@ -20,30 +20,30 @@ function RouteComponent() {
 export const BOOKMARKS_SOURCE: Array<BookmarkSourceEntry> = [
   {
     url: "https://x.com/rincidium/status/2015930122776564113",
-    tags: ["AI", "Design", "OG Images"],
+    tags: ["Design", "Generative AI"],
   },
   {
     url: "https://x.com/ctnicholasdev/status/2018354238867591321",
-    tags: ["Animation", "Articles", "UI"],
+    tags: ["Animation"],
   },
   {
     url: "https://x.com/viktoroddy/status/2018645043909939419",
-    tags: ["AI", "Animation", "Landing Pages"],
+    tags: ["Design", "GenerativeAI", "Hero"],
   },
   {
     url: "https://x.com/viktorhofte/status/2018725322712027255",
-    tags: ["Onboarding", "Product", "UX"],
+    tags: ["Design", "Onboarding"],
   },
   {
     url: "https://x.com/diegohaz/status/2019751466169229542",
-    tags: ["CSS", "Frontend", "UI"],
+    tags: ["CSS"],
   },
   {
     url: "https://x.com/sorenblank/status/2021671940646482267",
-    tags: ["Performance", "Video", "Web"],
+    tags: ["Performance"],
   },
   {
     url: "https://x.com/jh3yy/status/2024146610398130486",
-    tags: ["CSS", "Effects", "UI"],
+    tags: ["Design"],
   },
 ];

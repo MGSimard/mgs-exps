@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Label } from "@/components/elements/Label";
 import { TweetPreviewCard } from "@/components/elements/TweetPreviewCard";
 import {
@@ -40,25 +40,18 @@ export function PageTypeTweetGrid({ label, title, description, data, className, 
   const [selectedTags, setSelectedTags] = useState<Array<string>>([]);
   const anchor = useComboboxAnchor();
 
-  const allTags = useMemo(
-    () => Array.from(new Set(data.flatMap((tweet) => tweet.tags))).sort((a, b) => a.localeCompare(b)),
-    [data]
-  );
-  const normalizedQuery = useMemo(() => normalizeForSearch(searchQuery), [searchQuery]);
-  const normalizedSelectedTags = useMemo(() => selectedTags.map((tag) => normalizeForSearch(tag)), [selectedTags]);
-  const filteredData = useMemo(() => {
-    return data.filter((tweet) => {
-      const searchBlob = normalizeForSearch(
-        `${tweet.authorName} ${tweet.authorHandle} ${tweet.text} ${tweet.url} ${tweet.tags.join(" ")}`
-      );
-      const normalizedTags = tweet.tags.map((tag) => normalizeForSearch(tag));
-      const matchesQuery = normalizedQuery.length === 0 || searchBlob.includes(normalizedQuery);
-      const matchesTags = normalizedSelectedTags.every((selectedTag) => normalizedTags.includes(selectedTag));
-      return matchesQuery && matchesTags;
-    });
-  }, [data, normalizedQuery, normalizedSelectedTags]);
-
-  const mediaCount = useMemo(() => filteredData.filter((tweet) => tweet.media).length, [filteredData]);
+  const allTags = Array.from(new Set(data.flatMap((tweet) => tweet.tags))).sort((a, b) => a.localeCompare(b));
+  const normalizedQuery = normalizeForSearch(searchQuery);
+  const normalizedSelectedTags = selectedTags.map((tag) => normalizeForSearch(tag));
+  const filteredData = data.filter((tweet) => {
+    const searchBlob = normalizeForSearch(
+      `${tweet.authorName} ${tweet.authorHandle} ${tweet.text} ${tweet.url} ${tweet.tags.join(" ")}`
+    );
+    const normalizedTags = tweet.tags.map((tag) => normalizeForSearch(tag));
+    const matchesQuery = normalizedQuery.length === 0 || searchBlob.includes(normalizedQuery);
+    const matchesTags = normalizedSelectedTags.every((selectedTag) => normalizedTags.includes(selectedTag));
+    return matchesQuery && matchesTags;
+  });
 
   return (
     <div className={cn("flex h-dvh min-h-0 w-full flex-col overflow-hidden", className)} {...props}>
@@ -109,7 +102,7 @@ export function PageTypeTweetGrid({ label, title, description, data, className, 
 
       <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto">
         {filteredData.length > 0 ? (
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-3 px-4 py-4">
+          <div className="columns-[320px] gap-3 px-4 py-4 [&>a]:mb-3 [&>a]:block [&>a]:w-full [&>a]:break-inside-avoid">
             {filteredData.map((tweet) => (
               <TweetPreviewCard key={tweet.id} tweet={tweet} />
             ))}
@@ -124,7 +117,7 @@ export function PageTypeTweetGrid({ label, title, description, data, className, 
       </div>
 
       <div className="shrink-0 border-t bg-background px-4 py-2 font-mono text-xs font-normal text-muted-foreground uppercase">
-        {filteredData.length} Tweets / {mediaCount} Media Previews
+        {filteredData.length} Tweets
       </div>
     </div>
   );
