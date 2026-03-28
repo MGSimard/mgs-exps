@@ -34,7 +34,7 @@ export const TweetPreviewCard = memo(function TweetPreviewCard({ tweet, classNam
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "space-y-4 border bg-background p-4 pb-3 shadow-sm transition-colors hover:bg-muted/20 focus-visible:bg-muted/20",
+        "space-y-4 border bg-background p-4 pb-3 transition-colors hover:bg-muted/20 focus-visible:bg-muted/20",
         className
       )}
       {...props}>
