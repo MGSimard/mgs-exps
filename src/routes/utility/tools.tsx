@@ -11,6 +11,18 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "tool-014",
+    name: "Valency Graphics",
+    url: "https://www.valencygraphics.com",
+    tags: ["Assets", "Reference"],
+  },
+  {
+    id: "tool-013",
+    name: "Shader Lab",
+    url: "https://shader.zeitwork.com/gradient-dither",
+    tags: ["Image", "Shaders", "Video", "WebGL"],
+  },
+  {
     id: "tool-012",
     name: "Dither",
     url: "https://github.com/lenxism/dither",
