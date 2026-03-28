@@ -129,7 +129,7 @@ export function PageTypeCSV({ label, title, description, data, className, ...pro
               return (
                 <tr
                   key={row.id}
-                  className="border-b hover:bg-muted has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline">
+                  className="border-b hover:bg-muted/20 has-[a:focus-visible]:bg-muted/20 has-[a:focus-visible]:[&_a]:text-primary has-[a:focus-visible]:[&_a]:underline has-[a:hover]:[&_a]:text-primary has-[a:hover]:[&_a]:underline">
                   <td>
                     <a href={href} target="_blank" rel="noopener noreferrer">
                       {row.name}
