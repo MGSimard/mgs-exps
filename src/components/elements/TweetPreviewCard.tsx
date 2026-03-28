@@ -96,7 +96,7 @@ export const TweetPreviewCard = memo(function TweetPreviewCard({ tweet, classNam
 
       <Separator />
 
-      <div className="-mt-1 font-mono text-xs text-muted uppercase">{tweet.postedAt ?? "DATE UNKNOWN"}</div>
+      <div className="-mt-1 font-mono text-xs text-muted-foreground uppercase">{tweet.postedAt ?? "DATE UNKNOWN"}</div>
     </a>
   );
 });
