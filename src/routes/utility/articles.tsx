@@ -11,6 +11,12 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "article-008",
+    name: "How to animate multiplayer cursors",
+    url: "https://liveblocks.io/blog/how-to-animate-multiplayer-cursor",
+    tags: ["Animation"],
+  },
+  {
     id: "article-007",
     name: "Building Bulletproof React Components",
     url: "https://shud.in/thoughts/build-bulletproof-react-components",

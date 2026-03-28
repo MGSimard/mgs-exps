@@ -12,7 +12,6 @@ function RouteComponent() {
   return (
     <PageTypeMD label="NOTES" title="NOTES" description="Exported from Discord">
       <ul>
-        <li>https://liveblocks.io/blog/how-to-animate-multiplayer-cursors</li>
         <li>https://www.youtube.com/watch?v=L7_BzwSLmCA (Joji - Sojourn)</li>
       </ul>
       <Section title="The Pocket Guide of Essential YC Advice">
