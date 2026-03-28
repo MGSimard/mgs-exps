@@ -11,6 +11,12 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "article-014",
+    name: "How Google handles JavaScript throughout the indexing process",
+    url: "https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process",
+    tags: ["SEO"],
+  },
+  {
     id: "article-013",
     name: "Announcing Neki",
     url: "https://planetscale.com/blog/announcing-neki",
