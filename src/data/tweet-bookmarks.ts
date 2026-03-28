@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2036775214160232717",
+    url: "https://x.com/pdotcv/status/2036775214160232717",
+    authorName: "Paul Macgregor",
+    authorHandle: "pdotcv",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1862280749086294016/IuQHCw-k_normal.jpg",
+    text: "Fucking about with Berkeley mono and 80s tv theme tunes. https://t.co/3XDAfBBpFo",
+    tags: ["Design","ASCII"],
+    postedAt: "2026-03-25",
+    media: {
+      type: "video",
+      src: "https://video.twimg.com/amplify_video/2036775135899000832/vid/avc1/480x270/FLQh01PDQpLedPuY.mp4?tag=14",
+      poster: "https://pbs.twimg.com/amplify_video_thumb/2036775135899000832/img/VGCSgk_6s9q4ENbZ.jpg",
+      alt: "Paul Macgregor video preview",
+      aspectRatio: "video",
+    },
+  },
+  {
     id: "tweet-2037713766205608234",
     url: "https://x.com/_chenglou/status/2037713766205608234",
     authorName: "Cheng Lou",

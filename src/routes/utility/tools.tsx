@@ -11,6 +11,12 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "tool-012",
+    name: "Dither",
+    url: "https://github.com/lenxism/dither",
+    tags: ["Shaders", "WebGL"],
+  },
+  {
     id: "tool-011",
     name: "AG-UI",
     url: "https://docs.ag-ui.com",
