@@ -189,7 +189,8 @@
   }
   button:not(:disabled),
   [role="button"]:not(:disabled),
-  [role="switch"]:not(:disabled) {
+  [role="switch"]:not(:disabled),
+  [role="option"]:not(:disabled) {
     cursor: pointer;
   }
 }
