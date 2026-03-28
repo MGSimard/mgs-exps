@@ -34,7 +34,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "rincidium",
     avatarUrl: "https://pbs.twimg.com/profile_images/1725951239370719232/JrBNTdhv_normal.jpg",
     text: "Create an OG image for your website with Nano Banana Pro: Create a premium open-graph hero image for [BRAND]: A wide horizontal layout (16:9 ratio) designed for social sharing, website headers, and marketing collateral. This is a high-end designer mockup presentation suitable https://t.co/lukbEV8uUf",
-    tags: ["AI","Design","OG Images"],
+    tags: ["Design","Generative AI"],
     postedAt: "2026-01-26",
     media: {
       type: "image",
@@ -51,7 +51,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "ctnicholasdev",
     avatarUrl: "https://pbs.twimg.com/profile_images/1401194362927816708/0c3yTtri_normal.jpg",
     text: "Interactive article: How to animate multiplayer cursors. Rendering smooth cursors always needs interpolation, as network conditions are never perfect—here's how to do it. I wrote this a few years back, techniques still apply! Link ↓ https://t.co/hrhb3jHqQA",
-    tags: ["Animation","Articles","UI"],
+    tags: ["Animation"],
     postedAt: "2026-02-02",
     media: {
       type: "video",
@@ -68,7 +68,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "viktoroddy",
     avatarUrl: "https://pbs.twimg.com/profile_images/1941325782829113344/buT3DYqx_normal.jpg",
     text: "Google Flow is so freaking good at animating backgrounds for landing pages. https://t.co/plkl9JEbxR",
-    tags: ["AI","Animation","Landing Pages"],
+    tags: ["Design","GenerativeAI","Hero"],
     postedAt: "2026-02-03",
     media: {
       type: "video",
@@ -85,7 +85,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "viktorhofte",
     avatarUrl: "https://pbs.twimg.com/profile_images/2016541488801300480/Kfzg_cVM_normal.jpg",
     text: "Midday onboarding https://t.co/7tx97Dl7zp",
-    tags: ["Onboarding","Product","UX"],
+    tags: ["Design","Onboarding"],
     postedAt: "2026-02-03",
     media: {
       type: "video",
@@ -102,7 +102,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "diegohaz",
     avatarUrl: "https://pbs.twimg.com/profile_images/1964797260597772288/uQG557we_normal.jpg",
     text: "Modern CSS capabilities. https://t.co/mfltY8fF8v",
-    tags: ["CSS","Frontend","UI"],
+    tags: ["CSS"],
     postedAt: "2026-02-06",
     media: {
       type: "image",
@@ -119,7 +119,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "sorenblank",
     avatarUrl: "https://pbs.twimg.com/profile_images/1966223633124306948/z6mSaCz7_normal.jpg",
     text: "here's how I optimized video assets on my site and improved perceived performance: - added a tiny ( ~30px wide ) `base64` encoded blurred inline image for each snippet, rendered as an <img> underneath the video ( renders instantly! ) - moved all the videos to @Cloudflare CDN. https://t.co/Hq1H6XZqOd",
-    tags: ["Performance","Video","Web"],
+    tags: ["Performance"],
     postedAt: "2026-02-11",
     media: {
       type: "video",
@@ -136,7 +136,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "jh3yy",
     avatarUrl: "https://pbs.twimg.com/profile_images/1534700564810018816/anAuSfkp_normal.jpg",
     text: "the trick to this css card glow/shine effect is blurring a duplicated layer that moves around 👨‍🍳 the og post mentions feGaussianBlur but you can use css filter blur too (there's a toggle 👇) filter: blur(28px) saturate(5) brightness(1.3) jus' need to test what plays best! https://t.co/t9L3Br8GlV",
-    tags: ["CSS","Effects","UI"],
+    tags: ["Design"],
     postedAt: "2026-02-18",
     media: {
       type: "video",
