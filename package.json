@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "deploy": "npm run build && wrangler deploy",
-    "images:thumbs": "node ./scripts/generate-image-thumbs.ts",
+    "images:process": "node ./scripts/process-images.ts",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint --report-unused-disable-directives",

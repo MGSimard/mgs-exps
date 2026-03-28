@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTypeMD } from "@/components/layout/PageTypeMD";
 import { Section } from "@/components/elements/Section";
-import { Label } from "@/components/elements/Label";
-import { ExternalLink } from "@/components/elements/ExternalLink";
 import { GridGallery } from "#/components/GridGallery";
 import type { Slide } from "#/components/GridGallery";
 import { Separator } from "@/components/shadcn-ui/separator";
