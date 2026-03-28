@@ -11,6 +11,12 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "tool-011",
+    name: "AG-UI",
+    url: "https://docs.ag-ui.com",
+    tags: ["AI Toolkit", "AG-UI Protocol"],
+  },
+  {
     id: "tool-010",
     name: "Observable",
     url: "https://observablehq.com",

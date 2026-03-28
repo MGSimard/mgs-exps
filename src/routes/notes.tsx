@@ -13,9 +13,6 @@ function RouteComponent() {
     <PageTypeMD label="NOTES" title="NOTES" description="Exported from Discord">
       <ul>
         <li>
-          https://docs.ag-ui.com/ (AG-UI Overview - Agent User Interaction Protocol) (TanStack AI ag-ui compliant)
-        </li>
-        <li>
           https://x.com/rincidium/status/2015930122776564113 (Create an OG image for your website with Nano Banana Pro)
         </li>
         <li>
@@ -27,9 +24,6 @@ function RouteComponent() {
           for landing pages.)
         </li>
         <li>https://x.com/viktorhofte/status/2018725322712027255 (Midday onboarding)</li>
-        <li>
-          https://shud.in/thoughts/build-bulletproof-react-components (Building Bulletproof React Components - Shu Ding)
-        </li>
         <li>https://x.com/diegohaz/status/2019751466169229542/ (Modern CSS capabilities.)</li>
         <li>
           https://x.com/sorenblank/status/2021671940646482267 (here's how I optimized video assets on my site and

@@ -11,9 +11,15 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "article-007",
+    name: "Building Bulletproof React Components",
+    url: "https://shud.in/thoughts/build-bulletproof-react-components",
+    tags: ["Performance"],
+  },
+  {
     id: "article-006",
     name: "Deploy TanStack Start serverless on AWS",
-    url: "https://johanneskonings.dev/blog/2025-11-30-tanstack-start-aws-serverless/",
+    url: "https://johanneskonings.dev/blog/2025-11-30-tanstack-start-aws-serverless",
     tags: ["AWS", "TanStack", "TanStack Start"],
   },
   {
