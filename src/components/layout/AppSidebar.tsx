@@ -170,15 +170,19 @@ const links: Links = {
   ],
   utility: [
     {
-      label: "Articles.csv",
+      label: "Articles",
       path: "/utility/articles",
     },
     {
-      label: "Tools.csv",
+      label: "Bookmarks",
+      path: "/utility/bookmarks",
+    },
+    {
+      label: "Tools",
       path: "/utility/tools",
     },
     {
-      label: "UI Libraries.csv",
+      label: "UI Libraries",
       path: "/utility/ui-libraries",
     },
   ],

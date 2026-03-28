@@ -5,35 +5,106 @@ import type { Slide } from "@/components/MasonryGallery";
 import { PageTypeMD } from "@/components/layout/PageTypeMD";
 import { Separator } from "@/components/shadcn-ui/separator";
 
-const withThumb = <T extends { url: string }>(slide: T): T & { thumbUrl: string } => ({
-  ...slide,
-  thumbUrl: slide.url.replace(/\.[^./]+$/, "-thumb.webp"),
-});
-
 const LOGO_REF_SLIDES: Array<Slide> = [
-  { url: "/assets/r-exp/references/marathon.png", alt: "Marathon Logo" },
-  { url: "/assets/r-exp/references/arasaka.jpg", alt: "Arasaka Logo" },
-  { url: "/assets/r-exp/references/kiroshi.jpg", alt: "Kiroshi Logo" },
-  { url: "/assets/r-exp/references/malorian.jpg", alt: "Malorian Logo" },
-  { url: "/assets/r-exp/references/mahir.jpg", alt: "Mahir Logo" },
-  { url: "/assets/r-exp/references/makigai.jpg", alt: "Makigai Logo" },
-  { url: "/assets/r-exp/references/oryn.jpg", alt: "Oryn Logo" },
-  { url: "/assets/r-exp/references/oryn2.jpg", alt: "Oryn Logo" },
-  { url: "/assets/r-exp/references/lined-star.png", alt: "Star Logo" },
-  { url: "/assets/r-exp/references/lined-h.png", alt: "H Logo" },
-  { url: "/assets/r-exp/references/lined-n.png", alt: "N Logo" },
-].map(withThumb);
+  {
+    url: "/assets/r-exp/references/marathon.png",
+    thumbUrl: "/assets/r-exp/references/marathon-thumb.webp",
+    alt: "Marathon Logo",
+  },
+  {
+    url: "/assets/r-exp/references/arasaka.jpg",
+    thumbUrl: "/assets/r-exp/references/arasaka-thumb.webp",
+    alt: "Arasaka Logo",
+  },
+  {
+    url: "/assets/r-exp/references/kiroshi.jpg",
+    thumbUrl: "/assets/r-exp/references/kiroshi-thumb.webp",
+    alt: "Kiroshi Logo",
+  },
+  {
+    url: "/assets/r-exp/references/malorian.jpg",
+    thumbUrl: "/assets/r-exp/references/malorian-thumb.webp",
+    alt: "Malorian Logo",
+  },
+  {
+    url: "/assets/r-exp/references/mahir.jpg",
+    thumbUrl: "/assets/r-exp/references/mahir-thumb.webp",
+    alt: "Mahir Logo",
+  },
+  {
+    url: "/assets/r-exp/references/makigai.jpg",
+    thumbUrl: "/assets/r-exp/references/makigai-thumb.webp",
+    alt: "Makigai Logo",
+  },
+  {
+    url: "/assets/r-exp/references/oryn.jpg",
+    thumbUrl: "/assets/r-exp/references/oryn-thumb.webp",
+    alt: "Oryn Logo",
+  },
+  {
+    url: "/assets/r-exp/references/oryn2.jpg",
+    thumbUrl: "/assets/r-exp/references/oryn2-thumb.webp",
+    alt: "Oryn Logo",
+  },
+  {
+    url: "/assets/r-exp/references/lined-star.png",
+    thumbUrl: "/assets/r-exp/references/lined-star-thumb.webp",
+    alt: "Star Logo",
+  },
+  {
+    url: "/assets/r-exp/references/lined-h.png",
+    thumbUrl: "/assets/r-exp/references/lined-h-thumb.webp",
+    alt: "H Logo",
+  },
+  {
+    url: "/assets/r-exp/references/lined-n.png",
+    thumbUrl: "/assets/r-exp/references/lined-n-thumb.webp",
+    alt: "N Logo",
+  },
+];
 
 const OTHER_REF_SLIDES: Array<Slide> = [
-  { url: "/assets/r-exp/references/maratype.png", alt: "Maratype Font" },
-  { url: "/assets/r-exp/references/bots.png", alt: "" },
-  { url: "/assets/r-exp/references/deathisinevitable.png", alt: "" },
-  { url: "/assets/r-exp/references/poster.png", alt: "" },
-  { url: "/assets/r-exp/references/poster2.png", alt: "" },
-  { url: "/assets/r-exp/references/poster3.png", alt: "" },
-  { url: "/assets/r-exp/references/poster4.png", alt: "" },
-  { url: "/assets/r-exp/references/poster5.png", alt: "" },
-].map(withThumb);
+  {
+    url: "/assets/r-exp/references/maratype.png",
+    thumbUrl: "/assets/r-exp/references/maratype-thumb.webp",
+    alt: "Maratype Font",
+  },
+  {
+    url: "/assets/r-exp/references/bots.png",
+    thumbUrl: "/assets/r-exp/references/bots-thumb.webp",
+    alt: "",
+  },
+  {
+    url: "/assets/r-exp/references/deathisinevitable.png",
+    thumbUrl: "/assets/r-exp/references/deathisinevitable-thumb.webp",
+    alt: "",
+  },
+  {
+    url: "/assets/r-exp/references/poster.png",
+    thumbUrl: "/assets/r-exp/references/poster-thumb.webp",
+    alt: "",
+  },
+  {
+    url: "/assets/r-exp/references/poster2.png",
+    thumbUrl: "/assets/r-exp/references/poster2-thumb.webp",
+    alt: "",
+  },
+  {
+    url: "/assets/r-exp/references/poster3.png",
+    thumbUrl: "/assets/r-exp/references/poster3-thumb.webp",
+    alt: "",
+  },
+  {
+    url: "/assets/r-exp/references/poster4.png",
+    thumbUrl: "/assets/r-exp/references/poster4-thumb.webp",
+    alt: "",
+  },
+  {
+    url: "/assets/r-exp/references/poster5.png",
+    thumbUrl: "/assets/r-exp/references/poster5-thumb.webp",
+    alt: "",
+  },
+];
 
 export const Route = createFileRoute("/r-exp/logo-refs")({
   component: RouteComponent,

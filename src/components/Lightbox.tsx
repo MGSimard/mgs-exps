@@ -4,9 +4,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import { cn } from "@/lib/utils";
 
-type Slide = {
+export type Slide = {
   url: string;
   alt: string;
+  /** Omit when there is no separate thumb (e.g. GIF) — grid/lightbox strip falls back to `url`. */
   thumbUrl?: string;
 };
 

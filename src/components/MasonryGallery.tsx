@@ -1,12 +1,8 @@
 import { useState } from "react";
-import { Lightbox } from "@/components/Lightbox";
+import { Lightbox, type Slide } from "@/components/Lightbox";
 import { cn } from "@/lib/utils";
 
-export type Slide = {
-  url: string;
-  alt: string;
-  thumbUrl?: string;
-};
+export type { Slide };
 
 type MasonryGalleryProps = {
   slides: Array<Slide>;

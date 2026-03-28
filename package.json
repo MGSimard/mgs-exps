@@ -12,6 +12,7 @@
     "test": "vitest run",
     "deploy": "npm run build && wrangler deploy",
     "images:process": "node ./scripts/process-images.ts",
+    "bookmarks:sync": "node ./scripts/sync-tweet-bookmarks.mjs",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint --report-unused-disable-directives",

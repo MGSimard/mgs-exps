@@ -12,28 +12,7 @@ function RouteComponent() {
   return (
     <PageTypeMD label="NOTES" title="NOTES" description="Exported from Discord">
       <ul>
-        <li>
-          https://x.com/rincidium/status/2015930122776564113 (Create an OG image for your website with Nano Banana Pro)
-        </li>
-        <li>
-          https://x.com/ctnicholasdev/status/2018354238867591321 (Interactive article: How to animate multiplayer
-          cursors.)
-        </li>
-        <li>
-          https://x.com/viktoroddy/status/2018645043909939419 (Google Flow is so freaking good at animating backgrounds
-          for landing pages.)
-        </li>
-        <li>https://x.com/viktorhofte/status/2018725322712027255 (Midday onboarding)</li>
-        <li>https://x.com/diegohaz/status/2019751466169229542/ (Modern CSS capabilities.)</li>
-        <li>
-          https://x.com/sorenblank/status/2021671940646482267 (here's how I optimized video assets on my site and
-          improved perceived performance:)
-        </li>
         <li>https://www.youtube.com/watch?v=L7_BzwSLmCA (Joji - Sojourn)</li>
-        <li>
-          https://x.com/jh3yy/status/2024146610398130486 (the trick to this css card glow/shine effect is blurring a
-          duplicated layer that moves around)
-        </li>
       </ul>
       <Section title="The Pocket Guide of Essential YC Advice">
         <ExternalLink href="https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice">
