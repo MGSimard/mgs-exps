@@ -28,7 +28,7 @@ export const BOOKMARKS_SOURCE: Array<BookmarkSourceEntry> = [
   },
   {
     url: "https://x.com/viktoroddy/status/2018645043909939419",
-    tags: ["Design", "GenerativeAI", "Hero"],
+    tags: ["Design", "Generative AI", "Hero"],
   },
   {
     url: "https://x.com/viktorhofte/status/2018725322712027255",

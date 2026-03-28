@@ -68,7 +68,7 @@ export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
     authorHandle: "viktoroddy",
     avatarUrl: "https://pbs.twimg.com/profile_images/1941325782829113344/buT3DYqx_normal.jpg",
     text: "Google Flow is so freaking good at animating backgrounds for landing pages. https://t.co/plkl9JEbxR",
-    tags: ["Design","GenerativeAI","Hero"],
+    tags: ["Design","Generative AI","Hero"],
     postedAt: "2026-02-03",
     media: {
       type: "video",
