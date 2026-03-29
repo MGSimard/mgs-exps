@@ -7,57 +7,57 @@ import { Separator } from "@/components/shadcn-ui/separator";
 
 const LOGO_REF_SLIDES: Array<Slide> = [
   {
-    url: "/assets/r-exp/references/marathon.png",
+    url: "/assets/r-exp/references/marathon.webp",
     thumbUrl: "/assets/r-exp/references/marathon-thumb.webp",
     alt: "Marathon Logo",
   },
   {
-    url: "/assets/r-exp/references/arasaka.jpg",
+    url: "/assets/r-exp/references/arasaka.webp",
     thumbUrl: "/assets/r-exp/references/arasaka-thumb.webp",
     alt: "Arasaka Logo",
   },
   {
-    url: "/assets/r-exp/references/kiroshi.jpg",
+    url: "/assets/r-exp/references/kiroshi.webp",
     thumbUrl: "/assets/r-exp/references/kiroshi-thumb.webp",
     alt: "Kiroshi Logo",
   },
   {
-    url: "/assets/r-exp/references/malorian.jpg",
+    url: "/assets/r-exp/references/malorian.webp",
     thumbUrl: "/assets/r-exp/references/malorian-thumb.webp",
     alt: "Malorian Logo",
   },
   {
-    url: "/assets/r-exp/references/mahir.jpg",
+    url: "/assets/r-exp/references/mahir.webp",
     thumbUrl: "/assets/r-exp/references/mahir-thumb.webp",
     alt: "Mahir Logo",
   },
   {
-    url: "/assets/r-exp/references/makigai.jpg",
+    url: "/assets/r-exp/references/makigai.webp",
     thumbUrl: "/assets/r-exp/references/makigai-thumb.webp",
     alt: "Makigai Logo",
   },
   {
-    url: "/assets/r-exp/references/oryn.jpg",
+    url: "/assets/r-exp/references/oryn.webp",
     thumbUrl: "/assets/r-exp/references/oryn-thumb.webp",
     alt: "Oryn Logo",
   },
   {
-    url: "/assets/r-exp/references/oryn2.jpg",
+    url: "/assets/r-exp/references/oryn2.webp",
     thumbUrl: "/assets/r-exp/references/oryn2-thumb.webp",
     alt: "Oryn Logo",
   },
   {
-    url: "/assets/r-exp/references/lined-star.png",
+    url: "/assets/r-exp/references/lined-star.webp",
     thumbUrl: "/assets/r-exp/references/lined-star-thumb.webp",
     alt: "Star Logo",
   },
   {
-    url: "/assets/r-exp/references/lined-h.png",
+    url: "/assets/r-exp/references/lined-h.webp",
     thumbUrl: "/assets/r-exp/references/lined-h-thumb.webp",
     alt: "H Logo",
   },
   {
-    url: "/assets/r-exp/references/lined-n.png",
+    url: "/assets/r-exp/references/lined-n.webp",
     thumbUrl: "/assets/r-exp/references/lined-n-thumb.webp",
     alt: "N Logo",
   },
@@ -65,42 +65,42 @@ const LOGO_REF_SLIDES: Array<Slide> = [
 
 const OTHER_REF_SLIDES: Array<Slide> = [
   {
-    url: "/assets/r-exp/references/maratype.png",
+    url: "/assets/r-exp/references/maratype.webp",
     thumbUrl: "/assets/r-exp/references/maratype-thumb.webp",
     alt: "Maratype Font",
   },
   {
-    url: "/assets/r-exp/references/bots.png",
+    url: "/assets/r-exp/references/bots.webp",
     thumbUrl: "/assets/r-exp/references/bots-thumb.webp",
     alt: "",
   },
   {
-    url: "/assets/r-exp/references/deathisinevitable.png",
+    url: "/assets/r-exp/references/deathisinevitable.webp",
     thumbUrl: "/assets/r-exp/references/deathisinevitable-thumb.webp",
     alt: "",
   },
   {
-    url: "/assets/r-exp/references/poster.png",
+    url: "/assets/r-exp/references/poster.webp",
     thumbUrl: "/assets/r-exp/references/poster-thumb.webp",
     alt: "",
   },
   {
-    url: "/assets/r-exp/references/poster2.png",
+    url: "/assets/r-exp/references/poster2.webp",
     thumbUrl: "/assets/r-exp/references/poster2-thumb.webp",
     alt: "",
   },
   {
-    url: "/assets/r-exp/references/poster3.png",
+    url: "/assets/r-exp/references/poster3.webp",
     thumbUrl: "/assets/r-exp/references/poster3-thumb.webp",
     alt: "",
   },
   {
-    url: "/assets/r-exp/references/poster4.png",
+    url: "/assets/r-exp/references/poster4.webp",
     thumbUrl: "/assets/r-exp/references/poster4-thumb.webp",
     alt: "",
   },
   {
-    url: "/assets/r-exp/references/poster5.png",
+    url: "/assets/r-exp/references/poster5.webp",
     thumbUrl: "/assets/r-exp/references/poster5-thumb.webp",
     alt: "",
   },
