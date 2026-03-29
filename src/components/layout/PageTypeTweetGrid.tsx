@@ -64,7 +64,7 @@ export function PageTypeTweetGrid({ label, title, description, data, className, 
         <div className="flex flex-wrap items-start gap-2">
           <Input
             type="search"
-            placeholder="Search tweets"
+            placeholder="Search"
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
             autoCorrect="off"
