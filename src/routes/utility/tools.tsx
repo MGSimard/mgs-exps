@@ -84,7 +84,7 @@ const TABLE_DATA = [
   },
   {
     id: "tool-002",
-    name: "Graindrad",
+    name: "Grainrad",
     url: "https://grainrad.com",
     tags: ["ASCII", "Filters", "Image", "Shaders", "Video", "WebGL"],
   },
