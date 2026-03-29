@@ -171,7 +171,7 @@ const MARATHON_MICHAEL_RIGLEY_SLIDES: Array<Slide> = [
     alt: "Michael Rigley 24",
   },
   {
-    url: "/assets/references/marathon/michael-rigley-25.gif",
+    url: "/assets/references/marathon/michael-rigley-25.webp",
     alt: "Michael Rigley 25",
   },
 ];
@@ -306,7 +306,7 @@ const MARATHON_SAMUEL_JUTRAS_SLIDES: Array<Slide> = [
     alt: "Samuel Jutras 20",
   },
   {
-    url: "/assets/references/marathon/samuel-jutras-21.gif",
+    url: "/assets/references/marathon/samuel-jutras-21.webp",
     alt: "Samuel Jutras 21",
   },
 ];
