@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Dialog as BaseDialog } from "@base-ui/react/dialog";
 import useEmblaCarousel from "embla-carousel-react";
-import Fade from "embla-carousel-fade";
 import { cn } from "@/lib/utils";
 
 export type Slide = {
@@ -24,10 +23,12 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const prevSelectedIndexRef = useRef(startIndex);
 
-  const [emblaMainRef, emblaMainApi] = useEmblaCarousel(
-    { align: "center", containScroll: false, startIndex, watchDrag: false },
-    [Fade()]
-  );
+  const [emblaMainRef, emblaMainApi] = useEmblaCarousel({
+    align: "center",
+    containScroll: false,
+    startIndex,
+    watchDrag: true,
+  });
 
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
@@ -93,23 +94,24 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
   return (
     <BaseDialog.Root open={open} onOpenChange={onOpenChange}>
       <BaseDialog.Portal>
+        <BaseDialog.Backdrop className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0" />
         <BaseDialog.Popup
-          className="lightbox fixed inset-0 isolate flex flex-col outline-0 transition-all duration-150 before:fixed before:inset-0 before:-z-10 before:bg-black/70 before:backdrop-blur-sm before:content-[''] data-ending-style:opacity-0 data-starting-style:opacity-0"
+          className="lightbox pointer-events-none fixed inset-0 isolate flex flex-col outline-0 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0"
           onKeyDown={handleKeyDown}>
           <BaseDialog.Close
-            className="group absolute top-4 right-4 z-10 flex items-center gap-2 outline-0"
+            className="group pointer-events-auto absolute top-4 right-4 z-10 flex items-center gap-2 outline-0"
             aria-label="Close lightbox">
-            <div className="font-inherit flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/60 bg-transparent text-[0.75em] leading-6 font-medium whitespace-nowrap text-white/60 outline-0 transition-colors select-none group-hover:bg-white group-hover:text-black group-focus-visible:bg-white group-focus-visible:text-black focus-visible:outline-2">
-              <span className="mt-px text-sm font-semibold">ESC</span>
+            <div className="font-inherit flex size-10 shrink-0 items-center justify-center overflow-hidden border-2 border-white/60 bg-transparent text-[0.75em] leading-6 font-medium whitespace-nowrap text-white/60 outline-0 transition-colors select-none group-hover:bg-white group-hover:text-black group-focus-visible:bg-white group-focus-visible:text-black focus-visible:outline-2">
+              <span className="-mt-px text-sm font-semibold">ESC</span>
             </div>
           </BaseDialog.Close>
-          <div className="relative flex min-h-0 flex-1 items-center justify-center px-16">
+          <div className="pointer-events-none relative flex min-h-0 flex-1 items-center justify-center px-3 md:px-16">
             <button
               type="button"
               onClick={onPrevClick}
               disabled={prevBtnDisabled}
               aria-label="Previous slide"
-              className="group absolute left-4 z-10 grid h-12 w-12 touch-manipulation place-items-center rounded-full bg-white/10 text-white/80 transition-colors hover:enabled:bg-white/20 hover:enabled:text-white focus-visible:enabled:bg-white/20 focus-visible:enabled:text-white disabled:cursor-not-allowed disabled:opacity-30">
+              className="group pointer-events-auto absolute left-4 z-10 hidden h-12 w-12 touch-manipulation place-items-center bg-white/10 text-white/80 transition-colors hover:enabled:bg-white/20 hover:enabled:text-white focus-visible:enabled:bg-white/20 focus-visible:enabled:text-white disabled:cursor-not-allowed disabled:opacity-30 md:grid">
               <svg className="h-6 w-6" viewBox="0 0 532 532">
                 <path
                   fill="currentColor"
@@ -117,16 +119,16 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
                 />
               </svg>
             </button>
-            <div className="h-full w-full overflow-hidden" ref={emblaMainRef}>
-              <div className="flex h-full backface-hidden">
+            <div className="pointer-events-none h-full w-full overflow-hidden" ref={emblaMainRef}>
+              <div className="pointer-events-none flex h-full backface-hidden">
                 {slides.map((slide) => (
                   <div
                     key={"lb-slide-" + slide.url}
-                    className="flex h-full min-w-0 flex-[0_0_100%] transform-[translate3d(0,0,0)] items-center justify-center p-4">
+                    className="pointer-events-none! flex h-full min-w-0 flex-[0_0_100%] transform-[translate3d(0,0,0)] items-center justify-center p-4">
                     <img
                       src={slide.url}
                       alt={slide.alt}
-                      className="max-h-full max-w-full object-contain select-none"
+                      className="pointer-events-auto max-h-full max-w-full object-contain select-none"
                       draggable={false}
                     />
                   </div>
@@ -138,7 +140,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
               onClick={onNextClick}
               disabled={nextBtnDisabled}
               aria-label="Next slide"
-              className="group absolute right-4 z-10 grid h-12 w-12 touch-manipulation place-items-center rounded-full bg-white/10 text-white/80 transition-colors hover:enabled:bg-white/20 hover:enabled:text-white focus-visible:enabled:bg-white/20 focus-visible:enabled:text-white disabled:cursor-not-allowed disabled:opacity-30">
+              className="group pointer-events-auto absolute right-4 z-10 hidden h-12 w-12 touch-manipulation place-items-center bg-white/10 text-white/80 transition-colors hover:enabled:bg-white/20 hover:enabled:text-white focus-visible:enabled:bg-white/20 focus-visible:enabled:text-white disabled:cursor-not-allowed disabled:opacity-30 md:grid">
               <svg className="h-6 w-6" viewBox="0 0 532 532">
                 <path
                   fill="currentColor"
@@ -147,7 +149,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
               </svg>
             </button>
           </div>
-          <div className="shrink-0 bg-black/50 p-4">
+          <div className="pointer-events-auto shrink-0 bg-black/50 p-4">
             <div className="overflow-hidden" ref={emblaThumbsRef}>
               <div className="flex gap-2 backface-hidden">
                 {slides.map((slide, index) => (
