@@ -210,6 +210,10 @@ const links: Links = {
       label: "References",
       children: [
         {
+          label: "Dmitry Kurash",
+          path: "/references/dmitry-kurash",
+        },
+        {
           label: "James Lee",
           path: "/references/james-lee",
         },
