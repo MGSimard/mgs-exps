@@ -28,11 +28,21 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2038867034419982449",
+    url: "https://x.com/feross/status/2038867034419982449",
+    authorName: "Feross",
+    authorHandle: "feross",
+    avatarUrl: "https://pbs.twimg.com/profile_images/2000275022666190848/1EeM5zAj_normal.jpg",
+    text: "🤨 People keep asking how to protect yourself. #1: set min-release-age=7 in .npmrc #2: install Socket for GitHub (it's free!) to protect PRs from bad dependencies: https://t.co/D9bsRJj65R #3: install Socket Firewall (also free!) to protect your laptop: https://t.co/u1NRD57PQ8",
+    tags: ["Security"],
+    postedAt: "2026-03-31",
+  },
+  {
     id: "tweet-1931827480073019740",
     url: "https://x.com/emirayaaz/status/1931827480073019740",
-    authorName: "emir ayaz",
+    authorName: "Emir Ayaz",
     authorHandle: "emirayaaz",
-    avatarUrl: "https://pbs.twimg.com/profile_images/2035071397433942016/2e-_tUnn_normal.jpg",
+    avatarUrl: "https://pbs.twimg.com/profile_images/2037987039270866945/8UdWM_xe_normal.jpg",
     text: "A lot of people asked how I did this illustrations, it is actually pretty simple 🧵",
     tags: ["ASCII","Design","Generative AI"],
     postedAt: "2025-06-08",
