@@ -19,15 +19,15 @@ const HEADER_LINKS = [
 function RouteComponent() {
   return (
     <PageTypeMD label="REFERENCES" title="Dmitry Kurash" links={HEADER_LINKS}>
-      <Section title="CYPHER">
-        <GridGallery slides={CYPHER_SLIDES} />
+      <Section title="MISC">
+        <GridGallery slides={MISC_SLIDES} />
       </Section>
       <Separator />
     </PageTypeMD>
   );
 }
 
-const CYPHER_SLIDES: Array<Slide> = [
+const MISC_SLIDES: Array<Slide> = [
   {
     url: "/assets/references/dmitry-kurash/dmitry-kurash-1.webp",
     thumbUrl: "/assets/references/dmitry-kurash/dmitry-kurash-1-thumb.webp",
