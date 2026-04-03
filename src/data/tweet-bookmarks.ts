@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2039413854979948896",
+    url: "https://x.com/define_app/status/2039413854979948896",
+    authorName: "define",
+    authorHandle: "define_app",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1992981613261590528/HNPpKVX-_normal.jpg",
+    text: "Use masks for your scrollable areas Use the CSS at-rule `@property` to register stops as animatable values. The browser treats your custom property as a `percentage`, so the mask edges transition smoothly. Result: scroll lists that fade at the edges, revealing content https://t.co/EMYl5lGNRg",
+    tags: ["UI"],
+    postedAt: "2026-04-01",
+    media: {
+      type: "video",
+      src: "https://video.twimg.com/amplify_video/2039413657340403712/vid/avc1/320x512/_EwlxApwelzAvkEu.mp4",
+      poster: "https://pbs.twimg.com/amplify_video_thumb/2039413657340403712/img/jIN0ZglAdODTspg8.jpg",
+      alt: "define video preview",
+      aspectRatio: "portrait",
+    },
+  },
+  {
     id: "tweet-2038867034419982449",
     url: "https://x.com/feross/status/2038867034419982449",
     authorName: "Feross",

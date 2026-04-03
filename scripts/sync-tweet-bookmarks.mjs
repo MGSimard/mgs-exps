@@ -45,6 +45,26 @@ function parseSourceRecords(source) {
   });
 }
 
+function parseExistingRecords(source) {
+  const match = source.match(/export const TWEET_BOOKMARKS(?:\s*:\s*[^=]+)?\s*=\s*(\[[\s\S]*\]);/);
+  if (!match?.[1]) {
+    throw new Error("Could not find TWEET_BOOKMARKS in tweet-bookmarks.ts");
+  }
+
+  const records = Function(`"use strict"; return (${match[1]});`)();
+  if (!Array.isArray(records)) {
+    throw new Error("Existing tweet bookmarks must be an array.");
+  }
+
+  return records.filter(
+    (record) =>
+      record &&
+      typeof record === "object" &&
+      typeof record.url === "string" &&
+      record.url.length > 0,
+  );
+}
+
 function getTweetId(url) {
   const match = url.match(/status\/(\d+)/);
   if (!match) {
@@ -223,13 +243,47 @@ async function fetchTweet(sourceRecord) {
   return formatTweetRecord(tweet, sourceRecord);
 }
 
+async function loadExistingByUrl() {
+  try {
+    const source = await readFile(OUTPUT_PATH, "utf8");
+    const records = parseExistingRecords(source);
+    return new Map(records.map((record) => [record.url.replace(/\/$/, ""), record]));
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return new Map();
+    }
+    throw error;
+  }
+}
+
 async function main() {
+  const refresh = process.argv.includes("--refresh") || process.argv.includes("-r");
   const source = await readFile(SOURCE_PATH, "utf8");
   const sourceRecords = parseSourceRecords(source);
-  const records = await Promise.all(sourceRecords.map(fetchTweet));
+  const existingByUrl = refresh ? new Map() : await loadExistingByUrl();
+
+  let reusedCount = 0;
+  let fetchedCount = 0;
+  const records = await Promise.all(
+    sourceRecords.map(async (sourceRecord) => {
+      const existing = existingByUrl.get(sourceRecord.url);
+      if (existing) {
+        reusedCount += 1;
+        return {
+          ...existing,
+          url: sourceRecord.url,
+          tags: sourceRecord.tags,
+        };
+      }
+
+      fetchedCount += 1;
+      return fetchTweet(sourceRecord);
+    }),
+  );
   const output = generateTypeScript(records);
   await writeFile(OUTPUT_PATH, output, "utf8");
   console.log(`Wrote ${records.length} tweet bookmarks to ${path.relative(ROOT, OUTPUT_PATH)}`);
+  console.log(`Reused ${reusedCount}, fetched ${fetchedCount}${refresh ? " (refresh mode)" : ""}.`);
 }
 
 main().catch((error) => {

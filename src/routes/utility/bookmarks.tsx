@@ -19,6 +19,10 @@ function RouteComponent() {
 
 export const BOOKMARKS_SOURCE: Array<BookmarkSourceEntry> = [
   {
+    url: "https://x.com/define_app/status/2039413854979948896",
+    tags: ["UI"],
+  },
+  {
     url: "https://x.com/feross/status/2038867034419982449",
     tags: ["Security"],
   },
