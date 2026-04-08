@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2021273849485005026",
+    url: "https://x.com/gunnargray/status/2021273849485005026",
+    authorName: "Gunnar Gray",
+    authorHandle: "gunnargray",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1801329010065965056/GdCjOSWo_normal.jpg",
+    text: "Unicode braille animations ⠿ https://t.co/wxbVfhkzWO",
+    tags: ["ASCII","Design","UI"],
+    postedAt: "2026-02-10",
+    media: {
+      type: "video",
+      src: "https://video.twimg.com/amplify_video/2021271726009810944/vid/avc1/352x270/_Z_PRDVgg70ASQXN.mp4",
+      poster: "https://pbs.twimg.com/amplify_video_thumb/2021271726009810944/img/fo2zOom9BmD9-qFi.jpg",
+      alt: "Gunnar Gray video preview",
+      aspectRatio: "video",
+    },
+  },
+  {
     id: "tweet-2039413854979948896",
     url: "https://x.com/define_app/status/2039413854979948896",
     authorName: "define",
