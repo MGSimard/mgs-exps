@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2042928145343349068",
+    url: "https://x.com/praveenisomer/status/2042928145343349068",
+    authorName: "Praveen Kumar👾",
+    authorHandle: "praveenisomer",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1882323910873772032/c-jrHfHe_normal.jpg",
+    text: "ASCII cards https://t.co/1UMi3wFgb8",
+    tags: ["ASCII","Design","UI"],
+    postedAt: "2026-04-11",
+    media: {
+      type: "video",
+      src: "https://video.twimg.com/amplify_video/2042924152244588544/vid/avc1/374x270/2t30WD8yAgiMpS2o.mp4",
+      poster: "https://pbs.twimg.com/amplify_video_thumb/2042924152244588544/img/JOGjqNueHfFOssaL.jpg",
+      alt: "Praveen Kumar👾 video preview",
+      aspectRatio: "video",
+    },
+  },
+  {
     id: "tweet-2021273849485005026",
     url: "https://x.com/gunnargray/status/2021273849485005026",
     authorName: "Gunnar Gray",

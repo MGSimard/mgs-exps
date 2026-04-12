@@ -3,7 +3,6 @@ import { PageTypeMD } from "@/components/layout/PageTypeMD";
 import { Section } from "@/components/elements/Section";
 import { GridGallery } from "#/components/GridGallery";
 import type { Slide } from "#/components/GridGallery";
-import { Separator } from "@/components/shadcn-ui/separator";
 
 export const Route = createFileRoute("/references/creative-mints")({
   component: RouteComponent,
