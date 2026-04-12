@@ -24,6 +24,7 @@ import { Route as ReferencesKyleAnthonyMillerRouteImport } from './routes/refere
 import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
 import { Route as ReferencesJamesLeeRouteImport } from './routes/references/james-lee'
 import { Route as ReferencesDmitryKurashRouteImport } from './routes/references/dmitry-kurash'
+import { Route as ReferencesCreativeMintsRouteImport } from './routes/references/creative-mints'
 import { Route as RExpMoodboardRouteImport } from './routes/r-exp/moodboard'
 import { Route as RExpLogoRefsRouteImport } from './routes/r-exp/logo-refs'
 
@@ -103,6 +104,11 @@ const ReferencesDmitryKurashRoute = ReferencesDmitryKurashRouteImport.update({
   path: '/references/dmitry-kurash',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferencesCreativeMintsRoute = ReferencesCreativeMintsRouteImport.update({
+  id: '/references/creative-mints',
+  path: '/references/creative-mints',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RExpMoodboardRoute = RExpMoodboardRouteImport.update({
   id: '/r-exp/moodboard',
   path: '/r-exp/moodboard',
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/creative-mints': typeof ReferencesCreativeMintsRoute
   '/references/dmitry-kurash': typeof ReferencesDmitryKurashRoute
   '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
@@ -139,6 +146,7 @@ export interface FileRoutesByTo {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/creative-mints': typeof ReferencesCreativeMintsRoute
   '/references/dmitry-kurash': typeof ReferencesDmitryKurashRoute
   '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
@@ -159,6 +167,7 @@ export interface FileRoutesById {
   '/readme': typeof ReadmeRoute
   '/r-exp/logo-refs': typeof RExpLogoRefsRoute
   '/r-exp/moodboard': typeof RExpMoodboardRoute
+  '/references/creative-mints': typeof ReferencesCreativeMintsRoute
   '/references/dmitry-kurash': typeof ReferencesDmitryKurashRoute
   '/references/james-lee': typeof ReferencesJamesLeeRoute
   '/references/kuba': typeof ReferencesKubaRoute
@@ -180,6 +189,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/creative-mints'
     | '/references/dmitry-kurash'
     | '/references/james-lee'
     | '/references/kuba'
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/creative-mints'
     | '/references/dmitry-kurash'
     | '/references/james-lee'
     | '/references/kuba'
@@ -218,6 +229,7 @@ export interface FileRouteTypes {
     | '/readme'
     | '/r-exp/logo-refs'
     | '/r-exp/moodboard'
+    | '/references/creative-mints'
     | '/references/dmitry-kurash'
     | '/references/james-lee'
     | '/references/kuba'
@@ -238,6 +250,7 @@ export interface RootRouteChildren {
   ReadmeRoute: typeof ReadmeRoute
   RExpLogoRefsRoute: typeof RExpLogoRefsRoute
   RExpMoodboardRoute: typeof RExpMoodboardRoute
+  ReferencesCreativeMintsRoute: typeof ReferencesCreativeMintsRoute
   ReferencesDmitryKurashRoute: typeof ReferencesDmitryKurashRoute
   ReferencesJamesLeeRoute: typeof ReferencesJamesLeeRoute
   ReferencesKubaRoute: typeof ReferencesKubaRoute
@@ -359,6 +372,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferencesDmitryKurashRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/creative-mints': {
+      id: '/references/creative-mints'
+      path: '/references/creative-mints'
+      fullPath: '/references/creative-mints'
+      preLoaderRoute: typeof ReferencesCreativeMintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/r-exp/moodboard': {
       id: '/r-exp/moodboard'
       path: '/r-exp/moodboard'
@@ -382,6 +402,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReadmeRoute: ReadmeRoute,
   RExpLogoRefsRoute: RExpLogoRefsRoute,
   RExpMoodboardRoute: RExpMoodboardRoute,
+  ReferencesCreativeMintsRoute: ReferencesCreativeMintsRoute,
   ReferencesDmitryKurashRoute: ReferencesDmitryKurashRoute,
   ReferencesJamesLeeRoute: ReferencesJamesLeeRoute,
   ReferencesKubaRoute: ReferencesKubaRoute,
