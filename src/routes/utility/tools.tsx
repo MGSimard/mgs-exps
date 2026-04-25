@@ -13,7 +13,7 @@ const TABLE_DATA = [
   {
     id: "tool-014",
     name: "Valency Graphics",
-    url: "https://www.valencygraphics.com",
+    url: "https://valencygraphics.com",
     tags: ["Assets", "Reference"],
   },
   {

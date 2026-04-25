@@ -19,6 +19,50 @@ function RouteComponent() {
 
 export const BOOKMARKS_SOURCE: Array<BookmarkSourceEntry> = [
   {
+    url: "https://x.com/iamncdai/status/2025198433435615341",
+    tags: ["Design", "UI"],
+  },
+  {
+    url: "https://x.com/MozDevNet/status/2030750431455092784",
+    tags: ["DX"],
+  },
+  {
+    url: "https://x.com/taylor_sntx/status/2031015767387316250",
+    tags: ["Design", "Shaders", "WebGL"],
+  },
+  {
+    url: "https://x.com/BenjDicken/status/2034411709277081912",
+    tags: ["Performance", "PostgreSQL"],
+  },
+  {
+    url: "https://x.com/vercel/status/2034716745802346659",
+    tags: ["AI SDK"],
+  },
+  {
+    url: "https://x.com/PlanetScale/status/2011853851654275368",
+    tags: ["PostgreSQL", "Security"],
+  },
+  {
+    url: "https://x.com/mihirtwt/status/2037418339493102044",
+    tags: ["CSS", "UI", "UX"],
+  },
+  {
+    url: "https://x.com/feross/status/2038867034419982449",
+    tags: ["Security"],
+  },
+  {
+    url: "https://x.com/BenjDicken/status/2038986930634068253",
+    tags: ["Performance", "PostgreSQL"],
+  },
+  {
+    url: "https://x.com/define_app/status/2039413854979948896",
+    tags: ["CSS", "UI"],
+  },
+  {
+    url: "https://x.com/gunnargray/status/2021273849485005026",
+    tags: ["ASCII", "Design", "Loader"],
+  },
+  {
     url: "https://x.com/praveenisomer/status/2042928145343349068",
     tags: ["ASCII", "Design", "UI"],
   },
