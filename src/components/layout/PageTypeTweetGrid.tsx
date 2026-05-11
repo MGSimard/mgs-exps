@@ -110,7 +110,7 @@ export function PageTypeTweetGrid({ label, title, description, data, className, 
         ) : (
           <div className="flex h-full items-center justify-center px-4 py-8">
             <div className="w-full max-w-md border border-dashed bg-muted/20 px-6 py-8 text-center">
-              <p className="font-mono text-sm text-muted-foreground uppercase">No tweet previews match this filter.</p>
+              <p className="font-mono text-sm text-muted-foreground uppercase">No bookmarks match this filter</p>
             </div>
           </div>
         )}

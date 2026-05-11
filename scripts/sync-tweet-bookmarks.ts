@@ -1,11 +1,54 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
+import { BOOKMARKS_SOURCE } from "../src/data/tweet-bookmark-source.ts";
+import type { TweetBookmark, TweetMedia } from "../src/data/tweet-bookmarks.ts";
+
+type SourceRecord = {
+  url: string;
+  tags: Array<string>;
+};
+
+type TweetVariant = {
+  type?: unknown;
+  bitrate?: unknown;
+  src?: unknown;
+};
+
+type TweetPayload = {
+  __typename?: unknown;
+  id_str?: unknown;
+  text?: unknown;
+  created_at?: unknown;
+  user?: {
+    name?: unknown;
+    screen_name?: unknown;
+    profile_image_url_https?: unknown;
+  };
+  video?: {
+    variants?: Array<TweetVariant>;
+    aspectRatio?: Array<unknown>;
+    poster?: unknown;
+  };
+  photos?: Array<{
+    url?: unknown;
+    width?: unknown;
+    height?: unknown;
+  }>;
+  mediaDetails?: Array<{
+    type?: unknown;
+    media_url_https?: unknown;
+    original_info?: {
+      width?: unknown;
+      height?: unknown;
+    };
+  }>;
+};
 
 const ROOT = process.cwd();
-const SOURCE_PATH = path.join(ROOT, "src/routes/utility/bookmarks.tsx");
 const OUTPUT_PATH = path.join(ROOT, "src/data/tweet-bookmarks.ts");
 
-function decodeHtmlEntities(value) {
+function decodeHtmlEntities(value: string) {
   return value
     .replaceAll("&amp;", "&")
     .replaceAll("&lt;", "<")
@@ -14,23 +57,8 @@ function decodeHtmlEntities(value) {
     .replaceAll("&#39;", "'");
 }
 
-function parseSourceRecords(source) {
-  const match = source.match(/export const BOOKMARKS_SOURCE(?:\s*:\s*[^=]+)?\s*=\s*(\[[\s\S]*\]);/);
-  if (!match?.[1]) {
-    throw new Error("Could not find BOOKMARKS_SOURCE in bookmarks.tsx");
-  }
-
-  const records = Function(`"use strict"; return (${match[1]});`)();
-  if (!Array.isArray(records)) {
-    throw new Error("Bookmark tweet source must be an array.");
-  }
-
-  return records.map((record) => {
-    if (!record || typeof record !== "object") {
-      throw new Error("Each bookmark tweet source entry must be an object.");
-    }
-
-    const { url, tags } = record;
+function parseSourceRecords() {
+  return Object.entries(BOOKMARKS_SOURCE).map(([url, tags]) => {
     if (typeof url !== "string" || url.length === 0) {
       throw new Error("Each bookmark tweet source entry needs a url.");
     }
@@ -45,45 +73,38 @@ function parseSourceRecords(source) {
   });
 }
 
-function parseExistingRecords(source) {
-  const match = source.match(/export const TWEET_BOOKMARKS(?:\s*:\s*[^=]+)?\s*=\s*(\[[\s\S]*\]);/);
-  if (!match?.[1]) {
-    throw new Error("Could not find TWEET_BOOKMARKS in tweet-bookmarks.ts");
-  }
-
-  const records = Function(`"use strict"; return (${match[1]});`)();
-  if (!Array.isArray(records)) {
-    throw new Error("Existing tweet bookmarks must be an array.");
-  }
-
-  return records.filter(
-    (record) =>
-      record &&
-      typeof record === "object" &&
-      typeof record.url === "string" &&
-      record.url.length > 0,
-  );
-}
-
-function getTweetId(url) {
+function getTweetId(url: string) {
   const match = url.match(/status\/(\d+)/);
-  if (!match) {
+  if (!match?.[1]) {
     throw new Error(`Could not parse tweet id from ${url}`);
   }
 
   return match[1];
 }
 
-function getSyndicationToken(tweetId) {
-  return ((Number(tweetId) / 1e15) * Math.PI).toString(36).replace(/(0+\.|[lhz]+$)/g, "").slice(-10);
+function getSyndicationToken(tweetId: string) {
+  return ((Number(tweetId) / 1e15) * Math.PI)
+    .toString(36)
+    .replace(/(0+\.|[lhz]+$)/g, "")
+    .slice(-10);
 }
 
-function getAspectRatioLabel(width, height) {
-  if (!width || !height) {
+function optionalString(value: unknown) {
+  return typeof value === "string" ? value : undefined;
+}
+
+function optionalNumber(value: unknown) {
+  return typeof value === "number" ? value : undefined;
+}
+
+function getAspectRatioLabel(width: unknown, height: unknown): NonNullable<TweetMedia["aspectRatio"]> {
+  const numericWidth = optionalNumber(width);
+  const numericHeight = optionalNumber(height);
+  if (!numericWidth || !numericHeight) {
     return "video";
   }
 
-  const ratio = width / height;
+  const ratio = numericWidth / numericHeight;
   if (ratio < 0.9) {
     return "portrait";
   }
@@ -94,71 +115,72 @@ function getAspectRatioLabel(width, height) {
   return "video";
 }
 
-function pickMedia(tweet) {
+function pickMedia(tweet: TweetPayload): TweetMedia | undefined {
   if (tweet.video?.variants?.length) {
     const bestMp4 = [...tweet.video.variants]
-      .filter((variant) => variant.type === "video/mp4")
-      .sort((left, right) => (right.bitrate ?? 0) - (left.bitrate ?? 0))[0];
+      .filter((variant) => variant.type === "video/mp4" && typeof variant.src === "string")
+      .sort((left, right) => (optionalNumber(right.bitrate) ?? 0) - (optionalNumber(left.bitrate) ?? 0))[0];
 
-    if (bestMp4?.src) {
+    if (bestMp4 && typeof bestMp4.src === "string") {
       const [width, height] = tweet.video.aspectRatio ?? [];
       return {
         type: "video",
         src: bestMp4.src,
-        poster: tweet.video.poster ?? tweet.mediaDetails?.[0]?.media_url_https,
-        alt: `${tweet.user?.name ?? "Tweet"} video preview`,
+        poster: optionalString(tweet.video.poster) ?? optionalString(tweet.mediaDetails?.[0]?.media_url_https),
+        alt: `${optionalString(tweet.user?.name) ?? "Tweet"} video preview`,
         aspectRatio: getAspectRatioLabel(width, height),
       };
     }
   }
 
   const photo = tweet.photos?.[0];
-  if (photo?.url) {
+  if (typeof photo?.url === "string") {
     return {
       type: "image",
       src: photo.url,
-      alt: `${tweet.user?.name ?? "Tweet"} image preview`,
+      alt: `${optionalString(tweet.user?.name) ?? "Tweet"} image preview`,
       thumbSrc: photo.url,
       aspectRatio: getAspectRatioLabel(photo.width, photo.height),
     };
   }
 
   const mediaPhoto = tweet.mediaDetails?.find((media) => media.type === "photo");
-  if (mediaPhoto?.media_url_https) {
-    const width = mediaPhoto.original_info?.width;
-    const height = mediaPhoto.original_info?.height;
+  if (typeof mediaPhoto?.media_url_https === "string") {
     return {
       type: "image",
       src: mediaPhoto.media_url_https,
-      alt: `${tweet.user?.name ?? "Tweet"} image preview`,
+      alt: `${optionalString(tweet.user?.name) ?? "Tweet"} image preview`,
       thumbSrc: mediaPhoto.media_url_https,
-      aspectRatio: getAspectRatioLabel(width, height),
+      aspectRatio: getAspectRatioLabel(mediaPhoto.original_info?.width, mediaPhoto.original_info?.height),
     };
   }
 
   return undefined;
 }
 
-function formatTweetRecord(tweet, sourceRecord) {
-  const text = decodeHtmlEntities(tweet.text ?? "").replace(/\s+/g, " ").trim();
+function formatTweetRecord(tweet: TweetPayload, sourceRecord: SourceRecord): TweetBookmark {
+  if (typeof tweet.id_str !== "string") {
+    throw new Error(`Tweet payload for ${sourceRecord.url} is missing id_str.`);
+  }
+
+  const text = decodeHtmlEntities(optionalString(tweet.text) ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+
   return {
     id: `tweet-${tweet.id_str}`,
     url: sourceRecord.url,
-    authorName: tweet.user?.name ?? "Unknown",
-    authorHandle: tweet.user?.screen_name ?? "unknown",
-    avatarUrl: tweet.user?.profile_image_url_https,
+    authorName: optionalString(tweet.user?.name) ?? "Unknown",
+    authorHandle: optionalString(tweet.user?.screen_name) ?? "unknown",
+    avatarUrl: optionalString(tweet.user?.profile_image_url_https),
     text,
     tags: sourceRecord.tags,
-    postedAt: tweet.created_at?.slice(0, 10),
+    postedAt: optionalString(tweet.created_at)?.slice(0, 10),
     media: pickMedia(tweet),
   };
 }
 
-function serializeMedia(media, indent) {
-  if (!media) {
-    return `${indent}media: undefined,\n`;
-  }
-
+function serializeMedia(media: TweetMedia, indent: string) {
   const lines = [`${indent}media: {\n`];
   for (const [key, value] of Object.entries(media)) {
     if (value === undefined) {
@@ -170,7 +192,7 @@ function serializeMedia(media, indent) {
   return lines.join("");
 }
 
-function generateTypeScript(records) {
+function generateTypeScript(records: Array<TweetBookmark>) {
   const lines = [
     "export type TweetMedia =\n",
     "  | {\n",
@@ -225,7 +247,7 @@ function generateTypeScript(records) {
   return lines.join("");
 }
 
-async function fetchTweet(sourceRecord) {
+async function fetchTweet(sourceRecord: SourceRecord) {
   const tweetId = getTweetId(sourceRecord.url);
   const token = getSyndicationToken(tweetId);
   const endpoint = `https://cdn.syndication.twimg.com/tweet-result?id=${tweetId}&token=${token}&lang=en`;
@@ -235,22 +257,32 @@ async function fetchTweet(sourceRecord) {
     throw new Error(`Failed to fetch ${tweetId}: ${response.status}`);
   }
 
-  const tweet = await response.json();
+  const tweet = (await response.json()) as TweetPayload;
   if (tweet.__typename !== "Tweet") {
-    throw new Error(`Unexpected payload for ${tweetId}: ${tweet.__typename}`);
+    throw new Error(`Unexpected payload for ${tweetId}: ${String(tweet.__typename)}`);
   }
 
   return formatTweetRecord(tweet, sourceRecord);
 }
 
+function getErrorCode(error: unknown) {
+  if (error && typeof error === "object" && "code" in error) {
+    const code = (error as { code?: unknown }).code;
+    return typeof code === "string" ? code : undefined;
+  }
+
+  return undefined;
+}
+
 async function loadExistingByUrl() {
   try {
-    const source = await readFile(OUTPUT_PATH, "utf8");
-    const records = parseExistingRecords(source);
-    return new Map(records.map((record) => [record.url.replace(/\/$/, ""), record]));
+    const existingModule = (await import(pathToFileURL(OUTPUT_PATH).href)) as {
+      TWEET_BOOKMARKS: Array<TweetBookmark>;
+    };
+    return new Map(existingModule.TWEET_BOOKMARKS.map((record) => [record.url.replace(/\/$/, ""), record]));
   } catch (error) {
-    if (error?.code === "ENOENT") {
-      return new Map();
+    if (getErrorCode(error) === "ENOENT" || getErrorCode(error) === "ERR_MODULE_NOT_FOUND") {
+      return new Map<string, TweetBookmark>();
     }
     throw error;
   }
@@ -258,9 +290,8 @@ async function loadExistingByUrl() {
 
 async function main() {
   const refresh = process.argv.includes("--refresh") || process.argv.includes("-r");
-  const source = await readFile(SOURCE_PATH, "utf8");
-  const sourceRecords = parseSourceRecords(source);
-  const existingByUrl = refresh ? new Map() : await loadExistingByUrl();
+  const sourceRecords = parseSourceRecords();
+  const existingByUrl = refresh ? new Map<string, TweetBookmark>() : await loadExistingByUrl();
 
   let reusedCount = 0;
   let fetchedCount = 0;
@@ -278,15 +309,16 @@ async function main() {
 
       fetchedCount += 1;
       return fetchTweet(sourceRecord);
-    }),
+    })
   );
+
   const output = generateTypeScript(records);
   await writeFile(OUTPUT_PATH, output, "utf8");
   console.log(`Wrote ${records.length} tweet bookmarks to ${path.relative(ROOT, OUTPUT_PATH)}`);
   console.log(`Reused ${reusedCount}, fetched ${fetchedCount}${refresh ? " (refresh mode)" : ""}.`);
 }
 
-main().catch((error) => {
+main().catch((error: unknown) => {
   console.error(error);
   process.exitCode = 1;
 });
