@@ -11,6 +11,18 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "article-016",
+    name: "Open source security at Astral",
+    url: "https://astral.sh/blog/open-source-security-at-astral",
+    tags: ["Security"],
+  },
+  {
+    id: "article-015",
+    name: "Mitigating supply chain attacks",
+    url: "https://pnpm.io/supply-chain-security",
+    tags: ["Security"],
+  },
+  {
     id: "article-014",
     name: "How Google handles JavaScript throughout the indexing process",
     url: "https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process",
