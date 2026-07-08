@@ -11,6 +11,12 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "article-019",
+    name: "Anthropic courses",
+    url: "https://anthropic.skilljar.com",
+    tags: ["AI", "Anthropic"],
+  },
+  {
     id: "article-016",
     name: "Open source security at Astral",
     url: "https://astral.sh/blog/open-source-security-at-astral",

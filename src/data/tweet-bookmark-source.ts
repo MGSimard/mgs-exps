@@ -1,4 +1,5 @@
 export const BOOKMARKS_SOURCE = {
+  "https://x.com/tan_stack/status/2074167056480473560": ["AI Toolkit", "TanStack", "TanStack AI"],
   "https://x.com/iamncdai/status/2025198433435615341": ["Design", "UI"],
   "https://x.com/MozDevNet/status/2030750431455092784": ["DX"],
   "https://x.com/taylor_sntx/status/2031015767387316250": ["Design", "Shaders", "WebGL"],

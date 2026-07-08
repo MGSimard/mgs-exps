@@ -11,6 +11,36 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "tool-019",
+    name: "TanStack AI Voice Recorder",
+    url: "https://x.com/tan_stack/status/2074167056480473560",
+    tags: ["TanStack", "TanStack AI", "AI Toolkit"],
+  },
+  {
+    id: "tool-018",
+    name: "Brand Assets Generator",
+    url: "https://brand-generator.stoyanov.works",
+    tags: ["Effects"],
+  },
+  {
+    id: "tool-017",
+    name: "Artkit",
+    url: "https://artkit.cc",
+    tags: ["ASCII", "Shaders"],
+  },
+  {
+    id: "tool-016",
+    name: "ASCII PRO Pack for Davinci Resolve",
+    url: "https://skapecreates.gumroad.com/l/xwtwmx",
+    tags: ["ASCII", "DaVinci Resolve"],
+  },
+  {
+    id: "tool-015",
+    name: "Free ASCII Effect for Davinci Resolve",
+    url: "https://skapecreates.gumroad.com/l/qouon",
+    tags: ["ASCII", "DaVinci Resolve"],
+  },
+  {
     id: "tool-014",
     name: "Valency Graphics",
     url: "https://valencygraphics.com",

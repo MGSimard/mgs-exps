@@ -234,6 +234,10 @@ const links: Links = {
           path: "/references/marathon",
         },
         {
+          label: "Mid-Season Invitational",
+          path: "/references/msi",
+        },
+        {
           label: "Serge Tyutik",
           path: "/references/serge-tyutik",
         },

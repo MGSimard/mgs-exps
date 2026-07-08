@@ -19,6 +19,7 @@ import { Route as UtilityArticlesRouteImport } from './routes/utility/articles'
 import { Route as ShowcasesShoyaKajitaRouteImport } from './routes/showcases/shoya-kajita'
 import { Route as ShowcasesFirewatchRouteImport } from './routes/showcases/firewatch'
 import { Route as ReferencesSergeTyutikRouteImport } from './routes/references/serge-tyutik'
+import { Route as ReferencesMsiRouteImport } from './routes/references/msi'
 import { Route as ReferencesMarathonRouteImport } from './routes/references/marathon'
 import { Route as ReferencesKyleAnthonyMillerRouteImport } from './routes/references/kyle-anthony-miller'
 import { Route as ReferencesKubaRouteImport } from './routes/references/kuba'
@@ -78,6 +79,11 @@ const ReferencesSergeTyutikRoute = ReferencesSergeTyutikRouteImport.update({
   path: '/references/serge-tyutik',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferencesMsiRoute = ReferencesMsiRouteImport.update({
+  id: '/references/msi',
+  path: '/references/msi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReferencesMarathonRoute = ReferencesMarathonRouteImport.update({
   id: '/references/marathon',
   path: '/references/marathon',
@@ -132,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/kyle-anthony-miller': typeof ReferencesKyleAnthonyMillerRoute
   '/references/marathon': typeof ReferencesMarathonRoute
+  '/references/msi': typeof ReferencesMsiRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByTo {
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/kyle-anthony-miller': typeof ReferencesKyleAnthonyMillerRoute
   '/references/marathon': typeof ReferencesMarathonRoute
+  '/references/msi': typeof ReferencesMsiRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
@@ -173,6 +181,7 @@ export interface FileRoutesById {
   '/references/kuba': typeof ReferencesKubaRoute
   '/references/kyle-anthony-miller': typeof ReferencesKyleAnthonyMillerRoute
   '/references/marathon': typeof ReferencesMarathonRoute
+  '/references/msi': typeof ReferencesMsiRoute
   '/references/serge-tyutik': typeof ReferencesSergeTyutikRoute
   '/showcases/firewatch': typeof ShowcasesFirewatchRoute
   '/showcases/shoya-kajita': typeof ShowcasesShoyaKajitaRoute
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
     | '/references/kuba'
     | '/references/kyle-anthony-miller'
     | '/references/marathon'
+    | '/references/msi'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
@@ -215,6 +225,7 @@ export interface FileRouteTypes {
     | '/references/kuba'
     | '/references/kyle-anthony-miller'
     | '/references/marathon'
+    | '/references/msi'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
@@ -235,6 +246,7 @@ export interface FileRouteTypes {
     | '/references/kuba'
     | '/references/kyle-anthony-miller'
     | '/references/marathon'
+    | '/references/msi'
     | '/references/serge-tyutik'
     | '/showcases/firewatch'
     | '/showcases/shoya-kajita'
@@ -256,6 +268,7 @@ export interface RootRouteChildren {
   ReferencesKubaRoute: typeof ReferencesKubaRoute
   ReferencesKyleAnthonyMillerRoute: typeof ReferencesKyleAnthonyMillerRoute
   ReferencesMarathonRoute: typeof ReferencesMarathonRoute
+  ReferencesMsiRoute: typeof ReferencesMsiRoute
   ReferencesSergeTyutikRoute: typeof ReferencesSergeTyutikRoute
   ShowcasesFirewatchRoute: typeof ShowcasesFirewatchRoute
   ShowcasesShoyaKajitaRoute: typeof ShowcasesShoyaKajitaRoute
@@ -337,6 +350,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferencesSergeTyutikRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/references/msi': {
+      id: '/references/msi'
+      path: '/references/msi'
+      fullPath: '/references/msi'
+      preLoaderRoute: typeof ReferencesMsiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/references/marathon': {
       id: '/references/marathon'
       path: '/references/marathon'
@@ -408,6 +428,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesKubaRoute: ReferencesKubaRoute,
   ReferencesKyleAnthonyMillerRoute: ReferencesKyleAnthonyMillerRoute,
   ReferencesMarathonRoute: ReferencesMarathonRoute,
+  ReferencesMsiRoute: ReferencesMsiRoute,
   ReferencesSergeTyutikRoute: ReferencesSergeTyutikRoute,
   ShowcasesFirewatchRoute: ShowcasesFirewatchRoute,
   ShowcasesShoyaKajitaRoute: ShowcasesShoyaKajitaRoute,

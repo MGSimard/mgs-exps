@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2074167056480473560",
+    url: "https://x.com/tan_stack/status/2074167056480473560",
+    authorName: "TANSTACK",
+    authorHandle: "tan_stack",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1969121296438214656/CFz7UTlP_normal.jpg",
+    text: "Adding voice messages to your AI chat app? 🎙️ useAudioRecorder() → record → get a ready-to-send audio part. That's it. One API across React, Vue, Solid, Svelte & Angular. https://t.co/3ujLhwQamV",
+    tags: ["AI Toolkit","TanStack","TanStack AI"],
+    postedAt: "2026-07-06",
+    media: {
+      type: "video",
+      src: "https://video.twimg.com/amplify_video/2074166839119069184/vid/avc1/320x320/etY5xcAKPyWvjvW0.mp4",
+      poster: "https://pbs.twimg.com/amplify_video_thumb/2074166839119069184/img/vh3SDgQKK2Omff3M.jpg",
+      alt: "TANSTACK video preview",
+      aspectRatio: "square",
+    },
+  },
+  {
     id: "tweet-2025198433435615341",
     url: "https://x.com/iamncdai/status/2025198433435615341",
     authorName: "Chánh Đại",

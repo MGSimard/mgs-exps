@@ -8,7 +8,13 @@ export type Slide = {
   alt: string;
   /** Omit when there is no separate thumb (e.g. GIF) — grid/lightbox strip falls back to `url`. */
   thumbUrl?: string;
+  /** Full-size still shown before a video slide plays. Only used when `url` is a video. */
+  posterUrl?: string;
 };
+
+export function isVideoSlide(slide: Slide): boolean {
+  return /\.(mp4|webm)$/i.test(slide.url);
+}
 
 interface LightboxProps {
   slides: Array<Slide>;
@@ -22,6 +28,7 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const prevSelectedIndexRef = useRef(startIndex);
+  const videoRefs = useRef(new Map<number, HTMLVideoElement>());
 
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel({
     align: "center",
@@ -81,6 +88,18 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
     }
   }, [open, startIndex, emblaMainApi, slides.length]);
 
+  // Autoplay the active video slide; pause and rewind the rest.
+  useEffect(() => {
+    for (const [index, video] of videoRefs.current) {
+      if (open && index === selectedIndex) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    }
+  }, [open, selectedIndex]);
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") {
       e.preventDefault();
@@ -121,16 +140,35 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
             </button>
             <div className="pointer-events-none h-full w-full overflow-hidden" ref={emblaMainRef}>
               <div className="pointer-events-none flex h-full backface-hidden">
-                {slides.map((slide) => (
+                {slides.map((slide, index) => (
                   <div
                     key={"lb-slide-" + slide.url}
                     className="pointer-events-none! flex h-full min-w-0 flex-[0_0_100%] transform-[translate3d(0,0,0)] items-center justify-center p-4">
-                    <img
-                      src={slide.url}
-                      alt={slide.alt}
-                      className="pointer-events-auto max-h-full max-w-full object-contain select-none"
-                      draggable={false}
-                    />
+                    {isVideoSlide(slide) ? (
+                      <video
+                        ref={(element) => {
+                          if (element) {
+                            videoRefs.current.set(index, element);
+                          } else {
+                            videoRefs.current.delete(index);
+                          }
+                        }}
+                        src={slide.url}
+                        poster={slide.posterUrl}
+                        loop
+                        muted
+                        playsInline
+                        controls
+                        className="pointer-events-auto max-h-full max-w-full object-contain select-none"
+                      />
+                    ) : (
+                      <img
+                        src={slide.url}
+                        alt={slide.alt}
+                        className="pointer-events-auto max-h-full max-w-full object-contain select-none"
+                        draggable={false}
+                      />
+                    )}
                   </div>
                 ))}
               </div>

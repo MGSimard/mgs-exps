@@ -12,6 +12,7 @@
     "test": "vitest run",
     "deploy": "npm run build && wrangler deploy",
     "images:process": "node ./scripts/process-images.ts",
+    "videos:process": "node ./scripts/process-videos.ts",
     "bookmarks:sync": "node ./scripts/sync-tweet-bookmarks.ts",
     "format": "oxfmt",
     "format:check": "oxfmt --check",

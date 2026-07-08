@@ -3,7 +3,6 @@ import { Section } from "@/components/elements/Section";
 import { PageTypeMD } from "@/components/layout/PageTypeMD";
 import { GridGallery } from "@/components/GridGallery";
 import type { Slide } from "@/components/GridGallery";
-import { Grid } from "@/components/Grid";
 import { Separator } from "@/components/shadcn-ui/separator";
 
 const MOODBOARD_SLIDES: Array<Slide> = [
@@ -107,6 +106,18 @@ const MOODBOARD_SLIDES: Array<Slide> = [
     thumbUrl: "/assets/r-exp/moodboard/halftone-thing-thumb.webp",
     alt: "Halftone Gradient",
   },
+  {
+    url: "/assets/r-exp/moodboard/ZRj7ayLAKeX59GFW.mp4",
+    thumbUrl: "/assets/r-exp/moodboard/ZRj7ayLAKeX59GFW-thumb.webp",
+    posterUrl: "/assets/r-exp/moodboard/ZRj7ayLAKeX59GFW-poster.webp",
+    alt: "Moodboard Video 1",
+  },
+  {
+    url: "/assets/r-exp/moodboard/rqoE074b4ZyyXnJA.mp4",
+    thumbUrl: "/assets/r-exp/moodboard/rqoE074b4ZyyXnJA-thumb.webp",
+    posterUrl: "/assets/r-exp/moodboard/rqoE074b4ZyyXnJA-poster.webp",
+    alt: "Moodboard Video 2",
+  },
 ];
 
 export const Route = createFileRoute("/r-exp/moodboard")({
@@ -133,33 +144,6 @@ function RouteComponent() {
       <Separator />
       <Section title="Moodboard">
         <GridGallery slides={MOODBOARD_SLIDES} />
-      </Section>
-      <Separator />
-      <Section title="Video Media">
-        <Grid>
-          <div className="aspect-video overflow-hidden">
-            <video
-              src="/assets/r-exp/moodboard/ZRj7ayLAKeX59GFW.mp4"
-              loop
-              autoPlay={false}
-              muted
-              playsInline
-              controls
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="aspect-video overflow-hidden">
-            <video
-              src="/assets/r-exp/moodboard/rqoE074b4ZyyXnJA.mp4"
-              loop
-              autoPlay={false}
-              muted
-              playsInline
-              controls
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </Grid>
       </Section>
     </PageTypeMD>
   );
