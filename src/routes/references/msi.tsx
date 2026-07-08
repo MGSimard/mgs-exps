@@ -14,6 +14,15 @@ function RouteComponent() {
   return (
     <PageTypeMD label="REFERENCES" title="Mid-Season Invitational">
       <Section title="MSI 2026">
+        <ul>
+          <li>
+            <ExternalLink href="https://lolesports.com/en-US/news/msi-2026-primer">MSI 2026 Primer</ExternalLink>
+          </li>
+          <li>
+            <ExternalLink href="https://x.com/lolesports">@lolesports</ExternalLink>
+          </li>
+        </ul>
+
         <GridGallery slides={MSI_2026_SLIDES} />
       </Section>
       <Separator />
@@ -36,7 +45,128 @@ function RouteComponent() {
   );
 }
 
-const MSI_2026_SLIDES: Array<Slide> = [];
+const MSI_2026_SLIDES: Array<Slide> = [
+  {
+    url: "/assets/references/msi/msi26-1.webp",
+    thumbUrl: "/assets/references/msi/msi26-1-thumb.webp",
+    alt: "MSI 26 - 1",
+  },
+  {
+    url: "/assets/references/msi/msi26-2.webp",
+    thumbUrl: "/assets/references/msi/msi26-2-thumb.webp",
+    alt: "MSI 26 - 2",
+  },
+  {
+    url: "/assets/references/msi/msi26-3.webp",
+    thumbUrl: "/assets/references/msi/msi26-3-thumb.webp",
+    alt: "MSI 26 - 3",
+  },
+  {
+    url: "/assets/references/msi/msi26-4.webp",
+    thumbUrl: "/assets/references/msi/msi26-4-thumb.webp",
+    alt: "MSI 26 - 4",
+  },
+  {
+    url: "/assets/references/msi/msi26-5.webp",
+    thumbUrl: "/assets/references/msi/msi26-5-thumb.webp",
+    alt: "MSI 26 - 5",
+  },
+  {
+    url: "/assets/references/msi/msi26-6.webp",
+    thumbUrl: "/assets/references/msi/msi26-6-thumb.webp",
+    alt: "MSI 26 - 6",
+  },
+  {
+    url: "/assets/references/msi/msi26-7.webp",
+    thumbUrl: "/assets/references/msi/msi26-7-thumb.webp",
+    alt: "MSI 26 - 7",
+  },
+  {
+    url: "/assets/references/msi/msi26-8.webp",
+    thumbUrl: "/assets/references/msi/msi26-8-thumb.webp",
+    alt: "MSI 26 - 8",
+  },
+  {
+    url: "/assets/references/msi/msi26-9.webp",
+    thumbUrl: "/assets/references/msi/msi26-9-thumb.webp",
+    alt: "MSI 26 - 9",
+  },
+  {
+    url: "/assets/references/msi/msi26-10.webp",
+    thumbUrl: "/assets/references/msi/msi26-10-thumb.webp",
+    alt: "MSI 26 - 10",
+  },
+  {
+    url: "/assets/references/msi/msi26-11.webp",
+    thumbUrl: "/assets/references/msi/msi26-11-thumb.webp",
+    alt: "MSI 26 - 11",
+  },
+  {
+    url: "/assets/references/msi/msi26-12.webp",
+    thumbUrl: "/assets/references/msi/msi26-12-thumb.webp",
+    alt: "MSI 26 - 12",
+  },
+  {
+    url: "/assets/references/msi/msi26-13.webp",
+    thumbUrl: "/assets/references/msi/msi26-13-thumb.webp",
+    alt: "MSI 26 - 13",
+  },
+  {
+    url: "/assets/references/msi/msi26-14.webp",
+    thumbUrl: "/assets/references/msi/msi26-14-thumb.webp",
+    alt: "MSI 26 - 14",
+  },
+  {
+    url: "/assets/references/msi/msi26-15.webp",
+    thumbUrl: "/assets/references/msi/msi26-15-thumb.webp",
+    alt: "MSI 26 - 15",
+  },
+  {
+    url: "/assets/references/msi/msi26-16.webp",
+    thumbUrl: "/assets/references/msi/msi26-16-thumb.webp",
+    alt: "MSI 26 - 16",
+  },
+  {
+    url: "/assets/references/msi/msi26-17.webp",
+    thumbUrl: "/assets/references/msi/msi26-17-thumb.webp",
+    alt: "MSI 26 - 17",
+  },
+  {
+    url: "/assets/references/msi/msi26-18.webp",
+    thumbUrl: "/assets/references/msi/msi26-18-thumb.webp",
+    alt: "MSI 26 - 18",
+  },
+  {
+    url: "/assets/references/msi/msi26-19.webp",
+    thumbUrl: "/assets/references/msi/msi26-19-thumb.webp",
+    alt: "MSI 26 - 19",
+  },
+  {
+    url: "/assets/references/msi/msi26-20.webp",
+    thumbUrl: "/assets/references/msi/msi26-20-thumb.webp",
+    alt: "MSI 26 - 20",
+  },
+  {
+    url: "/assets/references/msi/msi26-21.webp",
+    thumbUrl: "/assets/references/msi/msi26-21-thumb.webp",
+    alt: "MSI 26 - 21",
+  },
+  {
+    url: "/assets/references/msi/msi26-22.webp",
+    thumbUrl: "/assets/references/msi/msi26-22-thumb.webp",
+    alt: "MSI 26 - 22",
+  },
+  {
+    url: "/assets/references/msi/msi26-23.webp",
+    thumbUrl: "/assets/references/msi/msi26-23-thumb.webp",
+    alt: "MSI 26 - 23",
+  },
+  {
+    url: "/assets/references/msi/msi26-24.webp",
+    thumbUrl: "/assets/references/msi/msi26-24-thumb.webp",
+    alt: "MSI 26 - 24",
+  },
+];
 
 const MSI_2025_SLIDES: Array<Slide> = [
   {
