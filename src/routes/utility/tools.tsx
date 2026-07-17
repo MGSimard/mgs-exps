@@ -11,6 +11,30 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "tool-023",
+    name: "Excalidraw",
+    url: "https://excalidraw.com/",
+    tags: ["Collaboration", "Design", "Whiteboard"],
+  },
+  {
+    id: "tool-022",
+    name: "tldraw",
+    url: "https://www.tldraw.com/",
+    tags: ["Collaboration", "Design", "SDK", "Whiteboard"],
+  },
+  {
+    id: "tool-021",
+    name: "Offline tldraw",
+    url: "https://offline.tldraw.com/",
+    tags: ["Design", "Local", "Whiteboard"],
+  },
+  {
+    id: "tool-020",
+    name: "TanStack AI Conversation Mocking",
+    url: "https://ui.shadcn.com/docs/helpers/tanstack-ai",
+    tags: ["TanStack", "TanStack AI", "AI Toolkit", "shadcn"],
+  },
+  {
     id: "tool-019",
     name: "TanStack AI Voice Recorder",
     url: "https://x.com/tan_stack/status/2074167056480473560",

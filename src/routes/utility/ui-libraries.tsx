@@ -11,6 +11,12 @@ function RouteComponent() {
 
 const TABLE_DATA = [
   {
+    id: "lib-010",
+    name: "Avatars",
+    url: "https://avatars.outpacestudios.com/",
+    tags: ["Design", "Seed Generation"],
+  },
+  {
     id: "lib-009",
     name: "tailark",
     url: "https://tailark.com",

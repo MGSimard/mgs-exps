@@ -28,6 +28,40 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2077383932992266268",
+    url: "https://x.com/yahyavision/status/2077383932992266268",
+    authorName: "Yahyavision — Logo & Brand Designer",
+    authorHandle: "yahyavision",
+    avatarUrl: "https://pbs.twimg.com/profile_images/2040488267280420864/y6a9kV-g_normal.jpg",
+    text: "The right way to sue gradient https://t.co/v14pFSyg9v",
+    tags: ["Design","Shaders"],
+    postedAt: "2026-07-15",
+    media: {
+      type: "image",
+      src: "https://pbs.twimg.com/media/HNPQgXNWoAABZHk.jpg",
+      alt: "Yahyavision — Logo & Brand Designer image preview",
+      thumbSrc: "https://pbs.twimg.com/media/HNPQgXNWoAABZHk.jpg",
+      aspectRatio: "portrait",
+    },
+  },
+  {
+    id: "tweet-2077070695465443707",
+    url: "https://x.com/shadcn/status/2077070695465443707",
+    authorName: "shadcn",
+    authorHandle: "shadcn",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1593304942210478080/TUYae5z7_normal.jpg",
+    text: "We’re open sourcing @​shadcn/helpers, a new package for small, focused utils to help you build and test components faster. Starting with `createChat` for AI SDK and TanStack AI. It lets you script a conversation between a user & assistant then run it through `useChat`. Your https://t.co/La0mG5eZ9D",
+    tags: ["AI Toolkit","shadcn","TanStack","TanStack AI"],
+    postedAt: "2026-07-14",
+    media: {
+      type: "image",
+      src: "https://pbs.twimg.com/media/HNM26a2WwAAafOq.jpg",
+      alt: "shadcn image preview",
+      thumbSrc: "https://pbs.twimg.com/media/HNM26a2WwAAafOq.jpg",
+      aspectRatio: "square",
+    },
+  },
+  {
     id: "tweet-2074167056480473560",
     url: "https://x.com/tan_stack/status/2074167056480473560",
     authorName: "TANSTACK",
