@@ -28,6 +28,23 @@ export type TweetBookmark = {
 
 export const TWEET_BOOKMARKS: Array<TweetBookmark> = [
   {
+    id: "tweet-2042862642705109051",
+    url: "https://x.com/artofallan/status/2042862642705109051",
+    authorName: "Broke My Pencil",
+    authorHandle: "artofallan",
+    avatarUrl: "https://pbs.twimg.com/profile_images/2007166063113580548/WB706Ruu_normal.jpg",
+    text: "Since the compression gets pretty nutty in videos. Here are some snapshots! I'm pretty happy with how they degrade through my chaotic workflow. https://t.co/D45uoDMaFB",
+    tags: ["Design","Dithering"],
+    postedAt: "2026-04-11",
+    media: {
+      type: "image",
+      src: "https://pbs.twimg.com/media/HFmzjrFXcAAT7up.jpg",
+      alt: "Broke My Pencil image preview",
+      thumbSrc: "https://pbs.twimg.com/media/HFmzjrFXcAAT7up.jpg",
+      aspectRatio: "video",
+    },
+  },
+  {
     id: "tweet-2077383932992266268",
     url: "https://x.com/yahyavision/status/2077383932992266268",
     authorName: "Yahyavision — Logo & Brand Designer",

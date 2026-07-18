@@ -1,4 +1,5 @@
 export const BOOKMARKS_SOURCE = {
+  "https://x.com/artofallan/status/2042862642705109051": ["Design", "Dithering"],
   "https://x.com/yahyavision/status/2077383932992266268": ["Design", "Shaders"],
   "https://x.com/shadcn/status/2077070695465443707": ["AI Toolkit", "shadcn", "TanStack", "TanStack AI"],
   "https://x.com/tan_stack/status/2074167056480473560": ["AI Toolkit", "TanStack", "TanStack AI"],
